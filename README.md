@@ -1,2 +1,2 @@
-# the-wp-crowd-theme
-theme for www.thewpcrowd.com
+# The WP Crowd
+* Theme for www.thewpcrowd.com - a WordPress collective

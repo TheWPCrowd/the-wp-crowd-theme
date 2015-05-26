@@ -5,6 +5,17 @@ $bootstrap-sass-asset-helper: false !default;
 
 
 //== Colors
+
+/** FROM DAWN P's PSDs **/
+$cream: #f9f4df;
+$red: #d0443c;
+
+
+/** GOOGLE FONT **/
+$lato: 'Lato', sans-serif;
+
+
+
 //
 //## Gray and brand colors for use across Bootstrap.
 
@@ -27,9 +38,9 @@ $brand-danger:          #d9534f !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff !default;
+$body-bg:               $cream;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            $gray-darker !default;
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
@@ -43,7 +54,7 @@ $link-hover-decoration: underline !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  $lato !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;

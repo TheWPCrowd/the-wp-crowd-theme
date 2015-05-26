@@ -24,3 +24,10 @@
 		</script>
 	</head>
 	<body <?php body_class(); ?>>
+		<div class="container-fluid">
+			<header class="container">
+				<nav class="row">
+					<?php wp_nav_menu( array( 'menu' => 'Main Menu', 'container' => '', 'menu_class' => 'col-xs-12' ) ); ?>
+				</nav>
+			</header>
+			<div class="row">

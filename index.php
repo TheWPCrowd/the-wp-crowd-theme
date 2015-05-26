@@ -1,5 +1,7 @@
 <?php get_header(); the_post(); ?>
-
-	<?php the_content(); ?>
+	
+	<div class="col-sm-12 text-center">
+		<?php the_content(); ?>
+	</div>
 
 <?php get_footer(); ?>

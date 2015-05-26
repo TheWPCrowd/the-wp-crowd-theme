@@ -1,0 +1,32 @@
+nav {
+	background: $red;
+	padding-bottom: 12px;
+	padding-top: 12px;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+			a {
+				border-width: 2px;
+				border-style: solid;
+				border-color: transparent;
+				border-radius: 3px;
+				color: white;
+				display: block;
+				font-size: 1.25em;
+				padding: 5px 10px;
+				text-transform: uppercase;
+				&:hover {
+					border-color: white;
+				}
+			}
+			&.current_page_item {
+				a {
+					border-color: white;
+				}
+			}
+		}
+	}
+}

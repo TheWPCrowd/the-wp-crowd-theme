@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/royboy789/the-wp-crowd-theme.git"
   },
+  "scripts": {
+    "postinstall": "gulp"
+  },
   "author": "The WP Crwod",
   "license": "GPL3",
   "bugs": {
@@ -14,12 +17,13 @@
   },
   "homepage": "http://www.thewpcrowd.com",
   "devDependencies": {
-	"bootstrap-sass": "^3.3.1",
+    "bootstrap-sass": "^3.3.1",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-concat-css": "^2.2.0",
     "gulp-jsx": "^0.9.0",
     "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-watch": "^4.2.2"
   }
 }

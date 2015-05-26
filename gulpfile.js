@@ -1,8 +1,11 @@
+'use strict';
+
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concatCSS = require('gulp-concat-css');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
+var sourcemaps = require('gulp-sourcemaps');
 
 var jsFileList = [
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
@@ -21,10 +24,10 @@ var jsFileList = [
 
 gulp.task('sass', function(){
 	gulp.src('assets/scss/*.scss')
+		.pipe(sourcemaps.init())
 		.pipe(sass())
-		.pipe(gulp.dest('build/css'));
-	gulp.src('build/css/*.css')
-		.pipe(concatCSS('css/styles.css'))
+		.pipe(sourcemaps.write())
+		.pipe(concatCSS('css/wp_crowd_styles.css'))
 		.pipe(gulp.dest('build'));
 });
 

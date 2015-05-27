@@ -66,6 +66,15 @@ header {
 	}	
 }
 
+img.people_img {
+	bottom: 0;
+	display: block;
+	left: 25vw;
+	position: fixed;
+	width: 50vw;
+	z-index: 100;
+}
+
 @media (max-width: $screen-sm-min) {
 
 	body.home { 

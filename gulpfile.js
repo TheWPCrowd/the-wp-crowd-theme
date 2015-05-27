@@ -41,7 +41,14 @@ gulp.task('js', function(){
 		.pipe(gulp.dest('build'));
 })
 
-gulp.task('default', ['sass', 'js']);
+gulp.task('img', function() {
+	gulp.src('assets/img/*.png')
+		.pipe(gulp.dest('build/img'));
+	gulp.src('assets/img/*.jpg')
+		.pipe(gulp.dest('build/img'));
+})
+
+gulp.task('default', ['sass', 'js', 'img']);
 
 gulp.task('watch', function(){
 	gulp.watch('assets/scss/*.scss', ['sass'] );

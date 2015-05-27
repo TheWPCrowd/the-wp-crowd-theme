@@ -24,10 +24,23 @@
 		</script>
 	</head>
 	<body <?php body_class(); ?>>
-		<div class="container-fluid">
-			<header class="container">
+		<header class="container-fluid">
+			<div class="container">
+				<?php if( is_front_page() ): ?>
+				<div id="l_shape">
+					<div class="kardashians">
+						<strong>Talking about WordPress</strong>
+						<span>And not about the Kardashians</span>
+					</div>
+					<div class="kardashians sometimes">
+						<span>But sometimes about the Kardashians</span>
+					</div>
+				</div>
+				<?php endif; ?>
 				<nav class="row">
 					<?php wp_nav_menu( array( 'menu' => 'Main Menu', 'container' => '', 'menu_class' => 'col-xs-12' ) ); ?>
 				</nav>
-			</header>
+			</div>
+		</header>
+		<div class="container">
 			<div class="row">

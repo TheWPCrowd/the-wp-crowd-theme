@@ -4,4 +4,85 @@ body {
 			text-decoration: none;
 		}
 	}
+	&.home {
+		header {
+			background: none;
+		}
+	}
+}
+header { 
+	background: $red;
+	position: relative;
+	.container { position: relative; }
+}
+
+#l_shape {
+	background: $red;
+	height: 200vh;
+	left: 0px;
+	overflow: hidden;
+	position: absolute;
+	transform: rotate(-20deg);
+	top: -30vh;
+	width: 100%;
+	
+	&:before {
+		background: $cream;
+		content: '';
+		display: block;
+		height: 40%;
+		position: absolute;
+		right: -1px;
+		top: -1px;
+		width: 50%;
+	}
+	
+	.kardashians {
+		color: white;
+		margin-top: 30vh;
+		text-align: center;
+		width: 50%;
+		strong,span{ display: block; }
+		strong {
+			font-size: 3em;
+			font-weight: 700;
+		}
+		span {
+			font-size: 2em;
+		}
+		
+		&.sometimes {
+			color: red;
+			margin: 0;
+			top: 50vh;
+			position: absolute;
+			right: 36%;
+			transform: rotate(90deg);
+			width: auto;
+			span {
+				font-size: 1.25em;
+			}
+		}
+	}	
+}
+
+@media (max-width: $screen-sm-min) {
+
+	body.home { 
+		background: $red;
+	}
+	#l_shape { 
+		background: none;
+		position: relative;
+		transform: none;
+		&:before { display: none; }
+		.kardashians {
+			width: auto;
+			&.sometimes {
+				color: white;
+				right: 0;
+			}
+		}
+	}
+	
 }

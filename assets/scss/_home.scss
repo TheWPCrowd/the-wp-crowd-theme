@@ -1,5 +1,7 @@
 #home_content {
 	margin-top: 40vh;
+	position: relative;
+	z-index: 10;
 	
 	h2 {
 		color: $yellow;

@@ -4,7 +4,9 @@
 	z-index: 10;
 	
 	h2 {
-		color: $yellow;
+		a {
+			color: $yellow;
+		}
 	}
 	.meta {
 		color: white;
@@ -13,4 +15,63 @@
 		font-weight: 700;
 		text-transform: uppercase;
 	}
+}
+
+@media screen and (max-width: $screen-lg-min) {
+	
+	#l_shape {
+		transform: rotate( -10deg );
+		.kardashians {
+			padding-top: 40px;
+			strong { font-size: 2.5em; }
+			span { font-size: 1.5em; }
+			&.sometimes { right: 32%; }
+		}
+	}
+	
+}
+@media screen and (max-width: $screen-md-min) {
+	
+	#l_shape {
+		transform: rotate( 0deg );
+		.kardashians {
+			padding-top: 100px;
+			strong { font-size: 2em; }
+			span { font-size: 1em; }
+			&.sometimes { right: 22%; top: 45vh; }
+		}
+	}
+	
+}
+@media screen and (max-width: $screen-sm-min) {
+
+	body.home { 
+		background: $red;
+		#home_content {
+			margin-top: 10px;
+		}
+	}
+	#l_shape { 
+		display: none;
+		background: none;
+		height: auto;
+		position: relative;
+		transform: none;
+		&:before { display: none; }
+		.kardashians {
+			padding: 0;
+			width: auto;
+			top: auto;
+			&.sometimes {
+				color: white;
+				padding: 0;
+				position: relative;
+				right: auto;
+				top: auto;
+				transform: rotate( 0deg );
+			}
+		}
+	}
+	img.people_img { left: 0; width: 100vw; }
+	
 }

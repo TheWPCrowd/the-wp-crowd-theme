@@ -40,6 +40,15 @@
 				<nav class="row">
 					<?php wp_nav_menu( array( 'menu' => 'Main Menu', 'container' => '', 'menu_class' => 'col-xs-12' ) ); ?>
 				</nav>
+				<div id="l_shape" class="visible-xs">
+					<div class="kardashians">
+						<strong>Talking about WordPress</strong>
+						<span>And not about the Kardashians</span>
+					</div>
+					<div class="kardashians sometimes">
+						<span>But sometimes about the Kardashians</span>
+					</div>
+				</div>
 			</div>
 		</header>
 		<div class="container">

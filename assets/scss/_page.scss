@@ -1,7 +1,31 @@
-body.page {
+body.page,
+body.single {
 	background: white;
 	header {
 		margin-bottom: 40px;
 	}
+}
+div.content {
 	h2.page_title { margin-top: 0; }
+	p {
+		font-size: 1.25em;
+		margin: 10px 0;
+	}
+	div.crowd_in_podcast {
+		border: 2px solid $red;
+		border-left: none;
+		border-right: none;
+		margin: 10px 0;
+		padding: 15px 0;
+		strong {
+			display: inline-block;
+			font-size: 1.3em;
+		}
+		.person {
+			display: inline-block;
+			color: $red;
+			font-size: 1.3em;
+			padding: 0 10px;
+		}
+	}
 }

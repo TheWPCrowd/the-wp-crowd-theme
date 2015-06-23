@@ -9,6 +9,7 @@ class wp_crowd_theme {
 		add_action( 'wp_enqueue_scripts', array( $this, '__wp_crowd_css' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, '__wp_crowd_js' ) );
 		$this->__register_menus();
+		$this->__register_sidebars();
 	}
 	
 	function __register_menus() {
@@ -17,6 +18,20 @@ class wp_crowd_theme {
 			'main_nav' => 'Main Navigation'
 		));
 		
+	}
+	
+	function __register_sidebars() {
+		$args = array(
+			'name'          => __( 'Default Sidebar', 'wpcrowd' ),
+			'id'            => 'default-sidebar',
+			'description'   => '',
+			'class'         => '',
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</li>',
+			'before_title'  => '<h4 class="widgettitle">',
+			'after_title'   => '</h4>' 
+		);
+		register_sidebar( $args );
 	}
 	
 	function __wp_crowd_css() {

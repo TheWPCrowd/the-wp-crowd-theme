@@ -3,6 +3,7 @@
 	the_post(); 
 	
 	$crowd = wp_get_post_terms( $post->ID, 'people', array( 'fields' => 'all' ) );
+	$topics = wp_get_post_terms( $post->ID, 'topics', array( 'fields' => 'all' ) );
 	
 ?>
 	
@@ -11,6 +12,16 @@
 		<div class="embed-responsive embed-responsive-16by9">
 			<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
 		</div>
+
+		<div class="topic_in_podcast">
+			<strong>Topics:</strong> 
+			<?php 
+				foreach( $topics as $topic ) {
+					echo '<div class="person">' . $topic->name . '</div>';
+				}	
+			?>
+		</div>
+		
 		<div class="crowd_in_podcast">
 			<strong>Crowd Members:</strong> 
 			<?php 
@@ -19,6 +30,7 @@
 				}	
 			?>
 		</div>
+		
 		<?php the_content(); ?>
 	</div>
 	<div class="col-sm-4">

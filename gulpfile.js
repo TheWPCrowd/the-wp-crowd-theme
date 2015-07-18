@@ -26,9 +26,9 @@ gulp.task('sass', function(){
 	gulp.src('assets/scss/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass())
-		.pipe(sourcemaps.write())
-		.pipe(concatCSS('css/wp_crowd_styles.css'))
-		.pipe(gulp.dest('build'));
+		.pipe(sourcemaps.write('./maps'))
+		
+		.pipe(gulp.dest('build/css'));
 });
 
 gulp.task('js', function(){	

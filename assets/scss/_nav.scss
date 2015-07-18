@@ -38,3 +38,14 @@ nav {
 		}
 	}
 }
+
+body.home {
+	nav {
+		ul {
+			li:nth-child(n+3)
+			 {
+				display: none;
+			}
+		}
+	}
+}

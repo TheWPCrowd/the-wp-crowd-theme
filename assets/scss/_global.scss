@@ -10,7 +10,8 @@ body {
 		}
 	}
 }
-header { 
+header,
+footer { 
 	background: $red;
 	position: relative;
 	.container { position: relative; }
@@ -69,10 +70,12 @@ header {
 img.people_img {
 	bottom: -10px;
 	display: block;
-	left: 30vw;
+	left: 0;
+	margin: 0 auto;
 	opacity: .5;
 	position: fixed;
-	width: 40vw;
+	right: 0;
+	max-width: 70vw;
 	z-index: 0;
 }
 

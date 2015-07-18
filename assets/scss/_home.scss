@@ -1,3 +1,7 @@
+body.home {
+	height: 100vh;
+	overflow: hidden;
+}
 #home_content {
 	margin-top: 40vh;
 	position: relative;
@@ -32,13 +36,23 @@
 }
 @media screen and (max-width: $screen-md-min) {
 	
+	body.home {
+		overflow: auto;
+	}
 	#l_shape {
 		transform: rotate( 0deg );
+		max-height: 100vh;
+		top:0;
 		.kardashians {
-			padding-top: 100px;
+			margin: 20vh 0 0 0;
+			padding: 0;
 			strong { font-size: 2em; }
 			span { font-size: 1em; }
-			&.sometimes { right: 22%; top: 45vh; }
+			&.sometimes { 
+				left: 240px;
+				right: auto; 
+				top: 23vh; 
+			}
 		}
 	}
 	
@@ -47,23 +61,28 @@
 
 	body.home { 
 		background: $red;
+		overflow: auto;
 		#home_content {
 			margin-top: 10px;
 		}
 	}
-	#l_shape { 
+	#l_shape {
 		display: none;
 		background: none;
 		height: auto;
+		margin: 5vh 0 5vh 0;
 		position: relative;
 		transform: none;
 		&:before { display: none; }
 		.kardashians {
+			margin: 0;
 			padding: 0;
 			width: auto;
 			top: auto;
 			&.sometimes {
 				color: white;
+				font-style: italic;
+				left: auto;
 				padding: 0;
 				position: relative;
 				right: auto;

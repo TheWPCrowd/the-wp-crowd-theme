@@ -18,10 +18,12 @@
   "homepage": "http://www.thewpcrowd.com",
   "devDependencies": {
     "bootstrap-sass": "*",
+    "font-awesome": "^4.3.0",
     "gulp": "*",
     "gulp-concat": "^*",
     "gulp-concat-css": "*",
     "gulp-jsx": "^2.0.0",
+    "gulp-minify-css": "^1.2.0",
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "*",
     "gulp-watch": "^4.3.3"

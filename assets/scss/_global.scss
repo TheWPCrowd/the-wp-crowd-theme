@@ -24,6 +24,7 @@ footer {
 	overflow: hidden;
 	position: absolute;
 	transform: rotate(-20deg);
+	-webkit-transform: rotate(-20deg);
 	top: -30vh;
 	width: 100%;
 	
@@ -59,6 +60,7 @@ footer {
 			position: absolute;
 			right: 36%;
 			transform: rotate(90deg);
+			-webkit-transform: rotate(90deg);
 			width: auto;
 			span {
 				font-size: 1.25em;
@@ -83,7 +85,7 @@ img.people_img {
 ul.sidebar {
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 20px 0;
 	li {
 		display: block;
 		h4 {
@@ -92,13 +94,27 @@ ul.sidebar {
 			padding:5px 0 5px 10px;
 		}
 		a {
+			border: 1px solid transparent;
 			display: block;
 			font-size: 1.25em;
+			padding: 2px 10px;
+			&.synved-social-button {
+				display: inline-block;
+				margin: 0 5px 0 0;
+			}
+			&:hover {
+				border-color: $red;
+			}
 		}
 		ul {
 			margin: 0;
 			padding: 0;
 			li ul { margin: 0 0 0 20px; }
+		}
+		&.current-menu-item {
+			a {
+				border-color: $red;
+			}
 		}
 	}
 }
@@ -107,6 +123,7 @@ ul.sidebar {
 	
 	#l_shape {
 		transform: rotate( -10deg );
+		-webkit-transform: rotate( -10deg );
 		.kardashians {
 			padding-top: 40px;
 			strong { font-size: 2.5em; }
@@ -120,6 +137,7 @@ ul.sidebar {
 	
 	#l_shape {
 		transform: rotate( 0deg );
+		-webkit-transform: rotate( 0deg );
 		.kardashians {
 			padding-top: 100px;
 			strong { font-size: 2em; }
@@ -138,6 +156,7 @@ ul.sidebar {
 		background: none;
 		position: relative;
 		transform: none;
+		-webkit-transform: none;
 		&:before { display: none; }
 		.kardashians {
 			width: auto;

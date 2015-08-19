@@ -36,7 +36,7 @@ class wp_crowd_theme {
 	
 	function __wp_crowd_css() {
 		
-		wp_enqueue_style( 'wp_crowd_styles', get_template_directory_uri().'/build/css/wp_crowd_styles.css', null, WPCROWDTHEMEVERSION, 'all' );
+		wp_enqueue_style( 'wp_crowd_styles', get_template_directory_uri().'/build/css/min/wp_crowd_styles.css', null, WPCROWDTHEMEVERSION, 'all' );
 		wp_enqueue_style( 'google_fonts', 'http://fonts.googleapis.com/css?family=Lato:300,400,700', array( 'wp_crowd_styles' ), WPCROWDTHEMEVERSION, 'all' );
 		
 	}

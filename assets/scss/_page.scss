@@ -1,9 +1,13 @@
 body.page,
 body.single,
-body.archive {
+body.archive,
+body.blog {
 	background: white;
-	header {
-		margin-bottom: 40px;
+	@media screen and (min-width: $screen-lg-min) {
+		padding-top: 105px;
+		&.home {
+			padding-top: 65px;
+		}
 	}
 }
 div.content {
@@ -16,8 +20,13 @@ div.content {
 		color: $red;
 		margin-top: 0;
 		padding-bottom: 10px;
+		@media screen and (max-width: $screen-md-min) {
+			font-size: 1.5em;
+			
+		}
 	}
-	.post_meta {
+	.post_meta,
+	.post-meta {
 		padding: 10px 0;
 		font-size: 1.25em;
 	}

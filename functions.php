@@ -10,6 +10,9 @@ class wp_crowd_theme {
 		add_action( 'wp_enqueue_scripts', array( $this, '__wp_crowd_js' ) );
 		$this->__register_menus();
 		$this->__register_sidebars();
+		
+		add_filter('give_donation_total_label', array( $this, 'new_give_donation_total_text' ) );
+
 	}
 	
 	function __register_menus() {
@@ -45,6 +48,10 @@ class wp_crowd_theme {
 		
 		wp_enqueue_script( 'wp_crowd_bootstrap', get_template_directory_uri().'/build/js/bootstrap.js', array( 'jquery' ), WPCROWDTHEMEVERSION, true );
 		
+	}
+	
+	function new_give_donation_total_text() {    
+	    return __('Support Total', 'give');
 	}
 	
 }

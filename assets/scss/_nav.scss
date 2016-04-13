@@ -8,7 +8,8 @@ nav {
 		margin: 0;
 		padding: 0;
 		li {
-			display: inline-block;
+			display: block;
+			position: relative;
 			a {
 				border-width: 2px;
 				border-style: solid;
@@ -30,21 +31,33 @@ nav {
 				}
 			}
 			&.current_page_item {
-				a {
+				> a {
 					border-color: white;
 					opacity: 1;
 				}
 			}
-		}
-	}
-}
-
-body.home {
-	nav {
-		ul {
-			li:nth-child(n+3)
-			 {
+			ul {
+				background: $red;
 				display: none;
+				left: 0;
+				padding: 10px;
+				position: absolute;
+				width: 110%;
+				li {
+					display: block;
+					a {
+						border-color: transparent;
+						padding: 5px;
+						&:hover {
+							border-color: white;
+						}
+					}
+				}
+			}
+			@media screen and (min-width: $screen-lg-min) {
+				&:hover ul { display: block; }
+				display: inline-block;
+					
 			}
 		}
 	}

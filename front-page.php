@@ -1,27 +1,49 @@
-<?php
+<?php 
 	get_header();
+	$podcasts = new WP_Query( array( 'post_type' => 'podcast', 'paged' => $paged, 'posts_per_page' => 5 ) );
 ?>
-	<div class="col-xs-12 col-md-5">
-		<div id="home_content">
-			<?php
-				$last_podcast = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 1 ) );
-				$podcast = $last_podcast->posts[0];	
-			?>
-			<h2><a href="<?php echo get_permalink( $podcast->ID ); ?>"><?php echo $podcast->post_title; ?></a></h2>
-			<?php if( get_field( 'youtube_video_id' , $podcast->ID ) ): ?>
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $podcast->ID); ?>" frameborder="0" allowfullscreen></iframe>
+	<div class="col-sm-8 content list">
+		<h1>WordPress Podcast</h1>
+		<?php while( $podcasts->have_posts() ): $podcasts->the_post(); ?>
+		<article>
+			<h2 class="page_title">
+				<a href="<?php the_permalink(); ?>">
+					<?php the_title(); ?>
+				</a>
+			</h2>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="meta"><em>Air Date: <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
+					<div class="meta">Running Time: <?php echo get_field( 'runtime', $post->ID); ?></div>
+				</div>
+				<div class="col-sm-6">
+					<div class="hidden-xs hidden-sm">
+						<?php the_excerpt(); ?>
+					</div>
+				</div>
 			</div>
-			<?php else: ?>
-			<img class="img-responsive" src="<?php get_stylesheet_directory_uri(). '/build/img/wp_crowd_logo.jpg'; ?>" alt="The WP Crowd" />
-			<?php endif; ?>
-			<div class="meta">Running Time: <?php echo get_field( 'runtime', $podcast->ID); ?></div>
-			
-			<div class="text-right past_podcasts">
-				<a href="/podcast">Past Podcasts</a>
+			<div class="row buffer">
+				<div class="col-sm-12">
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block hidden-sm hidden-xs"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block visible-sm visible-xs">Watch Now</a>
+				</div>
 			</div>
+		</article>
+		<?php endwhile; ?>
+		<div class="navigation">
+			<hr />
+			<a href="http://www.thewpcrowd.com/podcast/" class="btn btn-primary btn-block">Older Shows</a>
 		</div>
 	</div>
-<?php 
-	get_footer();
-?>
+	<div class="col-sm-4">
+		<?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>
+			<ul class="sidebar">
+				<?php dynamic_sidebar( 'default-sidebar' ); ?>
+			</ul>
+		<?php endif; ?>
+	</div>
+
+<?php get_footer(); ?>

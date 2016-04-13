@@ -1,8 +1,3 @@
-body.page.home {
-	background: $cream;
-	height: 100vh;
-	overflow: hidden;
-}
 #home_content {
 	margin-top: 40vh;
 	position: relative;
@@ -41,17 +36,23 @@ body.page.home {
 	}
 }
 
-@media screen and (max-width: $screen-lg-min) {
-	
-	#l_shape {
-		transform: rotate( -10deg );
-		.kardashians {
-			padding-top: 80px;
-			strong { font-size: 2.5em; }
-			span { font-size: 1.5em; }
-			&.sometimes { right: 30%; }
+body.page.home {
+	header {
+		margin-bottom: 0;
+	}
+	.home-top {
+		background: $cream;
+		margin-bottom: 20px;
+		.logo {
+			img {
+				max-height: 300px ;
+			}
 		}
 	}
+}
+
+@media screen and (max-width: $screen-lg-min) {
+
 	
 }
 @media screen and (max-width: $screen-md-min) {
@@ -59,60 +60,16 @@ body.page.home {
 	body.page.home {
 		overflow: auto;
 	}
-	#l_shape {
-		transform: rotate( 0deg );
-		max-height: 100vh;
-		top:0;
-		.kardashians {
-			margin: 20vh 0 0 0;
-			padding: 0;
-			strong { font-size: 2em; }
-			span { font-size: 1em; }
-			&.sometimes { 
-				left: 240px;
-				right: auto; 
-				top: 23vh; 
-			}
-		}
-	}
 	
 }
 @media screen and (max-width: $screen-sm-min) {
 
 	body.page.home { 
-		background: $red;
-		overflow: auto;
 		#home_content {
 			margin-top: 10px;
 		}
 	}
-	#l_shape {
-		display: none;
-		background: none;
-		height: auto;
-		margin: 5vh 0 5vh 0;
-		position: relative;
-		transform: none;
-		-webkit-transform: none;
-		&:before { display: none; }
-		.kardashians {
-			margin: 0;
-			padding: 0;
-			width: auto;
-			top: auto;
-			&.sometimes {
-				color: white;
-				font-style: italic;
-				left: auto;
-				padding: 0;
-				position: relative;
-				right: auto;
-				top: auto;
-				transform: none;
-				-webkit-transform: none;
-			}
-		}
-	}
-	img.people_img { left: -50vw; width: 150vw; max-width: none; }
+	img.people_img {
+		display: none; }
 	
 }

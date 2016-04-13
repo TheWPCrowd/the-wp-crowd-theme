@@ -11,27 +11,26 @@
 			</h2>
 			<div class="row">
 				<div class="col-sm-6">
-					<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
-					<div class="meta">Date: <?php the_date('F j, Y'); ?></div>
-					<div class="meta">Written by: <?php the_author(); ?></div>
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="meta"><em>Air Date: <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
+					<div class="meta">Running Time: <?php echo get_field( 'runtime', $post->ID); ?></div>
 				</div>
 				<div class="col-sm-6">
-					<div class="hidden-xs hidden-sm">
-						<?php the_excerpt(); ?>
-					</div>
+					<?php the_excerpt(); ?>
 				</div>
 			</div>
 			<div class="row buffer">
 				<div class="col-sm-12">
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block hidden-sm hidden-xs"><?php the_title(); ?></a>
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block visible-sm visible-xs">Read Article</a>
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block"><?php the_title(); ?></a>	
 				</div>
 			</div>
 		</article>
 		<?php endwhile; ?>
 		<div class="navigation">
 			<p>
-				<?php posts_nav_link( ' | ', 'Newer Posts', 'Older Posts' ); ?>
+				<?php posts_nav_link( ' | ', 'Newer Podcasts', 'Older Podcasts' ); ?>
 			</p>
 		</div>
 	</div>

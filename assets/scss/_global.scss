@@ -1,12 +1,12 @@
 body {
+	padding: 0;
+	margin: 0;
+	@media screen and (min-width: $screen-lg-min) {
+		padding-top: 65px;
+	}
 	a {
 		&:hover {
 			text-decoration: none;
-		}
-	}
-	&.home {
-		header {
-			background: none;
 		}
 	}
 }
@@ -15,6 +15,21 @@ footer {
 	background: $red;
 	position: relative;
 	.container { position: relative; }
+}
+
+header {
+	box-shadow: 0 5px 2px rgba( 0,0,0,0.25 );
+	height: auto;
+	margin-bottom: 20px;
+	position: relative;
+	width: 100%;
+	top: 0;
+	z-index: 10000;
+	@media screen and (min-width: $screen-lg-min) {
+		height: 65px;
+		margin: 0;
+		position: fixed;
+	}
 }
 
 #l_shape {
@@ -74,11 +89,11 @@ img.people_img {
 	display: block;
 	left: 0;
 	margin: 0 auto;
-	opacity: .5;
+	opacity: .15;
 	position: fixed;
 	right: 0;
 	max-width: 70vw;
-	z-index: 0;
+	z-index: -1;
 }
 
 // Sidebar
@@ -89,9 +104,10 @@ ul.sidebar {
 	li {
 		display: block;
 		h4 {
-			background: $red;
-			color: white;
-			padding:5px 0 5px 10px;
+			background: #d0443c  none repeat scroll 0 0;
+			border-radius: 5px;
+			color: #fff;
+			padding: 5px 0 5px 10px;
 		}
 		a {
 			border: 1px solid transparent;
@@ -167,4 +183,8 @@ ul.sidebar {
 		}
 	}
 	
+}
+
+#give-payment-mode-select {
+	display:none;
 }

@@ -4,7 +4,11 @@
 	<div class="col-sm-8 content list">
 		<?php while( have_posts() ): the_post(); ?>
 		<article>
-			<h2 class="page_title"><?php the_title(); ?></h2>
+			<h2 class="page_title">
+				<a href="<?php the_permalink(); ?>">
+					<?php the_title(); ?>
+				</a>
+			</h2>
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="embed-responsive embed-responsive-16by9">
@@ -14,11 +18,24 @@
 					<div class="meta">Running Time: <?php echo get_field( 'runtime', $post->ID); ?></div>
 				</div>
 				<div class="col-sm-6">
-					<?php the_excerpt(); ?>
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php the_title(); ?></a>
+					<div class="hidden-xs hidden-sm">
+						<?php the_excerpt(); ?>
+					</div>
 				</div>
+			</div>
+			<div class="row buffer">
+				<div class="col-sm-12">
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block hidden-sm hidden-xs"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block visible-sm visible-xs">Watch Now</a>
+				</div>
+			</div>
 		</article>
 		<?php endwhile; ?>
+		<div class="navigation">
+			<p>
+				<?php posts_nav_link( ' | ', 'Newer Podcasts', 'Older Podcasts' ); ?>
+			</p>
+		</div>
 	</div>
 	<div class="col-sm-4">
 		<?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>

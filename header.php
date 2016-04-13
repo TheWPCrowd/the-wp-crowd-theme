@@ -26,30 +26,36 @@
 	<body <?php body_class(); ?>>
 		<header class="container-fluid">
 			<div class="container">
-				<?php if( is_front_page() ): ?>
-				<div id="l_shape">
-					<div class="kardashians">
-						<strong>Talking about WordPress</strong>
-						<span>And not about the Kardashians</span>
-					</div>
-					<div class="kardashians sometimes">
-						<span>But sometimes about the Kardashians</span>
-					</div>
-				</div>
-				<?php endif; ?>
 				<nav class="row">
 					<?php wp_nav_menu( array( 'menu' => 'Main Menu', 'container' => '', 'menu_class' => 'col-xs-12' ) ); ?>
 				</nav>
-				<div id="l_shape" class="visible-xs">
-					<div class="kardashians">
-						<strong>Talking about WordPress</strong>
-						<span>And not about the Kardashians</span>
-					</div>
-					<div class="kardashians sometimes">
-						<span>But sometimes about the Kardashians</span>
-					</div>
-				</div>
 			</div>
 		</header>
+		<?php if( is_front_page() ) : ?>
+		<?php
+			$args = array( 'post_type' => 'podcast', 'posts_per_page' => 1 );
+			$podcasts = new WP_Query( $args );
+			$podcasts->the_post();
+			$meme_pic = get_field( 'meme_of_the_week' );
+			$meme_src = $meme_pic['sizes']['large'];
+		?>
+		<div class="container-fluid home-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-xs-4 logo">
+						<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(). '/build/img/wp_crowd_logo.jpg'; ?>" alt="The WP Crowd" />
+					</div>
+					<div class="col-sm-6 col-xs-8 text-center">
+						<h2 class="text-center hidden-xs hidden-sm">Meme Of The Week</h2>
+						<a href="<?php the_permalink(); ?>">
+						<?php 
+							echo '<img style="height:210px;margin:0 auto" src="' . $meme_src . '" class="img-responsive" alt="WP Crowd" style="margin:0 auto;" />';
+						?>
+						</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<?php wp_reset_query(); endif; ?>
 		<div class="container">
 			<div class="row">

@@ -50,9 +50,9 @@
 				</div>
 				<div class="col-sm-6">
 					<?php the_excerpt(); ?>
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php the_title(); ?></a>
 				</div>
 			</div>
+			<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block"><?php the_title(); ?></a>
 		</article>
 		<?php endwhile; endif;?>
 	</div>

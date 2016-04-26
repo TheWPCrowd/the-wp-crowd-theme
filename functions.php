@@ -12,6 +12,8 @@ class wp_crowd_theme {
 		$this->__register_sidebars();
 		
 		add_filter('give_donation_total_label', array( $this, 'new_give_donation_total_text' ) );
+		add_filter( 'excerpt_length', array( $this, 'wpdocs_custom_excerpt_length' ), 999 );
+		add_filter('xmlrpc_enabled', '__return_false');
 
 	}
 	
@@ -53,6 +55,12 @@ class wp_crowd_theme {
 	function new_give_donation_total_text() {    
 	    return __('Support Total', 'give');
 	}
+	
+	function wpdocs_custom_excerpt_length( $length ) {
+	    return 40;
+	}
+
+
 	
 }
 

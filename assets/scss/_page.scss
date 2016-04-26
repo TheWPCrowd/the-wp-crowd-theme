@@ -70,3 +70,15 @@ div.content {
 		}
 	}
 }
+body.home {
+	div.content {
+		h2.page_title {
+			font-size: 1.75em;
+		}
+		&.list {
+			article {
+				min-height: 430px;
+			}
+		}
+	}
+}

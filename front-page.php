@@ -59,7 +59,7 @@
 				<?php endwhile; ?>
 				<div class="navigation">
 					<hr />
-					<a href="http://www.thewpcrowd.com/podcast/" class="btn btn-primary btn-block">Older Shows</a>
+					<a href="http://www.thewpcrowd.com/thewpcrowd-blog/" class="btn btn-primary btn-block">Older Posts</a>
 				</div>
 			</div>
 		</div>

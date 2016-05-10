@@ -2,8 +2,8 @@
 
 define( 'MY_THEME_BASE_PATH', get_template_directory() );
 define( 'MY_THEME_BASE_URI', get_template_directory_uri() );
-define( 'MY_THEME_ASSETS_URI', MY_THEME_BASE_URI.'/assets' );
-define( 'MY_THEME_BUILD_URI', MY_THEME_BASE_URI.'/build' );
+define( 'MY_THEME_ASSETS_URI', MY_THEME_BASE_URI . '/assets' );
+define( 'MY_THEME_BUILD_URI', MY_THEME_BASE_URI . '/build' );
 define( 'MY_THEME_VERSION', '1.0' );
 
 require_once get_template_directory() . '/includes/theme-enqueue.php';
@@ -19,14 +19,15 @@ class my_theme {
 	function theme_enqueue() {
 		$this->theme_enqueue->theme_scripts();
 	}
+
 	function theme_setup() {
 		add_theme_support( 'title-tag' );
 
 		register_nav_menus( array(
-			'top_header' => 'Top Header',
-			'header' => 'Header Menu',
-			'footer_left' => 'Footer Menu (Left)',
-			'footer_right' => 'Footer Menu (Right)',
+			'top_header'   => __( 'Top Header', 'wp-crowd' ),
+			'header'       => __( 'Header Menu', 'wp-crowd' ),
+			'footer_left'  => __( 'Footer Menu (Left)', 'wp-crowd' ),
+			'footer_right' => __( 'Footer Menu (Right)', 'wp-crowd' ),
 		) );
 
 	}

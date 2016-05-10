@@ -1,21 +1,47 @@
-# The WP Crowd
-* Theme for www.thewpcrowd.com - a WordPress collective
+My Starter Theme
+----------------------
   
-# Build Instructions
-* Clone Repo 
-* run `npm install`
-* run `gulp watch` to auto build scss and js files
+This is where I start with custom WP builds
   
-# Setup Instructions
-* You will need to create "Main Menu" as a menu for the menu to work
-  
-# Technologies
-* WordPress (duh)
-* Bootstrap
-* SASS
-* Gulp
+Technology
+==========
+- SASS *CSS Pre-Processor*
+- Gulp *For compiling minified CSS and JS*
 
-# Notes
-* Make global Bootstrap variable changes in `assets/scss/_bootstrap_custom_variables.scss` 
-* Try to be modular create a new `_name.scss` file in `assets/scss` per page you work on. Import your new file into `styles.scss` by doing `@import 'name.scss'`
-* Every time you add a new `.scss` file, do a `gulp sass` to test it has worked in building the `.css`
+Requirements
+============
+- Node (npm cli)
+- Grunt (grunt cli)
+    
+Quick Start
+===========
+- Clone Repo into your themes directory
+
+Build
+======
+- Open theme directory in Terminal
+- Run `npm install`
+- Run `gulp sass`
+- Run `gulp js`
+  
+  
+To Add JS or CSS
+=================
+Enqueue scripts in `theme-enqueue.php`.  
+To add scripts to gulp task add them to the __jsFileList__ array in `gulpfile.js`
+  
+  
+Bootstrap
+=========
+Twitter Bootstrap is included, 
+  
+__Customizing Bootstrap SASS__  
+Open `/assets/scss/_bootstrap-custom` and comment out any css you do not need for your build.  
+
+__Customizing Bootstrap JS__  
+Open `GruntFile.js` and comment out any JS files you do not need from the `jsFileList` array.
+
+Gulp
+=====  
+- `grunt sass` - Minify CSS
+- `grunt js` - Concatenate & Minify JS

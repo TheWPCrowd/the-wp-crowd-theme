@@ -1,71 +1,32 @@
 <?php
 
-define( 'WPCROWDTHEMEVERSION', '0.1' );
+define( 'MY_THEME_BASE_PATH', get_template_directory() );
+define( 'MY_THEME_BASE_URI', get_template_directory_uri() );
+define( 'MY_THEME_ASSETS_URI', MY_THEME_BASE_URI.'/assets' );
+define( 'MY_THEME_BUILD_URI', MY_THEME_BASE_URI.'/build' );
+define( 'MY_THEME_VERSION', '1.0' );
 
-class wp_crowd_theme {
-	
-	function __init(){
-		
-		add_action( 'wp_enqueue_scripts', array( $this, '__wp_crowd_css' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, '__wp_crowd_js' ) );
-		$this->__register_menus();
-		$this->__register_sidebars();
-		
-		add_filter('give_donation_total_label', array( $this, 'new_give_donation_total_text' ) );
-		add_filter( 'excerpt_length', array( $this, 'wpdocs_custom_excerpt_length' ), 999 );
-		add_filter('xmlrpc_enabled', '__return_false');
+require_once get_template_directory() . '/includes/theme-enqueue.php';
 
-	}
-	
-	function __register_menus() {
-		
-		register_nav_menus( array(
-			'main_nav' => 'Main Navigation'
-		));
-		
-	}
-	
-	function __register_sidebars() {
-		$args = array(
-			'name'          => __( 'Default Sidebar', 'wpcrowd' ),
-			'id'            => 'default-sidebar',
-			'description'   => '',
-			'class'         => '',
-			'before_widget' => '<li id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</li>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>' 
-		);
-		register_sidebar( $args );
-	}
-	
-	function __wp_crowd_css() {
-		
-		wp_enqueue_style( 'wp_crowd_styles', get_template_directory_uri().'/build/css/min/wp_crowd_styles.css', null, WPCROWDTHEMEVERSION, 'all' );
-		wp_enqueue_style( 'google_fonts', 'http://fonts.googleapis.com/css?family=Lato:300,400,700', array( 'wp_crowd_styles' ), WPCROWDTHEMEVERSION, 'all' );
-		
-	}
-	
-	function __wp_crowd_js() {		
-		
-		wp_enqueue_script( 'wp_crowd_bootstrap', get_template_directory_uri().'/build/js/bootstrap.js', array( 'jquery' ), WPCROWDTHEMEVERSION, true );
-		
-	}
-	
-	function new_give_donation_total_text() {    
-	    return __('Support Total', 'give');
-	}
-	
-	function wpdocs_custom_excerpt_length( $length ) {
-	    return 40;
+class my_theme {
+
+	protected $theme_enqueue;
+
+	function __construct() {
+		$this->theme_enqueue = new my_theme_enqueue();
 	}
 
-
-	
+	function theme_enqueue() {
+		$this->theme_enqueue->theme_scripts();
+	}
+	function theme_setup() {
+		add_theme_support( 'title-tag' );
+	}
 }
 
-$wp_crowd = new wp_crowd_theme();
-$wp_crowd->__init();
+$my_theme = new my_theme();
 
+add_action( 'wp_enqueue_scripts', array( $my_theme, 'theme_enqueue' ) );
+add_action( 'after_setup_theme', array( $my_theme, 'theme_setup' ) );
 
 ?>

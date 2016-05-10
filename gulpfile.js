@@ -1,12 +1,11 @@
 'use strict';
-
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concatCSS = require('gulp-concat-css');
-var concat = require('gulp-concat');
-var watch = require('gulp-watch');
-var sourcemaps = require('gulp-sourcemaps');
-var minifyCss = require('gulp-minify-css');
+var gulp = require('gulp'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	sass = require('gulp-sass'),
+	minify = require('gulp-minify-css'),
+	sourcemaps = require('gulp-sourcemaps'),
+	watch = require('gulp-watch');
 
 var jsFileList = [
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
@@ -20,50 +19,27 @@ var jsFileList = [
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/popover.js',
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js',
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js',
-	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js'
+	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js',
+	'assets/js/theme-script.js',
 ];
 
-gulp.task('sass', function(){
-	gulp.src('assets/scss/*.scss')
-		.pipe(sourcemaps.init())
-		.pipe(sass())
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('build/css'));
-});
-
-gulp.task('css', function(){
-	gulp.src('build/css/*.css')
+gulp.task('sass', function() {
+	gulp.src('./assets/scss/*.scss')
 	.pipe(sourcemaps.init())
-	.pipe(minifyCss())
-	.pipe(sourcemaps.write('./'))
-	.pipe(gulp.dest('build/css/min'));
+	.pipe(sass().on('error', sass.logError))
+	.pipe(minify())
+	.pipe(sourcemaps.write())
+	.pipe(gulp.dest('./build/css'));
 });
 
-gulp.task('fonts', function(){		
-	gulp.src('node_modules/font-awesome/fonts/*')
-	.pipe(gulp.dest('build/css/fonts'));
+gulp.task('js', function(){
+	return gulp.src(jsFileList)
+	.pipe(concat({ path:'scripts.js' }))
+	.pipe(uglify())
+	.pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('js', function(){	
-	gulp.src('assets/js/*.js')
-		.pipe(concat('js/scripts.js'))
-		.pipe(gulp.dest('build'));
-	gulp.src(jsFileList)
-		.pipe(concat('js/bootstrap.js'))
-		.pipe(gulp.dest('build'));
+gulp.task('default', ['sass','js'], function(){
+	gulp.watch( './assets/scss/*.scss', ['sass'] );
+	gulp.watch( jsFileList, ['js'] );
 });
-
-gulp.task('img', function() {
-	gulp.src('assets/img/*.png')
-		.pipe(gulp.dest('build/img'));
-	gulp.src('assets/img/*.jpg')
-		.pipe(gulp.dest('build/img'));
-});
-
-gulp.task('default', ['sass', 'css']);
-gulp.task('prod', ['sass', 'css', 'js']);
-
-gulp.task('watch', function(){
-	gulp.watch('assets/scss/*.scss', ['sass'] );
-	gulp.watch('assets/js/*.js', ['js'] );
-})

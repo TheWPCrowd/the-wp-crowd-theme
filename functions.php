@@ -37,4 +37,3 @@ $my_theme = new my_theme();
 add_action( 'wp_enqueue_scripts', array( $my_theme, 'theme_enqueue' ) );
 add_action( 'after_setup_theme', array( $my_theme, 'theme_setup' ) );
 
-?>

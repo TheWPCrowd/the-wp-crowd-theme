@@ -10,5 +10,3 @@ class my_theme_enqueue {
 	}
 
 }
-	
-?>

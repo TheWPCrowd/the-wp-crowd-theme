@@ -21,6 +21,14 @@ class my_theme {
 	}
 	function theme_setup() {
 		add_theme_support( 'title-tag' );
+
+		register_nav_menus( array(
+			'top_header' => 'Top Header',
+			'header' => 'Header Menu',
+			'footer_left' => 'Footer Menu (Left)',
+			'footer_right' => 'Footer Menu (Right)',
+		) );
+
 	}
 }
 

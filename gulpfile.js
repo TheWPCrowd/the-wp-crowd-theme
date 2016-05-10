@@ -24,7 +24,7 @@ var jsFileList = [
 ];
 
 gulp.task('sass', function() {
-	gulp.src('./assets/scss/*.scss')
+	gulp.src('./assets/scss/**/*.scss')
 	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
 	.pipe(minify())
@@ -39,7 +39,12 @@ gulp.task('js', function(){
 	.pipe(gulp.dest('./build/js'));
 });
 
+gulp.task('fonts', function(){
+	gulp.src('./node_modules/font-awesome/fonts/*')
+		.pipe(gulp.dest('./build/fonts'));
+});
+
 gulp.task('default', ['sass','js'], function(){
-	gulp.watch( './assets/scss/*.scss', ['sass'] );
+	gulp.watch( './assets/scss/**/*.scss', ['sass'] );
 	gulp.watch( jsFileList, ['js'] );
 });

@@ -1,10 +1,12 @@
 #home-top {
+    background: #f6f6f6;
     margin-bottom: 30px;
     .featured-image, .featured-info { height: 25vh;  min-height: 400px; }
     .featured-image {
         background-position: top center;
         background-repeat: no-repeat;
         background-size: 100% auto;
+        border-left: 10px solid #f6f6f6;
         position: relative;
 
         a {
@@ -63,6 +65,73 @@
                 content: '';
                 display: block;
                 height: 1px;
+            }
+        }
+    }
+}
+
+.headline {
+    border-bottom: 1px solid #adadad;
+    border-top: 1px solid #adadad;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    text-transform: uppercase;
+    h2 {
+        display: inline-block;
+        font-size: 1.5em;
+        font-weight: 400;
+        margin: 0;
+        strong {
+            font-weight: 700;
+        }
+    }
+    a {
+        display: inline-block;
+        color: black;
+        float: right;
+    }
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 1px;
+    }
+
+}
+
+#home-main {
+    .latest-podcast-wrapper {
+        margin-bottom: 30px;
+    }
+    .latest-entries {
+        .single-entry {
+            h3 {
+                font-size: 1.25em;
+                a {
+                    color: black;
+                }
+            }
+        }
+        &.podcast {
+            .single-entry {
+                a.featured-image {
+                    display: block;
+                    position: relative;
+                    &:after {
+                        color: white;
+                        content: $fa-var-play-circle-o;
+                        display: inline-block;
+                        font-family: FontAwesome;
+                        font-size: 10em;
+                        line-height: normal;
+                        left: 30%;
+                        height: 10%;
+                        opacity: 0.75;
+                        position: absolute;
+                        top: 10%;
+                        width: 10%;
+                    }
+                }
             }
         }
     }

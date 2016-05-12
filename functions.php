@@ -31,10 +31,22 @@ class my_theme {
 		) );
 
 	}
+
+	function register_sidebars() {
+		register_sidebar( array(
+			'name' => __( 'Home Sidebar', 'wp-crowd' ),
+			'id' => 'home-sidebar',
+			'description' => __( 'Home Page Sidebar.', 'wp-crowd' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h4 class="widgettitle">',
+			'after_title'   => '</h4>',
+		) );
+	}
 }
 
 $my_theme = new my_theme();
 
 add_action( 'wp_enqueue_scripts', array( $my_theme, 'theme_enqueue' ) );
 add_action( 'after_setup_theme', array( $my_theme, 'theme_setup' ) );
-
+add_action( 'widgets_init', array( $my_theme, 'register_sidebars' ) );

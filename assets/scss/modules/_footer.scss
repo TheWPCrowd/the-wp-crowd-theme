@@ -49,3 +49,14 @@ footer {
 
     }
 }
+
+#copyright {
+    background: #563e3e;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    .text-center {
+        font-size: 0.75em;
+        opacity: 0.5;
+    }
+}

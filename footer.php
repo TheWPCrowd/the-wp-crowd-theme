@@ -51,6 +51,15 @@
 				</div>
 			</div>
 		</footer>
+		<div id="copyright" class="container-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						&copy; <?php echo date('Y'); ?> The WP Crowd | A WordPress Podcast &amp; Blog
+					</div>
+				</div>
+			</div>
+		</div>
 	<?php wp_footer(); ?>
 	</body>
 </html>

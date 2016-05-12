@@ -1,0 +1,51 @@
+footer {
+    background: #242424;
+    margin-top: 70px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    .nav-wrapper {
+        white-space: nowrap;
+        nav {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                li {
+                    display: block;
+                    a {
+                        display: block;
+                        color: white;
+                        padding: 5px 0;
+                        transition: all 1s;
+                        -webkit-transition: all 1s;
+                    }
+                    ul { display: none; }
+                }
+            }
+        }
+        &.social {
+            nav {
+                ul {
+                    li {
+                        a {
+                            opacity: 0.5;
+                            i {
+                                display: inline-block;
+                                margin-right: 2px;
+                            }
+                            &:hover {
+                                opacity: 1;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

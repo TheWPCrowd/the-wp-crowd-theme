@@ -1,5 +1,11 @@
+/** libraries **/
 @import '../../node_modules/font-awesome/scss/font-awesome.scss';
-
 @import 'bootstrap/bootstrap-custom';
+
+/** modules **/
 @import 'modules/header';
+@import 'modules/footer';
+
+
+/** pages **/
 @import 'home';

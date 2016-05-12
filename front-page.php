@@ -1,9 +1,9 @@
 <?php
 get_header();
-$podcasts      = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 4 ) );
+$podcasts      = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
 $first_podcast = $podcasts->posts[0];
 
-$blog         = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 4 ) );
+$blog         = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 ?>
 
 	<!-- HOME TOP -->
@@ -47,6 +47,10 @@ $blog         = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 
 									<?php the_title(); ?>
 								</a>
 							</h3>
+							<div class="featured-meta">
+								<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
+								<span class="hearts"></span>
+							</div>
 						</article>
 					<?php endif; $i++; endwhile; endif; ?>
 					</div>
@@ -67,6 +71,10 @@ $blog         = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 
 										<?php the_title(); ?>
 									</a>
 								</h3>
+								<div class="featured-meta">
+									<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
+									<span class="hearts"></span>
+								</div>
 							</article>
 						<?php endif; $i++; endwhile; endif; ?>
 					</div>

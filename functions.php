@@ -6,7 +6,8 @@ define( 'MY_THEME_ASSETS_URI', MY_THEME_BASE_URI . '/assets' );
 define( 'MY_THEME_BUILD_URI', MY_THEME_BASE_URI . '/build' );
 define( 'MY_THEME_VERSION', '1.0' );
 
-require_once get_template_directory() . '/includes/theme-enqueue.php';
+require_once 'includes/theme-enqueue.php';
+require_once 'includes/author-rewrite-rules.php';
 
 class my_theme {
 
@@ -43,6 +44,11 @@ class my_theme {
 			'after_title'   => '</h4>',
 		) );
 	}
+
+	function author_rewrite_init() {
+		$author_rewrite = new wpcrowd_admin_rewrites();
+		$author_rewrite->add_admin_cpt_rewrite();
+	}
 }
 
 $my_theme = new my_theme();
@@ -50,3 +56,4 @@ $my_theme = new my_theme();
 add_action( 'wp_enqueue_scripts', array( $my_theme, 'theme_enqueue' ) );
 add_action( 'after_setup_theme', array( $my_theme, 'theme_setup' ) );
 add_action( 'widgets_init', array( $my_theme, 'register_sidebars' ) );
+add_action( 'init', array( $my_theme, 'author_rewrite_init' ) );

@@ -1,0 +1,75 @@
+.author-info {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    h2 {
+        text-align: center;
+    }
+    h5 {
+        color: darken( #e5e3e4, 20 );
+        text-align: center;
+        text-transform: capitalize;
+    }
+    img.img-responsive {
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+    .location {
+        border-bottom: 1px solid #e5e3e4;
+        color: darken( #e5e3e4, 20 );
+        font-size: 1.25em;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding-bottom: 10px;
+        text-align: left;
+        i {
+            color: $brand-warning;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+    .social-links {
+        text-align: center;
+        a {
+            border: 1px solid $brand-primary;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 30px;
+            margin: 0 5px;
+            opacity: 0.5;
+            text-align: center;
+            transition: all 1s;
+            width: 30px;
+
+            &:hover {
+                opacity: 1;
+                text-decoration: none;
+            }
+        }
+    }
+    .bio {
+        font-size: 1.5em;
+        p {
+            line-height: 2em;
+        }
+        h3 {
+            font-size: 1.25em;
+        }
+    }
+}
+
+#home-main.author-archive {
+    .latest-entries {
+        .single-entry {
+            height: 340px;
+            img.img-responsive {
+                max-height: 250px;
+            }
+        }
+        &.podcast {
+            .single-entry {
+                height: 360px;
+            }
+        }
+    }
+}

@@ -48,7 +48,7 @@ $blog         = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 
 								</a>
 							</h3>
 							<div class="featured-meta">
-								<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
+								<span class="date"><?php echo get_the_date( 'F j, Y', $post->ID ); ?></span>
 								<span class="hearts"></span>
 							</div>
 						</article>
@@ -72,7 +72,7 @@ $blog         = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 
 									</a>
 								</h3>
 								<div class="featured-meta">
-									<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
+									<span class="date"><?php echo get_the_date( 'F j, Y', $post->ID ); ?></span>
 									<span class="hearts"></span>
 								</div>
 							</article>

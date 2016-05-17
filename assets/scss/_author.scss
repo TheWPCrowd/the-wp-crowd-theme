@@ -1,45 +1,64 @@
-.author-info {
-    padding-bottom: 10px;
-    padding-top: 10px;
-    h2 {
+#author-top {
+    background: #f6f6f6;
+    border: 1px solid #e5e3e4;
+    margin-bottom: 30px;
+    margin-top: 125px;
+    padding-bottom: 30px;
+    .avatar-wrapper {
+        padding: 0 25%;
+        position: relative;
         text-align: center;
-    }
-    h5 {
-        color: darken( #e5e3e4, 20 );
-        text-align: center;
-        text-transform: capitalize;
-    }
-    img.img-responsive {
-        border-radius: 50%;
-        display: block;
-        margin: 0 auto;
-    }
-    .location {
-        border-bottom: 1px solid #e5e3e4;
-        color: darken( #e5e3e4, 20 );
-        font-size: 1.25em;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        padding-bottom: 10px;
-        text-align: left;
-        i {
-            color: $brand-warning;
-            display: inline-block;
-            margin-right: 5px;
+        transform: translateY(-75px);
+        img {
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        h2 { margin: 5px 0; }
+        h5 {
+            color: darken( #e5e3e4, 20 );
+            font-size: 1.5em;
+            font-weight: 400;
+            margin: 0;
+            text-transform: capitalize;
         }
     }
-    .social-links {
-        text-align: center;
-        a {
-            border: 1px solid $brand-primary;
-            border-radius: 50%;
-            display: inline-block;
-            line-height: 30px;
-            margin: 0 5px;
-            opacity: 0.5;
-            text-align: center;
-            transition: all 1s;
-            width: 30px;
+    p {
+        font-size: 1.25em;
+        padding: 0 20px;
+        color: darken( #e5e3e4, 30 );
+    }
+    .author-info {
+        border-left: 1px solid #e5e3e4;
+        margin-top: 30px;
+        padding: 30px 0 30px 30px;
+        .location {
+            color: darken( #e5e3e4, 20 );
+            font-size: 1.25em;
+            i {
+                color: $brand-warning;
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+        a.circle {
+            display: block;
+            i {
+                border: 1px solid $brand-primary;
+                border-radius: 50%;
+                display: inline-block;
+                line-height: 30px;
+                margin: 10px 5px;
+                opacity: 0.5;
+                text-align: center;
+                transition: all 1s;
+                width: 30px;
+            }
+            &.bio {
+                i {
+                    font-size: 0.75em;
+                }
+            }
 
             &:hover {
                 opacity: 1;
@@ -47,28 +66,22 @@
             }
         }
     }
-    .bio {
-        font-size: 1.5em;
-        p {
-            line-height: 2em;
-        }
-        h3 {
-            font-size: 1.25em;
-        }
-    }
 }
 
 #home-main.author-archive {
     .latest-entries {
         .single-entry {
-            height: 340px;
-            img.img-responsive {
-                max-height: 250px;
+            a.featured-image {
+                display: block;
+                height: 150px;
+                overflow: hidden;
             }
         }
         &.podcast {
             .single-entry {
-                height: 360px;
+                a.featured-image {
+                    height: 220px;
+                }
             }
         }
     }

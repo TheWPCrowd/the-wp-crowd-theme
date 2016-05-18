@@ -8,6 +8,7 @@ define( 'MY_THEME_VERSION', '1.0' );
 
 require_once 'includes/theme-enqueue.php';
 require_once 'includes/author-rewrite-rules.php';
+require_once 'includes/wpcrowd-acf.php';
 
 class my_theme {
 

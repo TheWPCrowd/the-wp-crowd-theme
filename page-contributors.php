@@ -7,6 +7,7 @@
 	        WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
 	    WHERE `count` >= {$min_posts} ORDER BY `count` DESC;");
 ?>
+<div id="map"></div>
 
 <div class="container">
 	<div class="row">
@@ -21,8 +22,9 @@
 						if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 							$author_name = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 						}
+						$location = get_field( 'location', 'user_'.$user->ID );
 				?>
-					<article class="col-sm-3">
+					<article class="col-sm-3 contributor-wrapper" data-loc="<?php echo $location; ?>">
 						<div class="contributor">
 							<div class="contributor-image">
 								<a href="<?php echo get_author_posts_url( $user->ID ); ?>">
@@ -45,10 +47,10 @@
 										?>
 									</h5>
 								<?php endif; ?>
-								<?php if( get_field( 'location', 'user_'.$user->ID ) ) : ?>
+								<?php if( $location ) : ?>
 									<div class="location">
 										<i class="fa fa-map-marker" aria-hidden="true"></i>
-										<?php the_field( 'location', 'user_'.$user->ID ); ?>
+										<?php echo $location; ?>
 									</div>
 								<?php endif; ?>
 								<?php if( get_field( 'biography', 'user_'.$user->ID ) ) : ?>

@@ -57,8 +57,8 @@ $blog         = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 
 				</div>
 				<div class="latest-podcast-wrapper">
 					<div class="headline">
-						<h2>Latest <strong>Blog Posts</strong></h2>
-						<a href="<?php echo get_bloginfo('wpurl'); ?>/thewpcrowd-blog">See All <strong>Blog Posts</strong></a>
+						<h2>Latest <strong>Articles</strong></h2>
+						<a href="<?php echo get_bloginfo('wpurl'); ?>/thewpcrowd-blog">See All <strong>articles</strong></a>
 					</div>
 					<div class="row latest-entries blog">
 						<?php $i=0; if( $blog->have_posts() ) : while( $blog->have_posts() ) : $blog->the_post(); if( $i > 0 ) :?>

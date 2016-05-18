@@ -49,6 +49,15 @@ class my_theme {
 		$author_rewrite = new wpcrowd_admin_rewrites();
 		$author_rewrite->add_admin_cpt_rewrite();
 	}
+
+	function gmaps_head() {
+		global $post;
+		if( is_page( 'contributors' ) ) {
+			echo '<script async defer
+		        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
+			</script>';
+		}
+	}
 }
 
 $my_theme = new my_theme();
@@ -57,3 +66,4 @@ add_action( 'wp_enqueue_scripts', array( $my_theme, 'theme_enqueue' ) );
 add_action( 'after_setup_theme', array( $my_theme, 'theme_setup' ) );
 add_action( 'widgets_init', array( $my_theme, 'register_sidebars' ) );
 add_action( 'init', array( $my_theme, 'author_rewrite_init' ) );
+add_action( 'wp_head', array( $my_theme, 'gmaps_head' ) );

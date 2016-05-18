@@ -16,6 +16,7 @@
 			<div class="row">
 				<?php
 					foreach( $author_ids as $author ):
+						if( $author == 1 ) { continue; }
 						$user = get_user_by( 'id', $author );
 						$usermeta = get_user_meta( $user->ID );
 						$author_name = $user->user_nicename;

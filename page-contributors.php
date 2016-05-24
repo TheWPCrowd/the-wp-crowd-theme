@@ -6,6 +6,19 @@
 	    (SELECT `post_author`, COUNT(*) AS `count` FROM {$wpdb->posts}
 	        WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
 	    WHERE `count` >= {$min_posts} ORDER BY `count` DESC;");
+
+	$people_terms = get_terms( 'people' );
+	$podcasters = array();
+	if( !empty( $people_terms ) ) {
+		foreach( $people_terms as $person ) {
+			$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
+			if( $associated_user ) {
+				$podcasters[] = $associated_user['ID'];
+			}
+		}
+	}
+	$author_ids = array_merge( $author_ids, $podcasters );
+	$author_ids = array_unique( $author_ids );
 ?>
 <div id="map"></div>
 

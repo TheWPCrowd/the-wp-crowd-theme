@@ -40,7 +40,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'field_type' => 'radio',
 				'allow_null' => 0,
 				'add_term' => 0,
-				'save_terms' => 0,
+				'save_terms' => 1,
 				'load_terms' => 0,
 				'return_format' => 'id',
 				'multiple' => 0,
@@ -160,6 +160,47 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	acf_add_local_field_group(array (
+		'key' => 'group_57445ba8c1282',
+		'title' => 'People Taxonomy',
+		'fields' => array (
+			array (
+				'key' => 'field_57445bc7b75a9',
+				'label' => 'Associated User',
+				'name' => 'associated_user',
+				'type' => 'user',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array (
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'role' => '',
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => 'people',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => 1,
+		'description' => '',
+	));
+
+	acf_add_local_field_group(array (
 		'key' => 'group_5588e4dd6a579',
 		'title' => 'Podcast Info',
 		'fields' => array (
@@ -212,4 +253,3 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 endif;
-?>

@@ -55,7 +55,7 @@
             padding-top: 10px;
             strong {
                 display: inline-block;
-                font-size: 1.25em;
+                font-size: 1em;
             }
             ul {
                 display: inline-block;
@@ -67,18 +67,21 @@
                     margin: 0 5px;
                     a {
                         display: block;
-                        font-size: 1.25em;
+                        font-size: 1em;
                     }
                 }
             }
         }
     }
     .content-container {
-        color: #7b7b7b;
+        color: #949393;
         padding-bottom: 30px;
         padding-top: 30px;
         p {
             font-size: 1.25em;
+        }
+        h1,h2,h3,h4,h5 {
+            color: #949393;
         }
     }
 

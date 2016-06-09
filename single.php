@@ -31,6 +31,15 @@ the_post();
 								echo '</a>';
 							}
 						echo '</div>';
+						echo '<div class="categories">';
+							echo '<strong>Topics:</strong>';
+							$topics = wp_get_post_terms( $post->ID, 'topics', array( 'fields' => 'all' ) );
+							echo '<ul>';
+								foreach( $topics as $topic ) {
+									echo '<li><a href="/topics/' . $topic->slug. '" class="person">' . $topic->name . '</a></li>';
+								}
+							echo '</ul>';
+						echo '</div>';
 					} else {
 						the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
 						echo '<div class="author-meta row">';
@@ -80,6 +89,9 @@ the_post();
 			<div class="content-container">
 				<?php
 					the_content();
+					if( 'podcast' == get_post_type() && has_post_thumbnail() ) {
+						the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
+					}
 					comments_template();
 				?>
 			</div>

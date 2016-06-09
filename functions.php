@@ -44,6 +44,16 @@ class my_theme {
 			'before_title'  => '<h4 class="widgettitle">',
 			'after_title'   => '</h4>',
 		) );
+
+		register_sidebar( array(
+			'name' => __( 'Single Sidebar', 'wp-crowd' ),
+			'id' => 'single-sidebar',
+			'description' => __( 'Single Post Sidebar.', 'wp-crowd' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h4 class="widgettitle">',
+			'after_title'   => '</h4>',
+		) );
 	}
 
 	function author_rewrite_init() {

@@ -1,0 +1,52 @@
+.container.archive {
+    padding-top: 30px;
+
+    .latest-entries {
+        .single-entry {
+            position: relative;
+            height: 250px;
+            h3 {
+                font-size: 1.25em;
+                a {
+                    color: black;
+                }
+            }
+            .featured-meta {
+                bottom: 15px;
+                left: 15px;
+                opacity: 0.5;
+                position: absolute;
+                .hearts { float: right; }
+                &:after {
+                    clear: both;
+                    content: '';
+                    display: block;
+                    height: 1px;
+                }
+            }
+        }
+        &.podcast {
+            .single-entry {
+                height: 350px;
+                a.featured-image {
+                    display: block;
+                    position: relative;
+                    &:after {
+                        color: white;
+                        content: $fa-var-play-circle-o;
+                        display: inline-block;
+                        font-family: FontAwesome;
+                        font-size: 10em;
+                        line-height: normal;
+                        left: 30%;
+                        height: 10%;
+                        opacity: 0.75;
+                        position: absolute;
+                        top: 10%;
+                        width: 10%;
+                    }
+                }
+            }
+        }
+    }
+}

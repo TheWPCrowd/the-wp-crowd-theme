@@ -8025,6 +8025,26 @@ footer {
         .sidebar section ul li a:hover {
           color: #eeeeee;
           text-decoration: none; }
+    .sidebar section ul.crowd-members-widget li {
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      width: 45%; }
+      .sidebar section ul.crowd-members-widget li a {
+        display: block;
+        font-size: 0.8em;
+        margin: 0 auto;
+        padding: 15px; }
+        .sidebar section ul.crowd-members-widget li a img {
+          border: 2px solid transparent;
+          border-radius: 50%;
+          display: inline-block;
+          margin: 0 0 5px 0;
+          vertical-align: top; }
+        .sidebar section ul.crowd-members-widget li a:hover {
+          color: black; }
+          .sidebar section ul.crowd-members-widget li a:hover img {
+            border: 2px solid #d7d7d7; }
   .sidebar section .latest-widget a {
     background: white;
     border: 1px solid #d7d7d7;
@@ -8317,6 +8337,9 @@ footer {
   .single-container h2.single-title {
     font-size: 2.75em;
     margin: 0 0 10px 0; }
+  .single-container .air-date {
+    padding: 10px;
+    font-size: 0.75em; }
   .single-container .single-top {
     background: #f6f6f6; }
     .single-container .single-top .author-meta {
@@ -8372,7 +8395,7 @@ footer {
     color: #949393;
     padding-bottom: 30px;
     padding-top: 30px; }
-    .single-container .content-container p {
+    .single-container .content-container p, .single-container .content-container li {
       font-size: 1.25em; }
     .single-container .content-container h1, .single-container .content-container h2, .single-container .content-container h3, .single-container .content-container h4, .single-container .content-container h5 {
       color: #949393; }

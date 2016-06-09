@@ -21,6 +21,7 @@ the_post();
 							}
 						}
 						echo '<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/' . get_field( 'youtube_video_id', $post->ID) . '" frameborder="0" allowfullscreen></iframe></div>';
+						echo '<div class="air-date text-right"><strong>Aired:</strong> ' . get_field( 'air_date' ) . '</div>';
 						echo '<div class="podcast-people">';
 							echo '<strong>In This Episode</strong>';
 							foreach( $podcasters as $user ) {
@@ -46,7 +47,7 @@ the_post();
 							echo '<div class="col-sm-2 author-avatar text-center">';
 								echo get_avatar( $post->post_author, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) );
 							echo '</div>';
-							echo '<div class="col-sm-9">';
+							echo '<div class="col-sm-8">';
 								echo '<h3>' . get_the_author() . '</h3>';
 								if( get_field( 'title', 'user_'.$post->post_author ) ) :
 									echo '<h5>';
@@ -78,6 +79,7 @@ the_post();
 									</a>';
 								endif;
 							echo '</div>';
+							echo '<div class="col-sm-2 date"><strong>Published: </strong>'.get_the_date( 'F j, Y' ) . '</div>';
 						echo '</div>';
 						echo '<div class="categories">';
 							echo '<strong>Topics:</strong>';

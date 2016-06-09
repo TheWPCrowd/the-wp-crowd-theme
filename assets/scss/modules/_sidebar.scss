@@ -28,6 +28,33 @@
                     }
                 }
             }
+            &.crowd-members-widget {
+                li {
+                    display: inline-block;
+                    text-align: center;
+                    vertical-align: top;
+                    width: 45%;
+                    a {
+                        display: block;
+                        font-size: 0.8em;
+                        margin: 0 auto;
+                        padding: 15px;
+                        img {
+                            border: 2px solid transparent;
+                            border-radius: 50%;
+                            display: inline-block;
+                            margin: 0 0 5px 0;
+                            vertical-align: top;
+                        }
+                        &:hover {
+                            color: black;
+                            img {
+                                border: 2px solid #d7d7d7;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // WP Crowd Latest

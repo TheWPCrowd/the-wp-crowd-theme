@@ -87,3 +87,26 @@
         }
     }
 }
+
+.follow-links {
+    list-style-type:none;
+    margin:10px 0 0 0;
+    padding:0;
+    
+    li { display:inline-block;}
+    
+    a:before {
+        border-radius: 50%;
+        border: solid 1px $link-color;
+        height: 2em;
+        width: 2em;
+        line-height:2em;
+        display:inline-block;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    a:hover:before {
+        border: solid 1px $link-hover-color;
+    }
+}

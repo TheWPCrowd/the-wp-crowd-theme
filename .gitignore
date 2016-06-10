@@ -5,3 +5,4 @@ build/*
 
 # PhpStorm
 .idea
+.netbeans.xml

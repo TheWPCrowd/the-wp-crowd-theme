@@ -1,4 +1,5 @@
 .single-container {
+    position:relative;
     padding-top: 30px;
     h2.single-title {
         font-size: 2.75em;
@@ -109,6 +110,36 @@
                 margin: 0 auto 5px auto;
                 width: 80%;
             }
+        }
+    }
+}
+
+.shareing-links {
+    position: static;
+    list-style-type: none;
+    margin: 0 ;
+    padding: 0;        
+    
+    li {
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+
+
+@media screen and (min-width:$screen-lg) {
+    .shareing-links {
+        position: fixed;
+        top: 245px;
+        left: 0;
+    
+    
+        li {
+
+            display: block;
+            margin-right: 0px;
+            margin-bottom: 5px;
         }
     }
 }

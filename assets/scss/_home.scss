@@ -108,7 +108,6 @@
     .latest-entries {
         .single-entry {
             position: relative;
-            height: 250px;
             h3 {
                 font-size: 1.25em;
                 a {
@@ -150,6 +149,18 @@
                         width: 10%;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media(max-width: 50em) {
+    .latest-entries {
+        .single-entry {
+            a.featured-image {
+                max-height: 185px;
+                overflow: hidden;
+                display: block;
             }
         }
     }

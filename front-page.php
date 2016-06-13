@@ -1,14 +1,14 @@
 <?php
 get_header();
 $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
-$first_podcast  = '';
-if($podcasts->have_posts){
+$first_podcast  = false;
+if( $podcasts->have_posts() ){
     $first_podcast = $podcasts->posts[0];
 }
 $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 ?>
 
-<?php if(is_object( $first_podcast ) ) { ?>
+<?php if( $first_podcast ) { ?>
 	<!-- HOME TOP -->
 	<div class="container-fluid" id="home-top">
 		<div class="container">

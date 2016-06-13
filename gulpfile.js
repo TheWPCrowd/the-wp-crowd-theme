@@ -1,12 +1,13 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concatCSS = require('gulp-concat-css');
-var concat = require('gulp-concat');
-var watch = require('gulp-watch');
-var sourcemaps = require('gulp-sourcemaps');
-var minifyCss = require('gulp-minify-css');
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	concatCSS = require('gulp-concat-css'),
+	concat = require('gulp-concat'),
+	watch = require('gulp-watch'),
+	sourcemaps = require('gulp-sourcemaps'),
+	minifyCss = require('gulp-minify-css'),
+	lr = require('gulp-livereload');
 
 var jsFileList = [
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
@@ -28,6 +29,7 @@ gulp.task('sass', function(){
 		.pipe(sourcemaps.init())
 		.pipe(sass())
 		.pipe(sourcemaps.write())
+		.pipe(lr())
 		.pipe(gulp.dest('build/css'));
 });
 
@@ -36,6 +38,7 @@ gulp.task('css', function(){
 	.pipe(sourcemaps.init())
 	.pipe(minifyCss())
 	.pipe(sourcemaps.write('./'))
+	.pipe(lr())
 	.pipe(gulp.dest('build/css/min'));
 });
 
@@ -47,9 +50,11 @@ gulp.task('fonts', function(){
 gulp.task('js', function(){	
 	gulp.src('assets/js/*.js')
 		.pipe(concat('js/scripts.js'))
+		.pipe(lr())
 		.pipe(gulp.dest('build'));
 	gulp.src(jsFileList)
 		.pipe(concat('js/bootstrap.js'))
+		.pipe(lr())
 		.pipe(gulp.dest('build'));
 });
 
@@ -64,6 +69,16 @@ gulp.task('default', ['sass', 'css']);
 gulp.task('prod', ['sass', 'css', 'js']);
 
 gulp.task('watch', function(){
-	gulp.watch('assets/scss/*.scss', ['sass'] );
+
+	// Listen on port 35729
+    lr.listen(35729, function (err) {
+        if (err) {
+            return console.log(err)
+        };
+
+	gulp.watch('assets/scss/*.scss', ['default'] );
 	gulp.watch('assets/js/*.js', ['js'] );
+
+	});
+	
 })

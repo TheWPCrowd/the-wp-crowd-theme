@@ -4,7 +4,7 @@
 # Build Instructions
 * Clone Repo 
 * run `npm install`
-* run `gulp watch` to auto build scss and js files
+* run `gulp` to auto build scss and js files
   
 # Setup Instructions
 * You will need to create "Main Menu" as a menu for the menu to work

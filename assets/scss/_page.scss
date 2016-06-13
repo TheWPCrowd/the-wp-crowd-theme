@@ -12,6 +12,11 @@ body.blog {
 }
 div.content {
 	padding-bottom: 20px;
+	font-size: 1.25em;
+	margin: 0 0 20px 0;
+	color: #666;
+	line-height: 1.6;
+
 	h1.page_title {
 		padding-bottom: 10px;
 	}
@@ -30,9 +35,8 @@ div.content {
 		padding: 10px 0;
 		font-size: 1.25em;
 	}
-	p,li {
-		font-size: 1.25em;
-		margin: 10px 0;
+	h1,h2,h3,h4,h5,h6 {
+		color: #333;
 	}
 	.crowd_in_podcast {
 		border-bottom: 2px solid $red;

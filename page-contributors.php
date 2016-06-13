@@ -1,4 +1,7 @@
 <?php
+/*
+ * Template Name: Contributors
+ */
 	get_header();
 	global $wpdb;
 	$min_posts = 1; // Make sure it's int, it's not escaped in the query

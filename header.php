@@ -25,6 +25,9 @@
 			</div>
 		</header>
 		<nav class="container-fluid main-nav">
+			<div class="row mobile-nav-div">
+				<a href="#open-menu" class="nav-toggle">Menu</a>
+			</div>
 			<div class="container">
 				<?php wp_nav_menu( array( 'theme_location' => 'header', 'container' => '' ) ); ?>
 			</div>

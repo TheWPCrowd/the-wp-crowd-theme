@@ -2351,6 +2351,10 @@ var my_theme = my_theme || {};
 	my_theme.main = (function( theme ) {
 		$(document).ready(function(){
 			console.log('My Starter Theme');
+
+			$(".nav-toggle").click( function() {
+				$("nav.main-nav ul").toggle();
+			});
 		});
 
 		theme.map_init = function() {

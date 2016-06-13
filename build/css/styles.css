@@ -7957,6 +7957,23 @@ nav.main-nav {
         display: none; }
       nav.main-nav ul li.current-menu-item a {
         background: #7f7273; }
+  nav.main-nav .mobile-nav-div {
+    display: none; }
+
+@media (max-width: 50em) {
+  nav.main-nav .mobile-nav-div {
+    background: #423B3C;
+    display: block; }
+  nav.main-nav a.nav-toggle {
+    color: white;
+    display: block;
+    font-size: 1.25em;
+    padding: 10px;
+    test-decoration: none; }
+  nav.main-nav ul {
+    display: none; }
+    nav.main-nav ul li {
+      display: block; } }
 
 footer {
   background: #242424;
@@ -8203,6 +8220,14 @@ footer {
       top: 10%;
       width: 10%; }
 
+@media (max-width: 50em) {
+  #home-main .latest-entries .single-entry a.featured-image {
+    max-height: 185px;
+    overflow: hidden;
+    display: block; }
+  #home-main .latest-entries .single-entry div.featured-meta {
+    bottom: 4px; } }
+
 #map {
   height: 40vh;
   width: 100%; }
@@ -8332,7 +8357,26 @@ footer {
 #home-main.author-archive .latest-entries.podcast .single-entry a.featured-image {
   height: 220px; }
 
+.follow-links {
+  list-style-type: none;
+  margin: 10px 0 0 0;
+  padding: 0; }
+  .follow-links li {
+    display: inline-block; }
+  .follow-links a:before {
+    border-radius: 50%;
+    border: solid 1px #337ab7;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none; }
+  .follow-links a:hover:before {
+    border: solid 1px #23527c; }
+
 .single-container {
+  position: relative;
   padding-top: 30px; }
   .single-container h2.single-title {
     font-size: 2.75em;
@@ -8417,6 +8461,31 @@ footer {
         display: block;
         margin: 0 auto 5px auto;
         width: 80%; }
+
+.shareing-links {
+  position: static;
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .shareing-links li {
+    display: inline-block;
+    margin-right: 5px; }
+
+@media screen and (min-width: 1200px) {
+  .shareing-links {
+    position: fixed;
+    top: 245px;
+    left: 0; }
+    .shareing-links li {
+      display: block;
+      margin-right: 0px;
+      margin-bottom: 5px; } }
+
+@media (max-width: 50em) {
+  .single-top .author-meta .author-avatar {
+    width: 25%;
+    float: left;
+    margin-left: 18px; } }
 
 .container.archive {
   padding-top: 30px; }

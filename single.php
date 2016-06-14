@@ -48,9 +48,9 @@ the_post();
                                                 if(is_array($topics)) {
                                                 ?>
                                                 <ul>
-                                                        <?php foreach( $topics as $topic ) { ?>
-                                                                <li><a href="/topics/' . $topic->slug. '" class="person">' . $topic->name . '</a></li>
-                                                        <?php  } ?>
+                                                        <?php foreach( $topics as $topic ) {
+                                                                echo '<li><a href="/topics/' . $topic->slug. '" class="person">' . $topic->name . '</a></li>';
+                                                        } ?>
                                                 </ul>
                                                 <?php } ?>
                                         </div>

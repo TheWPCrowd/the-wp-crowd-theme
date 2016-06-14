@@ -152,3 +152,16 @@
         }
     }
 }
+
+@media (max-width:50em) {
+
+    .single-top {
+        .author-meta {
+            .author-avatar {
+                width: 25%;
+                float: left;
+                margin-left: 18px;
+            }
+        }
+    }
+}

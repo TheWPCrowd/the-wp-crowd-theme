@@ -154,3 +154,20 @@
         }
     }
 }
+
+@media(max-width: 50em) {
+    #home-main {
+        .latest-entries {
+            .single-entry {
+                a.featured-image {
+                    max-height: 185px;
+                    overflow: hidden;
+                    display: block;
+                }
+                div.featured-meta {
+                    bottom: 4px;
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,9 @@
 node_modules/
 npm-debug.log
-build/*
 *.psd
 
 # PhpStorm
 .idea
 .netbeans.xml
+
+build/*

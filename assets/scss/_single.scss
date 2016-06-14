@@ -1,12 +1,7 @@
 .single-container {
     position:relative;
     padding-top: 30px;
-    h2.single-title {
-        font-size: 2.75em;
-        margin: 1em 0;
-        font-weight: 700;
-        color: $brand-primary;
-    }
+    
     .air-date {
         padding: 10px;
         font-size: 0.75em;
@@ -81,22 +76,10 @@
         }
     }
     .content-container {
-        color: #949393;
+        color: lighten($brand-secondary, 15%);
         padding-bottom: 30px;
         padding-top: 30px;
-        text-rendering: optimizeLegibility;
-        font-size: 1.25em;
-        line-height: 1.6;
 
-        p {
-         margin: 0 0 1.6em;
-        }
-
-        h1,h2,h3,h4,h5 {
-            color: $brand-secondary;
-            font-weight: 700;
-            text-transform: capitalize;
-        }
     }
 
     .podcast-people {
@@ -108,7 +91,7 @@
             margin: 10px 0;
         }
         a {
-            color: #adadad;
+            color: $brand-primary;
             display: inline-block;
             width: 150px;
             margin: 0 10px;

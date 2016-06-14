@@ -2,7 +2,11 @@
 get_header();
 $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
 $first_podcast  = false;
+<<<<<<< HEAD
 if( $podcasts->have_posts() ){
+=======
+if ($podcasts->have_posts() ){
+>>>>>>> v2.0.0
     $first_podcast = $podcasts->posts[0];
 }
 $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );

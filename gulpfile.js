@@ -9,6 +9,7 @@ var gulp = require( 'gulp' ),
 	sass = require( 'gulp-sass' ),
 	sourcemaps = require( 'gulp-sourcemaps' ),
 	uglify = require( 'gulp-uglify' ),
+	lr = require('gulp-livereload'),
 	watch = require( 'gulp-watch' );
 
 var jsFileList = [
@@ -42,6 +43,7 @@ gulp.task( 'sass', function () {
 		.pipe( minify() )
 		.pipe( rename( { extname : '.min.css' } ) )
 		.pipe( sourcemaps.write( '.' ) )
+		.pipe(lr())
 		.pipe( gulp.dest( './build/css' ) )
 		.pipe( notify( { message : '[dev] CSS task complete', onLast : true } ) );
 } );
@@ -55,6 +57,7 @@ gulp.task( 'js', function () {
 		.pipe( uglify() )
 		.pipe( rename( { extname : '.min.js' } ) )
 		.pipe( sourcemaps.write( '.' ) )
+		.pipe(lr())
 		.pipe( gulp.dest( './build/js' ) )
 		.pipe( notify( { message : '[dev] JS task complete', onLast : true } ) );
 } );
@@ -65,6 +68,14 @@ gulp.task( 'fonts', function () {
 } );
 
 gulp.task( 'default', [ 'fonts', 'sass', 'js' ], function () {
-	gulp.watch( './assets/scss/**/*.scss', [ 'sass' ] );
-	gulp.watch( jsFileList, [ 'js' ] );
+	// Listen on port 35729
+    lr.listen(35729, function (err) {
+        if (err) {
+            return console.log(err)
+        };
+
+		gulp.watch( './assets/scss/**/*.scss', [ 'sass' ] );
+		gulp.watch( jsFileList, [ 'js' ] );
+	});
+
 } );

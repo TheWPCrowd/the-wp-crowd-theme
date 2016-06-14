@@ -1,7 +1,6 @@
 <?php
 get_header();
 the_post();
-
 ?>
 
 <div class="container single-container">    
@@ -66,7 +65,8 @@ the_post();
 								<?php echo get_avatar( $post->post_author, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) ); ?>
 							</div>
 							<div class="col-sm-8">
-								<h3><?php echo get_the_author() ?></h3>
+                                                               
+								<h3><?php echo get_the_author_meta( 'display_name' ) ?></h3>
 								<?php if( function_exists('get_field') && get_field( 'title', 'user_'.$post->post_author ) ) : ?>
 									<h5>
 										<?php 
@@ -137,6 +137,5 @@ the_post();
 		</div>
 	</div>
 </div>
-
 <?php
 get_footer();

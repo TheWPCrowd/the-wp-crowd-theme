@@ -1,7 +1,6 @@
 <?php
 get_header();
 the_post();
-
 ?>
 
 <div class="container single-container">    
@@ -138,6 +137,5 @@ the_post();
 		</div>
 	</div>
 </div>
-
 <?php
 get_footer();

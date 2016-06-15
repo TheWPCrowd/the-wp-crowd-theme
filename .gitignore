@@ -5,3 +5,5 @@ npm-debug.log
 # PhpStorm
 .idea
 .netbeans.xml
+
+build/*

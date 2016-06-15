@@ -8468,10 +8468,17 @@ footer {
         transition: all 1s;
         width: 30px; }
         .single-container .single-top .author-meta a.circle.bio i {
-          font-size: 0.75em; }
+          font-size: 0.65em; }
         .single-container .single-top .author-meta a.circle:hover {
           opacity: 1;
           text-decoration: none; }
+      .single-container .single-top .author-meta .date {
+        font-size: 0.75em; }
+      @media (max-width: 50em) {
+        .single-container .single-top .author-meta .author-avatar img {
+          margin-left: 5px; }
+        .single-container .single-top .author-meta .date {
+          font-size: 0.5em; } }
     .single-container .single-top .categories {
       background: #FFF;
       border-bottom: 1px solid #adadad;
@@ -8533,12 +8540,6 @@ footer {
       display: block;
       margin-right: 0px;
       margin-bottom: 5px; } }
-
-@media (max-width: 50em) {
-  .single-top .author-meta .author-avatar {
-    width: 25%;
-    float: left;
-    margin-left: 18px; } }
 
 .container.archive {
   padding-top: 30px; }

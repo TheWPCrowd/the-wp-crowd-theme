@@ -28,4 +28,29 @@ nav.main-nav {
             }
         }
     }
+    .mobile-nav-div {
+        display: none;
+    }
+}
+
+@media (max-width: 50em) {
+    nav.main-nav {
+        .mobile-nav-div {
+            background: #423B3C;
+            display: block;
+        }
+        a.nav-toggle {
+            color: white;
+            display: block;
+            font-size: 1.25em;
+            padding: 10px;
+            text-decoration: none;
+        }
+        ul {
+            display: none;
+            li {
+                display: block;
+            }
+        }
+    }
 }

@@ -155,7 +155,7 @@
     }
 }
 
-@media(max-width: 50em) {
+@media(max-width: $screen-md-min) {
     #home-main {
         .latest-entries {
             .single-entry {

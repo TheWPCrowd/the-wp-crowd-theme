@@ -39,7 +39,7 @@
                 width: 30px;
                 &.bio {
                     i {
-                        font-size: 0.75em;
+                        font-size: 0.65em;
                     }
                 }
 
@@ -47,6 +47,18 @@
                     opacity: 1;
                     text-decoration: none;
                 }
+            }
+            .date {
+                font-size: 0.75em;
+            }
+            @media (max-width:50em) {
+                .author-avatar img {
+                    margin-left: 5px;
+                }
+                .date {
+                    font-size: 0.5em;
+                }
+
             }
         }
         .categories {
@@ -136,15 +148,4 @@
     }
 }
 
-@media (max-width:50em) {
 
-    .single-top {
-        .author-meta {
-            .author-avatar {
-                width: 25%;
-                float: left;
-                margin-left: 18px;
-            }
-        }
-    }
-}

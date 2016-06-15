@@ -61,10 +61,10 @@ the_post();
                                             
                                         ?>
 						<div class="author-meta row">
-							<div class="col-sm-2 author-avatar text-center">
+							<div class="col-xs-2 author-avatar text-center">
 								<?php echo get_avatar( $post->post_author, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) ); ?>
 							</div>
-							<div class="col-sm-8">
+							<div class="col-xs-7">
                                                                
 								<h3><?php echo get_the_author_meta( 'display_name' ) ?></h3>
 								<?php if( function_exists('get_field') && get_field( 'title', 'user_'.$post->post_author ) ) : ?>
@@ -106,7 +106,7 @@ the_post();
                                                                         
                                                                 }        ?>
 							</div>
-							<div class="col-sm-2 date"><strong>Published: </strong><?php echo get_the_date( 'F j, Y' ) ?></div>
+							<div class="col-xs-3 date"><strong>Published: </strong><?php echo get_the_date( 'F j, Y' ) ?></div>
 						</div>
 						<div class="categories">
 							<strong>Topics:</strong>

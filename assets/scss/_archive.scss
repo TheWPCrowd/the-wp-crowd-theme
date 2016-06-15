@@ -5,6 +5,11 @@
         .single-entry {
             position: relative;
             height: 250px;
+            @media screen and (max-width: $screen-md-min ) {
+                height: auto;
+                padding-bottom: 20px;
+                padding-top: 20px;
+            }
             h3 {
                 font-size: 1.25em;
                 a {
@@ -28,6 +33,11 @@
         &.podcast {
             .single-entry {
                 height: 350px;
+                @media screen and (max-width: $screen-md-min ) {
+                    height: auto;
+                    padding-bottom: 20px;
+                    padding-top: 20px;
+                }
                 a.featured-image {
                     display: block;
                     position: relative;
@@ -49,4 +59,8 @@
             }
         }
     }
+}
+
+.wp-pagenavi {
+    padding: 20px;
 }

@@ -33,7 +33,7 @@ nav.main-nav {
     }
 }
 
-@media (max-width: 50em) {
+@media (max-width: $screen-md-min) {
     nav.main-nav {
         .mobile-nav-div {
             background: #423B3C;

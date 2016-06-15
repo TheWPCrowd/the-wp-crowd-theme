@@ -8026,7 +8026,7 @@ nav.main-nav {
   nav.main-nav .mobile-nav-div {
     display: none; }
 
-@media (max-width: 50em) {
+@media (max-width: 992px) {
   nav.main-nav .mobile-nav-div {
     background: #423B3C;
     display: block; }
@@ -8128,7 +8128,8 @@ footer {
             color: white;
             padding: 5px 0;
             transition: all 1s;
-            -webkit-transition: all 1s; }
+            -webkit-transition: all 1s;
+            white-space: normal; }
           footer .nav-wrapper nav ul li ul {
             display: none; }
     footer .nav-wrapper.social nav ul li a {
@@ -8280,7 +8281,7 @@ footer {
       top: 10%;
       width: 10%; }
 
-@media (max-width: 50em) {
+@media (max-width: 992px) {
   #home-main .latest-entries .single-entry a.featured-image {
     max-height: 185px;
     overflow: hidden;
@@ -8474,7 +8475,7 @@ footer {
           text-decoration: none; }
       .single-container .single-top .author-meta .date {
         font-size: 0.75em; }
-      @media (max-width: 50em) {
+      @media (max-width: 992px) {
         .single-container .single-top .author-meta .author-avatar img {
           margin-left: 5px; }
         .single-container .single-top .author-meta .date {
@@ -8546,6 +8547,11 @@ footer {
   .container.archive .latest-entries .single-entry {
     position: relative;
     height: 250px; }
+    @media screen and (max-width: 992px) {
+      .container.archive .latest-entries .single-entry {
+        height: auto;
+        padding-bottom: 20px;
+        padding-top: 20px; } }
     .container.archive .latest-entries .single-entry h3 {
       font-size: 1.25em; }
       .container.archive .latest-entries .single-entry h3 a {
@@ -8564,6 +8570,11 @@ footer {
         height: 1px; }
   .container.archive .latest-entries.podcast .single-entry {
     height: 350px; }
+    @media screen and (max-width: 992px) {
+      .container.archive .latest-entries.podcast .single-entry {
+        height: auto;
+        padding-bottom: 20px;
+        padding-top: 20px; } }
     .container.archive .latest-entries.podcast .single-entry a.featured-image {
       display: block;
       position: relative; }
@@ -8580,3 +8591,6 @@ footer {
         position: absolute;
         top: 10%;
         width: 10%; }
+
+.wp-pagenavi {
+  padding: 20px; }

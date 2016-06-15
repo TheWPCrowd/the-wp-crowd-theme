@@ -51,7 +51,7 @@
             .date {
                 font-size: 0.75em;
             }
-            @media (max-width:50em) {
+            @media (max-width:$screen-md-min) {
                 .author-avatar img {
                     margin-left: 5px;
                 }

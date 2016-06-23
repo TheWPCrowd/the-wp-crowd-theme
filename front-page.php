@@ -24,6 +24,9 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 						<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>">
 							<?php echo get_the_title( $first_podcast->ID ); ?>
 						</a>
+						<div class="post-excerpt">
+							<?php echo substr( get_the_excerpt( $first_podcast->ID ), 0, 200 ) . '...'; ?>
+						</div>
 					</h3>
 					<div class="featured-meta">
 						<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>

@@ -44,7 +44,7 @@
 						</nav>
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
-						<a href="<?php echo get_bloginfo('wpurl'); ?>">
+						<a href="<?php echo get_bloginfo('url'); ?>">
 							<img src="<?php echo get_template_directory_uri().'/img/logo.png'; ?>" alt="The WP Crowd Podcast" class="img-responsive" />
 						</a>
 					</div>

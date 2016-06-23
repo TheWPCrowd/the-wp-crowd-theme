@@ -1,75 +1,173 @@
-#home_content {
-	margin-top: 40vh;
-	position: relative;
-	z-index: 10;
-	
-	h3 {
-		color: white;
-		margin: 0 0 5px 0;
-	}
-	h2 {
-		color: white;
-		margin: 0;
-		a {
-			color: $yellow;
-			display: block;
-			font-size: 0.9em;
-		}
-	}
-	.meta {
-		color: white;
-		display: block;
-		font-size: 1.25em;
-		font-weight: 700;
-		text-align: right;
-		text-transform: uppercase;
-	}
-	.past_podcasts {
-		margin-top: 10px;
-		a {
-			color: $yellow;
-			display: inline-block;
-			font-size: 1.5em;
-			padding: 5px;
-			text-transform: uppercase;
-		}
-	}
+#home-top {
+    background: #f6f6f6;
+    margin-bottom: 30px;
+    .featured-image, .featured-info { height: 25vh;  min-height: 400px; }
+    .featured-image {
+        background-position: 50% 30%;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        border-left: 10px solid #f6f6f6;
+        position: relative;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 25vh;
+            min-height: 400px;
+            position: relative;
+            z-index: 1000;
+        }
+        &:after {
+            color: white;
+            content: $fa-var-play-circle-o;
+            display: inline-block;
+            font-family: FontAwesome;
+            font-size: 25em;
+            line-height: normal;
+            left: 30%;
+            height: 50%;
+            opacity: 0.5;
+            position: absolute;
+            top: 10%;
+            width: 50%;
+        }
+        i {
+            font-size: 3em;
+            color: white;
+        }
+    }
+    .featured-info {
+        background: #242424;
+        color: white;
+        padding-top: 20px;
+        position: relative;
+        h3 {
+            font-size: 2.25em;
+            font-weight: 700;
+            line-height: 1.25em;
+            margin: 0;
+            a {
+                color: white;
+                text-decoration: none;
+                transition: all 0.5s;
+                -webkit-transition: all 0.5s;
+                &:hover {
+                    opacity: 0.75;
+                }
+            }
+        }
+        .featured-meta {
+            bottom: 15px;
+            left: 15px;
+            opacity: 0.5;
+            position: absolute;
+            .hearts { float: right; }
+            &:after {
+                clear: both;
+                content: '';
+                display: block;
+                height: 1px;
+            }
+        }
+    }
 }
 
-body.page.home {
-	header {
-		margin-bottom: 0;
-	}
-	.home-top {
-		background: $cream;
-		margin-bottom: 20px;
-		.logo {
-			img {
-				max-height: 300px ;
-			}
-		}
-	}
+.headline {
+    border-bottom: 1px solid #adadad;
+    border-top: 1px solid #adadad;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    text-transform: uppercase;
+    h2 {
+        display: inline-block;
+        font-size: 1.5em;
+        font-weight: 400;
+        margin: 0;
+        strong {
+            font-weight: 700;
+        }
+    }
+    a {
+        display: inline-block;
+        color: black;
+        float: right;
+    }
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 1px;
+    }
+
 }
 
-@media screen and (max-width: $screen-lg-min) {
-
-	
+#home-main {
+    .latest-podcast-wrapper {
+        margin-bottom: 30px;
+    }
+    .latest-entries {
+        .single-entry {
+            position: relative;
+            height: 270px;
+            h3 {
+                font-size: 1.25em;
+                a {
+                    color: black;
+                }
+            }
+            .featured-meta {
+                bottom: 15px;
+                left: 15px;
+                opacity: 0.5;
+                position: absolute;
+                .hearts { float: right; }
+                &:after {
+                    clear: both;
+                    content: '';
+                    display: block;
+                    height: 1px;
+                }
+            }
+        }
+        &.podcast {
+            .single-entry {
+                height: 350px;
+                a.featured-image {
+                    display: block;
+                    position: relative;
+                    &:after {
+                        color: white;
+                        content: $fa-var-play-circle-o;
+                        display: inline-block;
+                        font-family: FontAwesome;
+                        font-size: 10em;
+                        line-height: normal;
+                        left: 30%;
+                        height: 10%;
+                        opacity: 0.75;
+                        position: absolute;
+                        top: 10%;
+                        width: 10%;
+                    }
+                }
+            }
+        }
+    }
 }
-@media screen and (max-width: $screen-md-min) {
-	
-	body.page.home {
-		overflow: auto;
-	}
-	
-}
-@media screen and (max-width: $screen-sm-min) {
 
-	body.page.home { 
-		#home_content {
-			margin-top: 10px;
-		}
-	}
-	img.people_img {
-		display: none; }
-	
+@media(max-width: $screen-md-min) {
+    #home-main {
+        .latest-entries {
+            .single-entry {
+                a.featured-image {
+                    max-height: 185px;
+                    overflow: hidden;
+                    display: block;
+                }
+                div.featured-meta {
+                    bottom: 4px;
+                }
+            }
+        }
+    }
 }

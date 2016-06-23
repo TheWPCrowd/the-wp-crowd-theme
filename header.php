@@ -34,8 +34,7 @@
 		<?php if( is_front_page() ) : ?>
 		<?php
 			$args = array( 'post_type' => 'podcast', 'posts_per_page' => 1 );
-			$podcasts = new WP_Query( $args );
-			$podcasts->the_post();
+			
 			$meme_pic = get_field( 'meme_of_the_week' );
 			$meme_src = $meme_pic['sizes']['large'];
 		?>
@@ -46,10 +45,10 @@
 						<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(). '/build/img/wp_crowd_logo.jpg'; ?>" alt="The WP Crowd" />
 					</div>
 					<div class="col-sm-6 col-xs-8 text-center">
-						<h2 class="text-center hidden-xs hidden-sm">Meme Of The Week</h2>
+						<h2 class="text-center hidden-xs hidden-sm"><?php _e( 'Meme Of The Week', 'thewpcrowd' );?></h2>
 						<a href="<?php the_permalink(); ?>">
 						<?php 
-							echo '<img style="height:210px;margin:0 auto" src="' . $meme_src . '" class="img-responsive" alt="WP Crowd" style="margin:0 auto;" />';
+							echo '<img style="height:210px;margin:0 auto" src="' . $meme_src . '" class="img-responsive"  style="margin:0 auto;" />';
 						?>
 						</a>
 					</div>

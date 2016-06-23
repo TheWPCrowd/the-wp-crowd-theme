@@ -12,8 +12,8 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
-					<div class="meta">Date: <?php the_date( 'F j, Y' ); ?></div>
-					<div class="meta">Written by: <?php the_author(); ?></div>
+					<div class="meta"><?php _e( 'Date:', 'thewpcrowd' );?> <?php the_date( 'F j, Y' ); ?></div>
+					<div class="meta"><?php _e( 'Written by:', 'thewpcrowd' );?> <?php the_author(); ?></div>
 				</div>
 				<div class="col-sm-6">
 					<div class="hidden-xs hidden-sm">
@@ -24,7 +24,7 @@
 			<div class="row buffer">
 				<div class="col-sm-12">
 					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block hidden-sm hidden-xs"><?php the_title(); ?></a>
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block visible-sm visible-xs">Read Article</a>
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block visible-sm visible-xs"><?php _e( 'Read Article', 'thewpcrowd' );?></a>
 				</div>
 			</div>
 		</article>

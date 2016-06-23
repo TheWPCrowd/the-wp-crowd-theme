@@ -14,8 +14,8 @@
 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
 					</div>
-					<div class="meta"><em>Air Date: <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
-					<div class="meta">Running Time: <?php echo get_field( 'runtime', $post->ID); ?></div>
+					<div class="meta"><em><?php _e( 'Air Date:', 'thewpcrowd' );?> <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
+					<div class="meta"><?php _e( 'Running Time:', 'thewpcrowd' );?> <?php echo get_field( 'runtime', $post->ID); ?></div>
 				</div>
 				<div class="col-sm-6">
 					<?php the_excerpt(); ?>
@@ -30,7 +30,7 @@
 		<?php endwhile; ?>
 		<div class="navigation">
 			<p>
-				<?php posts_nav_link( ' | ', 'Newer Podcasts', 'Older Podcasts' ); ?>
+				<?php posts_nav_link( ' | ', __( 'Newer Podcasts', 'thewpcrowd' ), __( 'Older Podcasts', 'thewpcrowd' ) ); ?>
 			</p>
 		</div>
 	</div>

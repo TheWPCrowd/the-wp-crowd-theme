@@ -15,9 +15,9 @@
 			}
 			?>
 			<dl>
-				<dt>Written by:</dt>
-				<dd><?php printf( '<a href="%s" rel="author" title="%s" target="_blank">%s</a>', esc_url( $url ), esc_attr( 'Learn about ' . get_the_author()  ), esc_html( get_the_author() ) ); ?></dd>
-				<dt>Published: </dt>
+				<dt><?php _e( 'Written by:', 'thewpcrowd' );?></dt>
+				<dd><?php printf( '<a href="%s" rel="author" title="%s" target="_blank">%s</a>', esc_url( $url ), esc_attr( __( 'Learn about ', 'thewpcrowd' ) . get_the_author()  ), esc_html( get_the_author() ) ); ?></dd>
+				<dt><?php _e( 'Published:', 'thewpcrowd' );?> </dt>
 				<dd><?php the_date( 'F j, Y'); ?></dd>
 			</dl>
 		<?php

@@ -13,16 +13,16 @@
 ?>
 	
 	<div class="col-sm-8 content list">
-		<h1 class="page-title">Crowd Member: <?php echo $wp_query->get_queried_object()->name; ?></h1>
+		<h1 class="page-title"><?php _e( 'Crowd Member:', 'thewpcrowd' );?> <?php echo $wp_query->get_queried_object()->name; ?></h1>
 		<div class="row person-profile">
 			<div class="col-sm-4">
-				<img src="<?php echo $profile_pic; ?>" alt="The WP Crowd" class="img-responsive profile-pic" />
+				<img src="<?php echo $profile_pic; ?>" alt="<?php _e( 'The WP Crowd', 'thewpcrowd' );?>" class="img-responsive profile-pic" />
 			</div>
 			<div class="col-sm-8">
 				<ul>
 					<?php if( isset( $meta['person_bio'] ) ): ?>
 						<li>
-							<strong>BIO</strong>
+							<strong><?php _e( 'BIO', 'thewpcrowd' );?></strong>
 							<p><?php echo $meta['person_bio']; ?></p>
 						</li>
 					<?php endif; ?>
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<?php if( have_posts() ) : ?>
-		<h1 class="page-title">Podcasts with <?php echo $wp_query->get_queried_object()->name; ?></h1>
+		<h1 class="page-title"><?php _e( 'Podcasts with ', 'thewpcrowd' );?><?php echo $wp_query->get_queried_object()->name; ?></h1>
 		<?php while( have_posts() ): the_post(); ?>
 		<article>
 			<h2 class="page-title"><?php the_title(); ?></h2>
@@ -46,7 +46,7 @@
 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
 					</div>
-					<div class="meta">Running Time: <?php echo get_field( 'runtime', $post->ID); ?></div>
+					<div class="meta"><?php _e( 'Running Time:', 'thewpcrowd' );?> <?php echo get_field( 'runtime', $post->ID); ?></div>
 				</div>
 				<div class="col-sm-6">
 					<?php the_excerpt(); ?>

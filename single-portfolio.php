@@ -8,11 +8,11 @@
 	
 	<div class="col-sm-12">
 		<?php
-			echo '<h2>'.get_the_title().'</h2>';
+			echo '<h2>' . get_the_title() . '</h2>';
 			
 			the_content(); 
 			
-			echo '<h3>Gallery</h3>';
+			echo '<h3>' . __( 'Gallery', 'thewpcrowd' ) . '</h3>';
 			foreach( $gallery_images as $key => $value ) {
 				echo '<div class="col-sm-4">';
 					echo '<img src="'.$value.'" alt="'.get_the_title().' gallery" style="margin:0 auto" class="img-responsive" />';

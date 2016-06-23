@@ -1,9 +1,6 @@
 <?php
 wp_reset_query();
-query_posts( 'posts_per_page=13&offset=0' );
 get_header();
-the_post();
-global $wp_query;
 ?>
 
 <div class="container archive">

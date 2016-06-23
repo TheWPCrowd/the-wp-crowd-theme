@@ -12,16 +12,6 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-7601975-17', 'auto');
-		  ga('send', 'pageview');
-		
-		</script>
 	</head>
 	<body <?php body_class(); ?>>
 		<header class="container-fluid">
@@ -34,7 +24,8 @@
 		<?php if( is_front_page() ) : ?>
 		<?php
 			$args = array( 'post_type' => 'podcast', 'posts_per_page' => 1 );
-			
+			$podcasts = new WP_Query( $args );
+			$podcasts->the_post();
 			$meme_pic = get_field( 'meme_of_the_week' );
 			$meme_src = $meme_pic['sizes']['large'];
 		?>

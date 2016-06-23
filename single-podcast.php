@@ -17,8 +17,8 @@
 ?>
 	
 	<div class="col-sm-8 content <?php echo 'chat_'.$chat_on; ?> ">
-		<h2 class="page_title"><?php the_title(); ?></h2>
-		<div class="post_meta"><em>Air Date: <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
+		<h2 class="page-title"><?php the_title(); ?></h2>
+		<div class="post-meta"><em>Air Date: <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
 		<?php 
 			if( isset( $_GET['rsvp'] ) ): 
 			$all_crowd = get_terms( 'people', array( 'hide_empty' => false ) );
@@ -47,7 +47,7 @@
 			<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
 		</div>
 
-		<div class="topic_in_podcast">
+		<div class="topic-in-podcast">
 			<strong>Topics:</strong> 
 			<?php 
 				foreach( $topics as $topic ) {
@@ -56,7 +56,7 @@
 			?>
 		</div>
 		
-		<div class="crowd_in_podcast">
+		<div class="crowd-in-podcast">
 			<strong>Crowd Members:</strong> 
 			<?php 
 				foreach( $crowd as $person ) {
@@ -66,7 +66,7 @@
 		</div>
 		
 		<?php if( !empty( $guests ) ): ?>
-		<div class="crowd_in_podcast">
+		<div class="crowd-in-podcast">
 			<strong>Guests:</strong> 
 			<?php 
 				foreach( $guests as $person ) {

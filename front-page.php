@@ -9,7 +9,7 @@
 				<h1>WordPress Podcast</h1>
 				<?php while( $podcasts->have_posts() ): $podcasts->the_post(); ?>
 				<article>
-					<h2 class="page_title">
+					<h2 class="page-title">
 						<a href="<?php the_permalink(); ?>">
 							<?php the_title(); ?>
 						</a>
@@ -39,7 +39,7 @@
 				<h1>WordPress Blog</h1>
 				<?php while( $blog->have_posts() ): $blog->the_post(); ?>
 				<article>
-					<h2 class="page_title">
+					<h2 class="page-title">
 						<a href="<?php the_permalink(); ?>">
 							<?php the_title(); ?>
 						</a>

@@ -6,17 +6,17 @@
 	$meta = Taxonomy_MetaData::get( 'people', $term_id );
 	
 	$profile_pic = get_stylesheet_directory_uri(). '/build/img/wp_crowd_logo.jpg';
-	if( isset( $meta['person_profile'] )  ) {
-		$profile_pic = $meta['person_profile'];
+	if( isset( $meta['person-profile'] )  ) {
+		$profile_pic = $meta['person-profile'];
 	}
 	
 ?>
 	
 	<div class="col-sm-8 content list">
-		<h1 class="page_title">Crowd Member: <?php echo $wp_query->get_queried_object()->name; ?></h1>
-		<div class="row person_profile">
+		<h1 class="page-title">Crowd Member: <?php echo $wp_query->get_queried_object()->name; ?></h1>
+		<div class="row person-profile">
 			<div class="col-sm-4">
-				<img src="<?php echo $profile_pic; ?>" alt="The WP Crowd" class="img-responsive profile_pic" />
+				<img src="<?php echo $profile_pic; ?>" alt="The WP Crowd" class="img-responsive profile-pic" />
 			</div>
 			<div class="col-sm-8">
 				<ul>
@@ -37,10 +37,10 @@
 			</div>
 		</div>
 		<?php if( have_posts() ) : ?>
-		<h1 class="page_title">Podcasts with <?php echo $wp_query->get_queried_object()->name; ?></h1>
+		<h1 class="page-title">Podcasts with <?php echo $wp_query->get_queried_object()->name; ?></h1>
 		<?php while( have_posts() ): the_post(); ?>
 		<article>
-			<h2 class="page_title"><?php the_title(); ?></h2>
+			<h2 class="page-title"><?php the_title(); ?></h2>
 			<div class="row" style="margin-bottom:10px;">
 				<div class="col-sm-6">
 					<div class="embed-responsive embed-responsive-16by9">

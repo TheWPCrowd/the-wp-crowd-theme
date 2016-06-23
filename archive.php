@@ -4,7 +4,7 @@
 	<div class="col-sm-8 content list">
 		<?php while( have_posts() ): the_post(); ?>
 		<article>
-			<h2 class="page_title">
+			<h2 class="page-title">
 				<a href="<?php the_permalink(); ?>">
 					<?php the_title(); ?>
 				</a>

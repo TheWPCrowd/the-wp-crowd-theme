@@ -5,11 +5,11 @@
 ?>
 	
 	<div class="col-sm-8 content list">
-		<h1 class="page_title">Topic: <?php echo $wp_query->get_queried_object()->name; ?></h1>
+		<h1 class="page-title">Topic: <?php echo $wp_query->get_queried_object()->name; ?></h1>
 		<?php if( have_posts() ) : ?>
 		<?php while( have_posts() ): the_post(); ?>
 			<article>
-				<h2 class="page_title">
+				<h2 class="page-title">
 					<a href="<?php the_permalink(); ?>">
 						<?php the_title(); ?>
 					</a>
@@ -37,7 +37,7 @@
 			</article>
 		<?php endwhile; ?>
 		<?php else: ?>
-			<h2 class="page_title">Empty Topic... we will likely be talking about this stuff at some point maybe later</h2>
+			<h2 class="page-title">Empty Topic... we will likely be talking about this stuff at some point maybe later</h2>
 		<?php endif;?>
 	</div>
 	<div class="col-sm-4">

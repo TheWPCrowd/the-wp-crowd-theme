@@ -8244,7 +8244,7 @@ footer {
 
 #home-main .latest-entries .single-entry {
   position: relative;
-  height: 300px; }
+  height: 270px; }
   #home-main .latest-entries .single-entry h3 {
     font-size: 1.25em; }
     #home-main .latest-entries .single-entry h3 a {
@@ -8545,7 +8545,7 @@ footer {
   padding-top: 30px; }
   .container.archive .latest-entries .single-entry {
     position: relative;
-    height: 300px; }
+    height: 270px; }
     @media screen and (max-width: 992px) {
       .container.archive .latest-entries .single-entry {
         height: auto;

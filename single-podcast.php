@@ -101,12 +101,5 @@
 			
 		?>
 	</div>
-	<div class="col-sm-4">
-		<?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>
-			<ul class="sidebar">
-				<?php dynamic_sidebar( 'default-sidebar' ); ?>
-			</ul>
-		<?php endif; ?>
-	</div>
 
 <?php get_footer(); ?>

@@ -17,10 +17,10 @@ div.content {
 	color: #666;
 	line-height: 1.6;
 
-	h1.page_title {
+	h1.page-title {
 		padding-bottom: 10px;
 	}
-	h2.page_title { 
+	h2.page-title { 
 		border-bottom: 1px solid $red;
 		color: $red;
 		margin-top: 0;
@@ -30,7 +30,7 @@ div.content {
 			
 		}
 	}
-	.post_meta,
+	.post-meta,
 	.post-meta {
 		padding: 10px 0;
 		font-size: 1.25em;
@@ -38,7 +38,7 @@ div.content {
 	h1,h2,h3,h4,h5,h6 {
 		color: #333;
 	}
-	.crowd_in_podcast {
+	.crowd-in-podcast {
 		border-bottom: 2px solid $red;
 		border-left: none;
 		border-right: none;
@@ -55,8 +55,8 @@ div.content {
 			padding: 0 10px;
 		}
 	}
-	.topic_in_podcast {
-		@extend .crowd_in_podcast;
+	.topic-in-podcast {
+		@extend .crowd-in-podcast;
 		border-bottom: none;
 		border-top: 2px solid $red;
 		padding: 15px 0 0 0;
@@ -76,7 +76,7 @@ div.content {
 }
 body.home {
 	div.content {
-		h2.page_title {
+		h2.page-title {
 			font-size: 1.75em;
 		}
 		&.list {

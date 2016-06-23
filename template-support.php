@@ -13,7 +13,7 @@ get_header(); the_post(); ?>
 		<?php endif; ?>
 	</div>
 	<div class="col-sm-8 content">
-		<h2 class="page_title"><?php the_title(); ?></h2>
+		<h2 class="page-title"><?php the_title(); ?></h2>
 		<?php
 			the_content();
 		?>

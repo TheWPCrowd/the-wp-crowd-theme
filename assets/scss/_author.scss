@@ -1,0 +1,112 @@
+#author-top {
+    background: #f6f6f6;
+    border: 1px solid #e5e3e4;
+    margin-bottom: 30px;
+    margin-top: 125px;
+    padding-bottom: 30px;
+    .avatar-wrapper {
+        padding: 0 25%;
+        position: relative;
+        text-align: center;
+        transform: translateY(-75px);
+        img {
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        h2 { margin: 5px 0; }
+        h5 {
+            color: darken( #e5e3e4, 20 );
+            font-size: 1.5em;
+            font-weight: 400;
+            margin: 0;
+            text-transform: capitalize;
+        }
+    }
+    p {
+        font-size: 1.25em;
+        padding: 0 20px;
+        color: darken( #e5e3e4, 30 );
+    }
+    .author-info {
+        border-left: 1px solid #e5e3e4;
+        margin-top: 30px;
+        padding: 30px 0 30px 30px;
+        .location {
+            color: darken( #e5e3e4, 20 );
+            font-size: 1.25em;
+            padding-left: 15px;
+            i {
+                color: $brand-warning;
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+        a.circle {
+            display: block;
+            i {
+                border: 1px solid $brand-primary;
+                border-radius: 50%;
+                display: inline-block;
+                line-height: 30px;
+                margin: 10px 5px;
+                opacity: 0.5;
+                text-align: center;
+                transition: all 1s;
+                width: 30px;
+            }
+            &.bio {
+                i {
+                    font-size: 0.75em;
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+#home-main.author-archive {
+    .latest-entries {
+        .single-entry {
+            a.featured-image {
+                display: block;
+                height: 150px;
+                overflow: hidden;
+            }
+        }
+        &.podcast {
+            .single-entry {
+                a.featured-image {
+                    height: 220px;
+                }
+            }
+        }
+    }
+}
+
+.follow-links {
+    list-style-type:none;
+    margin:10px 0 0 0;
+    padding:0;
+    
+    li { display:inline-block;}
+    
+    a:before {
+        border-radius: 50%;
+        border: solid 1px $link-color;
+        height: 2em;
+        width: 2em;
+        line-height:2em;
+        display:inline-block;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    a:hover:before {
+        border: solid 1px $link-hover-color;
+    }
+}

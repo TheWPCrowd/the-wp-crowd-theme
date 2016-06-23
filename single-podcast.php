@@ -17,15 +17,15 @@
 ?>
 	
 	<div class="col-sm-8 content <?php echo 'chat_'.$chat_on; ?> ">
-		<h2 class="page_title"><?php the_title(); ?></h2>
-		<div class="post_meta"><em>Air Date: <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
+		<h2 class="page-title"><?php the_title(); ?></h2>
+		<div class="post-meta"><em><?php _e( 'Air Date:', 'thewpcrowd' );?> <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
 		<?php 
 			if( isset( $_GET['rsvp'] ) ): 
 			$all_crowd = get_terms( 'people', array( 'hide_empty' => false ) );
 		?>
 		<form method="post" action="<?php echo get_the_permalink(); ?>">
-			<h3>Attending</h3>
-			<p>If you are attending, check the box next to your name and hit save</p>
+			<h3><?php _e( 'Attending', 'thewpcrowd' );?></h3>
+			<p><?php _e( 'If you are attending, check the box next to your name and hit save.', 'thewpcrowd' );?></p>
 			<?php 
 				foreach( $all_crowd as $person ) {
 					echo '<div class="checkbox">';
@@ -39,7 +39,7 @@
 				}
 			?>
 			
-		<input type="submit" value="Save" class="btn btn-block btn-primary" />	
+		<input type="submit" value="<?php _e( 'Save', 'thewpcrowd' );?>" class="btn btn-block btn-primary" />	
 		</form>
 		
 		<?php else: ?>
@@ -47,8 +47,8 @@
 			<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
 		</div>
 
-		<div class="topic_in_podcast">
-			<strong>Topics:</strong> 
+		<div class="topic-in-podcast">
+			<strong><?php _e( 'Topics:', 'thewpcrowd' );?></strong> 
 			<?php 
 				foreach( $topics as $topic ) {
 					echo '<a href="/topics/' . $topic->slug. '" class="person">' . $topic->name . '</a>';
@@ -56,8 +56,8 @@
 			?>
 		</div>
 		
-		<div class="crowd_in_podcast">
-			<strong>Crowd Members:</strong> 
+		<div class="crowd-in-podcast">
+			<strong><?php _e( 'Crowd Members:', 'thewpcrowd' );?></strong> 
 			<?php 
 				foreach( $crowd as $person ) {
 					echo '<a href="/people/' . $person->slug . '" class="person">' . $person->name . '</a>';
@@ -66,8 +66,8 @@
 		</div>
 		
 		<?php if( !empty( $guests ) ): ?>
-		<div class="crowd_in_podcast">
-			<strong>Guests:</strong> 
+		<div class="crowd-in-podcast">
+			<strong><?php _e( 'Guests:', 'thewpcrowd' );?></strong> 
 			<?php 
 				foreach( $guests as $person ) {
 					$meta = Taxonomy_MetaData::get( 'guest', $person->term_id );
@@ -82,16 +82,17 @@
 			?>
 		</div>
 		<?php endif; ?>
+
+		<h2><?php _e( 'Episode Description', 'thewpcrowd' );?></h2>
 		<?php 
 			
-			echo '<h2>Episode Description</h2>';
 			the_content(); 
 			
 			if( get_field( 'meme_of_the_week' ) ):
-				echo '<h2>MEME of the week</h2>';
+				echo '<h2>' . __( 'MEME of the week', 'thewpcrowd' ) . '</h2>';
 				$meme_pic = get_field( 'meme_of_the_week' );
 				$meme_src = $meme_pic['sizes']['large'];
-				echo '<img src="' . $meme_src . '" class="img-responsive" alt="WP Crowd" />';
+				echo '<img src="' . $meme_src . '" class="img-responsive" alt="' . __( 'WP Crowd', 'thewpcrowd' ) . '" />';
 				
 			endif;
 			
@@ -99,13 +100,6 @@
 			endif; 
 			
 		?>
-	</div>
-	<div class="col-sm-4">
-		<?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>
-			<ul class="sidebar">
-				<?php dynamic_sidebar( 'default-sidebar' ); ?>
-			</ul>
-		<?php endif; ?>
 	</div>
 
 <?php get_footer(); ?>

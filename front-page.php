@@ -25,7 +25,7 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 							<?php echo get_the_title( $first_podcast->ID ); ?>
 						</a>
 						<div class="post-excerpt">
-							<?php echo substr( get_the_excerpt( $first_podcast->ID ), 0, 200 ) . '...'; ?>
+							<?php echo substr( $first_podcast->post_content, 0, 200 ) . '...'; ?>
 						</div>
 					</h3>
 					<div class="featured-meta">

@@ -5,11 +5,11 @@
 
 	$cattitle = ( is_tax() && 'podcast' == get_post_type() ? 'Videos' : 'Articles');
 						
-	$caturl = ( is_tax() && 'podcast' == get_post_type() ? get_bloginfo('wpurl') . '/podcast' : get_bloginfo('wpurl') .'/thewpcrowd-blog' );
+	$caturl = ( is_tax() && 'podcast' == get_post_type() ? get_bloginfo('url') . '/podcast' : get_bloginfo('url') .'/thewpcrowd-blog' );
 
 	$singletitle = ( is_singular('podcast') ? 'Videos' : 'Articles' );
 
-	$singleurl = ( is_singular('podcast') ? get_bloginfo('wpurl') . '/podcast' : get_bloginfo('wpurl') .'/thewpcrowd-blog' );
+	$singleurl = ( is_singular('podcast') ? get_bloginfo('url') . '/podcast' : get_bloginfo('url') .'/thewpcrowd-blog' );
 
 ?>
 

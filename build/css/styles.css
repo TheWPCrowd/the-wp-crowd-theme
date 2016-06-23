@@ -8545,7 +8545,7 @@ footer {
   padding-top: 30px; }
   .container.archive .latest-entries .single-entry {
     position: relative;
-    height: 250px; }
+    height: 300px; }
     @media screen and (max-width: 992px) {
       .container.archive .latest-entries .single-entry {
         height: auto;

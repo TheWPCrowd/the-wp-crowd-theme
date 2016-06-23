@@ -44,7 +44,7 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 				<div class="latest-podcast-wrapper">
 					<div class="headline">
 						<h2>Latest <strong>Videos</strong></h2>
-						<a href="<?php echo get_bloginfo('wpurl'); ?>/podcast">See All <strong>Videos</strong></a>
+						<a href="<?php echo get_bloginfo('url'); ?>/podcast">See All <strong>Videos</strong></a>
 					</div>
 					<div class="row latest-entries podcast">
 					<?php $i=0; if( $podcasts->have_posts() ) : while( $podcasts->have_posts() ) : $podcasts->the_post(); if( $i > 0 ) :?>
@@ -70,7 +70,7 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 				<div class="latest-podcast-wrapper">
 					<div class="headline">
 						<h2>Latest <strong>Articles</strong></h2>
-						<a href="<?php echo get_bloginfo('wpurl'); ?>/thewpcrowd-blog">See All <strong>articles</strong></a>
+						<a href="<?php echo get_bloginfo('url'); ?>/thewpcrowd-blog">See All <strong>articles</strong></a>
 					</div>
 					<div class="row latest-entries blog">
 						<?php $i=0; if( $blog->have_posts() ) : while( $blog->have_posts() ) : $blog->the_post(); if( $i > 0 ) :?>

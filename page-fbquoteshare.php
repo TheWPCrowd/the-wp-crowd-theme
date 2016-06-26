@@ -36,7 +36,7 @@ function wpcrowd_share_buttons_serverside_sharing_facebook() {
 	}
 	$text = get_query_var( 't' );
 	// if some sort of text set, then return the array of data :)
-	if (!empty( $text) ) {
+	if (! empty( $text) ) {
 		$node = node_load( $id);
 		// if no node on that nid re-direct
 		if( $node == false) {
@@ -63,19 +63,19 @@ $output = wpcrowd_share_buttons_serverside_sharing_facebook();
   <head>
 	<meta charset="UTF-8">
 	<title><?php print $the_title ?></title>
-	<meta name="description" content="<?php _e( 'Quote: ' ) ?><?php echo $output['description'] ?>" />
+	<meta name="description" content="<?php _e( 'Quote:', 'wpcrowd' ) ?> <?php echo $output['description'] ?>" />
 	<meta property="og:title" content="<?php echo $output['title'] ?>" />
 	<meta property="og:url" content="<?php echo $output['url'] ?>" />
-	<meta property="og:description" content="<?php _e( 'Quote: ' ) ?><?php echo $output['description'] ?>" />
+	<meta property="og:description" content="<?php _e( 'Quote:', 'wpcrowd' ) ?> <?php echo $output['description'] ?>" />
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="<?php echo  $output['image'] ; ?>" />
-	<link rel="img_src" href="<?php echo   $output['image'] ?>" />
+	<meta property="og:image" content="<?php echo $output['image'] ; ?>" />
+	<link rel="img_src" href="<?php echo $output['image'] ?>" />
   </head>
 <body>
 	<div id="wrapper">
 		<h1><?php echo $output['title'] ?></h1>
-		<img src="<?php echo   $output['image'] ?>" />
-		<a href="<?php echo $output['url'] ?>"> <?php echo $output['description'] ?></a>
+		<img src="<?php echo $output['image'] ?>" alt="<?php echo esc_attr( $output['title'] ); ?>" />
+		<a href="<?php echo $output['url'] ?>" title="<?php echo esc_attr( $output['title'] ); ?>"><?php echo $output['description'] ?></a>
 	</div>
 </body>
 </html>

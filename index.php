@@ -3,13 +3,13 @@
 	get_header();
 	global $wp_query;
 
-	$cattitle = ( is_tax() && 'podcast' == get_post_type() ? 'Videos' : 'Articles' );
+	$cattitle = ( is_tax() && 'podcast' == get_post_type() ? __( 'Videos', 'wpcrowd' ) : __( 'Articles', 'wpcrowd' ) );
 
-	$caturl = ( is_tax() && 'podcast' == get_post_type() ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) .'/thewpcrowd-blog' );
+	$caturl = ( is_tax() && 'podcast' == get_post_type() ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) . '/thewpcrowd-blog' );
 
-	$singletitle = ( is_singular( 'podcast' ) ? 'Videos' : 'Articles' );
+	$singletitle = ( is_singular( 'podcast' ) ? __( 'Videos', 'wpcrowd' ) : __( 'Articles', 'wpcrowd' ) );
 
-	$singleurl = ( is_singular( 'podcast' ) ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) .'/thewpcrowd-blog' );
+	$singleurl = ( is_singular( 'podcast' ) ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) . '/thewpcrowd-blog' );
 
 ?>
 
@@ -47,7 +47,7 @@
 								</a>
 							<?php endif; ?>
 								<h3>
-									<a href="<?php the_permalink(); ?>">
+									<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 										<?php the_title(); ?>
 									</a>
 								</h3>
@@ -60,7 +60,7 @@
 					<?php endwhile; endif; //end if/while have_posts
 
 					if ( class_exists( 'PageNavi_Call' ) ) {
-						wp_pagenavi(  );
+						wp_pagenavi();
 					} else {
 						the_posts_navigation();
 					}

@@ -12,7 +12,7 @@
 
 	$people_terms = get_terms( 'people' );
 	$podcasters = array();
-	if( !empty( $people_terms ) ) {
+	if( ! empty( $people_terms ) ) {
 		foreach( $people_terms as $person ) {
 			$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
 			if( $associated_user ) {
@@ -28,8 +28,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12 text-center contributors-wrapper">
-			<h1>Contributors</h1>
+			<h1><?php _e( 'Contributors', 'wpcrowd' );?></h1>
 			<div class="row">
+
 				<?php
 					foreach( $author_ids as $author ):
 						$user = get_user_by( 'id', $author );
@@ -38,8 +39,8 @@
 						if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 							$author_name = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 						}
-						$location = get_field( 'location', 'user_'.$user->ID );
-						if( !$location ) {
+						$location = get_field( 'location', 'user_' . $user->ID );
+						if( ! $location ) {
 							$location = '';
 						}
 				?>
@@ -47,7 +48,7 @@
 						<div class="contributor">
 							<div class="contributor-image">
 								<a href="<?php echo get_author_posts_url( $user->ID ); ?>">
-									<?php echo get_avatar( $user->ID, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) ); ?>
+									<?php echo get_avatar( $user->ID, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) ); ?>
 								</a>
 							</div>
 							<div class="contributor-meta">
@@ -56,10 +57,10 @@
 										<?php echo $author_name; ?>
 									</a>
 								</h3>
-								<?php if( get_field( 'title', 'user_'.$user->ID ) ) : ?>
+								<?php if( get_field( 'title', 'user_' . $user->ID ) ) : ?>
 									<h5>
 										<?php
-											$title = get_field( 'title', 'user_'.$user->ID );
+											$title = get_field( 'title', 'user_' . $user->ID );
 											$title = str_replace( '-', ' ', $title );
 											$title = str_replace( '_', ' ', $title );
 											echo $title;
@@ -72,18 +73,18 @@
 										<?php echo $location; ?>
 									</div>
 								<?php endif; ?>
-								<?php if( get_field( 'biography', 'user_'.$user->ID ) ) : ?>
+								<?php if( get_field( 'biography', 'user_' . $user->ID ) ) : ?>
 									<a href="<?php echo get_author_posts_url( $user->ID ); ?>" class="bio circle">
-										<i>BIO</i>
+										<i><?php _e( 'BIO', 'wpcrowd' );?></i>
 									</a>
 								<?php endif; ?>
-								<?php if( get_field( 'twitter_handle', 'user_'.$user->ID ) ) : ?>
-									<a href="https://twitter.com/<?php echo get_field( 'twitter_handle', 'user_'.$user->ID ); ?>" target="_blank" class="circle">
+								<?php if( get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
+									<a href="https://twitter.com/<?php echo get_field( 'twitter_handle', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
 										<i class="fa fa-twitter" aria-hidden="true"></i>
 									</a>
 								<?php endif; ?>
-								<?php if( get_field( 'facebook_url', 'user_'.$user->ID ) ) : ?>
-									<a href="<?php echo get_field( 'facebook_url', 'user_'.$user->ID ); ?>" target="_blank" class="circle">
+								<?php if( get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
+									<a href="<?php echo get_field( 'facebook_url', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
 									</a>
 								<?php endif; ?>

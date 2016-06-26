@@ -4,7 +4,7 @@ $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7
 $first_podcast  = false;
 
 if ($podcasts->have_posts() ){
-    $first_podcast = $podcasts->posts[0];
+	$first_podcast = $podcasts->posts[0];
 }
 $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 ?>
@@ -14,11 +14,11 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 	<div class="container-fluid" id="home-top">
 		<div class="container">
 			<div class="row">
-                                <?php if(function_exists('get_field')) { ?>
+								<?php if(function_exists('get_field')) { ?>
 				<div class="col-sm-8 featured-image" style="background-image: url(http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $first_podcast->ID ); ?>/hqdefault.jpg);">
 					<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>"></a>
 				</div>
-                                <?php } ?>
+								<?php } ?>
 				<div class="col-sm-4 featured-info">
 					<h3>
 						<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>">
@@ -49,11 +49,11 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 					<div class="row latest-entries podcast">
 					<?php $i=0; if( $podcasts->have_posts() ) : while( $podcasts->have_posts() ) : $podcasts->the_post(); if( $i > 0 ) :?>
 						<article class="col-sm-4 single-entry">
-                                                        <?php if(function_exists('get_field')) { ?>
+														<?php if(function_exists('get_field')) { ?>
 							<a href="<?php the_permalink(); ?>" class="featured-image">
 								<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 							</a>
-                                                        <?php } ?>
+														<?php } ?>
 							<h3>
 								<a href="<?php the_permalink(); ?>">
 									<?php the_title(); ?>

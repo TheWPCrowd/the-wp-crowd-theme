@@ -6,9 +6,9 @@
 	global $wpdb;
 	$min_posts = 1; // Make sure it's int, it's not escaped in the query
 	$author_ids = $wpdb->get_col("SELECT `post_author` FROM
-	    (SELECT `post_author`, COUNT(*) AS `count` FROM {$wpdb->posts}
-	        WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
-	    WHERE `count` >= {$min_posts} ORDER BY `count` DESC;");
+		(SELECT `post_author`, COUNT(*) AS `count` FROM {$wpdb->posts}
+			WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
+		WHERE `count` >= {$min_posts} ORDER BY `count` DESC;");
 
 	$people_terms = get_terms( 'people' );
 	$podcasters = array();

@@ -27,7 +27,7 @@ class my_theme {
 
 		register_nav_menus( array(
 			'top_header'   => __( 'Top Header', 'wp-crowd' ),
-			'header'       => __( 'Header Menu', 'wp-crowd' ),
+			'header'	   => __( 'Header Menu', 'wp-crowd' ),
 			'footer_left'  => __( 'Footer Menu (Left)', 'wp-crowd' ),
 			'footer_right' => __( 'Footer Menu (Right)', 'wp-crowd' ),
 		) );
@@ -65,7 +65,7 @@ class my_theme {
 		global $post;
 		if( is_page( 'contributors' ) ) {
 			echo '<script async defer
-		        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
 			</script>';
 		}
 	}

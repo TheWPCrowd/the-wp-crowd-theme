@@ -3,7 +3,7 @@ get_header();
 the_post();
 ?>
 
-<div class="container single-container">	
+<div class="container single-container">
 	<div class="row">
 		<div class="col-sm-8 content">
 			<h2 class="single-title"><?php the_title(); ?></h2>
@@ -27,19 +27,19 @@ the_post();
 								<div class="air-date text-right"><strong>Aired:</strong> <?php if(function_exists('get_field')){ echo get_field( 'air_date' ); } ?></div>
 								<div class="podcast-people">
 										<strong>In This Episode</strong>
-										<?php	
+										<?php
 											if(!empty($podcasters) && is_array($podcasters)) {
 												foreach( $podcasters as $user ) { ?>
 													<a href="<?php echo get_author_posts_url( $user ); ?>">
-													<?php 
-														echo get_avatar( $user, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) ); 
+													<?php
+														echo get_avatar( $user, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) );
 														$usermeta = get_user_meta( $user );
 														echo $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 													?>
 													</a>
-										<?php 
-												} 
-											} 
+										<?php
+												}
+											}
 										?>
 										</div>
 										<div class="categories">
@@ -54,45 +54,45 @@ the_post();
 												</ul>
 												<?php } ?>
 										</div>
-					<?php 
-										
-											} else { 
+					<?php
+
+											} else {
 											the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-											
+
 										?>
 						<div class="author-meta row">
 							<div class="col-xs-2 author-avatar text-center">
 								<?php echo get_avatar( $post->post_author, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) ); ?>
 							</div>
 							<div class="col-xs-7">
-															   
+
 								<h3><?php echo get_the_author_meta( 'display_name' ) ?></h3>
 								<?php if( function_exists('get_field') && get_field( 'title', 'user_'.$post->post_author ) ) : ?>
 									<h5>
-										<?php 
+										<?php
 																				$title = get_field( 'title', 'user_'.$post->post_author );
 										$title = str_replace( '-', ' ', $title );
 										$title = str_replace( '_', ' ', $title );
 										echo $title;
 																				?>
 									</h5>
-																
-								<?php endif; 
-																
+
+								<?php endif;
+
 																if(function_exists('wpcrowd_author_follow')){
 																	wpcrowd_author_follow();
-																} else {	
+																} else {
 																		$user = get_user_by( 'id', $post->post_author );
 																		if( function_exists('get_field') && get_field( 'biography', 'user_'.$user->ID ) ) : ?>
 																				<a href="<?php echo get_author_posts_url( $user->ID ) ?>" class="bio circle">
 																						<i>BIO</i>
 																				</a>
-																		<?php endif; 
+																		<?php endif;
 																		if( function_exists('get_field') && get_field( 'twitter_handle', 'user_'.$user->ID ) ) : ?>
 																				<a href="https://twitter.com/' <?php echo get_field( 'twitter_handle', 'user_'.$user->ID ) ?>" target="_blank" class="circle">
 																						<i class="fa fa-twitter" aria-hidden="true"></i>
 																				</a>
-																		<?php endif; 
+																		<?php endif;
 																		if( function_exists('get_field') && get_field( 'facebook_url', 'user_'.$user->ID ) ) : ?>
 																		<a href="<?php echo get_field( 'facebook_url', 'user_'.$user->ID ) ?>" target="_blank" class="circle">
 																						<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -103,7 +103,7 @@ the_post();
 																						<i class="fa fa-home" aria-hidden="true"></i>
 																				</a>
 																		<?php endif;
-																		
+
 																}		?>
 							</div>
 							<div class="col-xs-3 date"><strong>Published: </strong><?php echo get_the_date( 'F j, Y' ) ?></div>
@@ -112,22 +112,22 @@ the_post();
 							<strong>Topics:</strong>
 							<?php echo get_the_category_list() ?>
 						</div>
-				<?php 	} ?>				
+				<?php 	} ?>
 			</div>
 			<div class="content-container">
 				<?php
 									 if(function_exists('wpcrowd_share')){
 											wpcrowd_share();
 									 }
-								
+
 					the_content();
 					if( 'podcast' == get_post_type() && has_post_thumbnail() ) {
 						the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
 					}
-										
-	
-									   
-	
+
+
+
+
 					comments_template();
 				?>
 			</div>

@@ -78,4 +78,4 @@ add_action( 'after_setup_theme', array( $my_theme, 'theme_setup' ) );
 add_action( 'widgets_init', array( $my_theme, 'register_sidebars' ) );
 add_action( 'init', array( $my_theme, 'author_rewrite_init' ) );
 add_action( 'wp_head', array( $my_theme, 'gmaps_head' ) );
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );

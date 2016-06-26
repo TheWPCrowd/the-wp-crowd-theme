@@ -1,9 +1,9 @@
 <?php
 /*
  * Template Name: Facebook Quote Sharing
- * 
+ *
  * description:  Needed to reply to Facebook when someone shares a quote via Facebook
- * 
+ *
  * notes:  does not use header or footer, and redirects people to homepage if they have a dodgy url
  */
 
@@ -20,12 +20,12 @@ function wpcrowd_share_buttons_checkbot(){
 
 function wpcrowd_share_buttons_serverside_sharing_facebook(){
 	$id = get_query_var('id', false);
-	
+
 	//no id send to homepage
 	if($id == false){
 		wp_redirect(home_url());
 		exit;
-	} 
+	}
 	// get the canonical URL
 	$options = array('absolute' => TRUE);
 	$url = url('node/' . $id, $options);
@@ -61,7 +61,7 @@ $output = wpcrowd_share_buttons_serverside_sharing_facebook();
 <!doctype html>
 <html>
   <head>
-	<meta charset="UTF-8">  
+	<meta charset="UTF-8">
 	<title><?php print $the_title ?></title>
 	<meta name="description" content="<?php _e('Quote: ') ?><?php echo $output['description'] ?>" />
 	<meta property="og:title" content="<?php echo $output['title'] ?>" />
@@ -76,7 +76,7 @@ $output = wpcrowd_share_buttons_serverside_sharing_facebook();
 		<h1><?php echo $output['title'] ?></h1>
 		<img src="<?php echo   $output['image'] ?>" />
 		<a href="<?php echo $output['url'] ?>"> <?php echo $output['description'] ?></a>
-	</div>	  
+	</div>
 </body>
 </html>
 

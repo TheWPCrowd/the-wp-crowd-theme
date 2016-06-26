@@ -1,10 +1,10 @@
-<?php 
+<?php
 
-	get_header(); 
-	global $wp_query; 
+	get_header();
+	global $wp_query;
 
 	$cattitle = ( is_tax() && 'podcast' == get_post_type() ? 'Videos' : 'Articles');
-						
+
 	$caturl = ( is_tax() && 'podcast' == get_post_type() ? get_bloginfo('url') . '/podcast' : get_bloginfo('url') .'/thewpcrowd-blog' );
 
 	$singletitle = ( is_singular('podcast') ? 'Videos' : 'Articles' );
@@ -19,7 +19,7 @@
 			<div class="posts-wrapper">
 				<div class="headline">
 
-					<?php if( is_tax() || is_archive() || is_category() ) : 
+					<?php if( is_tax() || is_archive() || is_category() ) :
 
 							if ( is_tax() ) {
 								$term = $wp_query->get_queried_object();
@@ -56,7 +56,7 @@
 									<span class="hearts"></span>
 								</div>
 							</article>
-					
+
 					<?php endwhile; endif; //end if/while have_posts
 
 					if ( class_exists('PageNavi_Call') ) {
@@ -64,7 +64,7 @@
 					} else {
 						the_posts_navigation();
 					}
-						  
+
 					?>
 
 				</div>

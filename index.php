@@ -3,13 +3,13 @@
 	get_header();
 	global $wp_query;
 
-	$cattitle = ( is_tax() && 'podcast' == get_post_type() ? 'Videos' : 'Articles');
+	$cattitle = ( is_tax() && 'podcast' == get_post_type() ? 'Videos' : 'Articles' );
 
-	$caturl = ( is_tax() && 'podcast' == get_post_type() ? get_bloginfo('url') . '/podcast' : get_bloginfo('url') .'/thewpcrowd-blog' );
+	$caturl = ( is_tax() && 'podcast' == get_post_type() ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) .'/thewpcrowd-blog' );
 
-	$singletitle = ( is_singular('podcast') ? 'Videos' : 'Articles' );
+	$singletitle = ( is_singular( 'podcast' ) ? 'Videos' : 'Articles' );
 
-	$singleurl = ( is_singular('podcast') ? get_bloginfo('url') . '/podcast' : get_bloginfo('url') .'/thewpcrowd-blog' );
+	$singleurl = ( is_singular( 'podcast' ) ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) .'/thewpcrowd-blog' );
 
 ?>
 
@@ -29,7 +29,7 @@
 						<h2>Latest <?php echo $title; ?> <strong><?php echo $cattitle; ?></strong></h2>
 						<a href="<?php echo $caturl; ?>">See All <strong><?php echo $cattitle; ?></strong></a>
 
-					<?php elseif( is_singular(array('podcast', 'post') ) ) : ?>
+					<?php elseif( is_singular(array( 'podcast', 'post' ) ) ) : ?>
 						<h2>Latest <strong><?php echo $singletitle; ?></strong></h2>
 						<a href="<?php echo $singleurl; ?>">See All <strong><?php echo $singletitle; ?></strong></a>
 					<?php endif; ?>
@@ -59,7 +59,7 @@
 
 					<?php endwhile; endif; //end if/while have_posts
 
-					if ( class_exists('PageNavi_Call') ) {
+					if ( class_exists( 'PageNavi_Call' ) ) {
 						wp_pagenavi(  );
 					} else {
 						the_posts_navigation();

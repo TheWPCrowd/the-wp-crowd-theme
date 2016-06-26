@@ -44,8 +44,8 @@
 						</nav>
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
-						<a href="<?php echo get_bloginfo('url'); ?>">
-							<img src="<?php echo get_template_directory_uri().'/img/logo.png'; ?>" alt="The WP Crowd Podcast" class="img-responsive" />
+						<a href="<?php echo get_bloginfo( 'url' ); ?>">
+							<img src="<?php echo get_template_directory_uri() . '/img/logo.png'; ?>" alt="The WP Crowd Podcast" class="img-responsive" />
 						</a>
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						&copy; <?php echo date('Y'); ?> The WP Crowd | A WordPress Podcast &amp; Blog
+						&copy; <?php echo date( 'Y' ); ?> The WP Crowd | A WordPress Podcast &amp; Blog
 					</div>
 				</div>
 			</div>

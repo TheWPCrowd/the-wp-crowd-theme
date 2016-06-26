@@ -3,7 +3,7 @@ get_header();
 $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
 $first_podcast  = false;
 
-if ($podcasts->have_posts() ){
+if ( $podcasts->have_posts() ) {
 	$first_podcast = $podcasts->posts[0];
 }
 $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
@@ -14,7 +14,7 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 	<div class="container-fluid" id="home-top">
 		<div class="container">
 			<div class="row">
-								<?php if(function_exists('get_field')) { ?>
+								<?php if( function_exists( 'get_field' ) ) { ?>
 				<div class="col-sm-8 featured-image" style="background-image: url(http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $first_podcast->ID ); ?>/hqdefault.jpg);">
 					<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>"></a>
 				</div>
@@ -44,12 +44,12 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 				<div class="latest-podcast-wrapper">
 					<div class="headline">
 						<h2>Latest <strong>Videos</strong></h2>
-						<a href="<?php echo get_bloginfo('url'); ?>/podcast">See All <strong>Videos</strong></a>
+						<a href="<?php echo get_bloginfo( 'url' ); ?>/podcast">See All <strong>Videos</strong></a>
 					</div>
 					<div class="row latest-entries podcast">
 					<?php $i=0; if( $podcasts->have_posts() ) : while( $podcasts->have_posts() ) : $podcasts->the_post(); if( $i > 0 ) :?>
 						<article class="col-sm-4 single-entry">
-														<?php if(function_exists('get_field')) { ?>
+														<?php if( function_exists( 'get_field' ) ) { ?>
 							<a href="<?php the_permalink(); ?>" class="featured-image">
 								<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 							</a>
@@ -70,7 +70,7 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 				<div class="latest-podcast-wrapper">
 					<div class="headline">
 						<h2>Latest <strong>Articles</strong></h2>
-						<a href="<?php echo get_bloginfo('url'); ?>/thewpcrowd-blog">See All <strong>articles</strong></a>
+						<a href="<?php echo get_bloginfo( 'url' ); ?>/thewpcrowd-blog">See All <strong>articles</strong></a>
 					</div>
 					<div class="row latest-entries blog">
 						<?php $i=0; if( $blog->have_posts() ) : while( $blog->have_posts() ) : $blog->the_post(); if( $i > 0 ) :?>

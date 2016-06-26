@@ -6,22 +6,24 @@ the_post();
 <div class="container single-container">
 	<div class="row">
 		<div class="col-sm-8 content">
-			<h2 class="single-title"><?php the_title(); ?></h2>
+			<h2 class="single-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get)the_title() ); ?>"><?php the_title(); ?></a></h2>
 			<div class="single-top">
 				<?php
-								if( 'podcast' == get_post_type() ) {
-						$people_terms = wp_get_post_terms( $post->ID, 'people', array( 'fields' => 'all' ) );
-						$podcasters = array();
-						if( !empty( $people_terms ) ) {
-							foreach( $people_terms as $person ) {
-															if(function_exists('get_field')){
-								$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
-								if( $associated_user ) {
-									$podcasters[] = $associated_user['ID'];
+						if( 'podcast' == get_post_type() ) {
+						
+							$people_terms = wp_get_post_terms( $post->ID, 'people', array( 'fields' => 'all' ) );
+							$podcasters = array();
+
+							if( !empty( $people_terms ) ) {
+								foreach( $people_terms as $person ) {
+									if(function_exists('get_field')){
+										$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
+										if( $associated_user ) {
+											$podcasters[] = $associated_user['ID'];
+										}
+									}
 								}
-															}
 							}
-						}
 								?>
 								<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
 								<div class="air-date text-right"><strong>Aired:</strong> <?php if(function_exists('get_field')){ echo get_field( 'air_date' ); } ?></div>
@@ -56,10 +58,10 @@ the_post();
 										</div>
 					<?php
 
-											} else {
-											the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
+					} else {
+						the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
 
-										?>
+					?>
 						<div class="author-meta row">
 							<div class="col-xs-2 author-avatar text-center">
 								<?php echo get_avatar( $post->post_author, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) ); ?>

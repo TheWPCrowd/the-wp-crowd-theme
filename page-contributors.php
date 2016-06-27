@@ -15,9 +15,11 @@
 	$podcasters = array();
 	if ( ! empty( $people_terms ) ) {
 		foreach( $people_terms as $person ) {
-			$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
-			if ( $associated_user ) {
-				$podcasters[] = $associated_user['ID'];
+			if ( isset( $person->term_id ) ) {
+				$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
+				if ( $associated_user ) {
+					$podcasters[] = $associated_user['ID'];
+				}
 			}
 		}
 	}

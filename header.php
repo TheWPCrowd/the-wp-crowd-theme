@@ -20,12 +20,15 @@
 							<img src="<?php echo get_stylesheet_directory_uri() . '/img/logo.png'; ?>" alt="<?php _e( 'The WP Crowd WordPress Podcast', 'wpcrowd' );?>" class="img-responsive" />
 						</a>
 					</div>
+					<?php if ( has_nav_menu( 'top_header' ) ) { ?>
 					<nav class="col-sm-4 col-sm-offset-3">
 						<?php wp_nav_menu( array( 'theme_location' => 'top_header', 'container' => '' ) ); ?>
 					</nav>
+					<?php } ?>
 				</div>
 			</div>
 		</header>
+		<?php if ( has_nav_menu( 'header' ) ) { ?>
 		<nav class="container-fluid main-nav">
 			<div class="row mobile-nav-div">
 				<a href="#open-menu" class="nav-toggle"><?php _e( 'Menu', 'wpcrowd' );?></a>
@@ -34,3 +37,4 @@
 				<?php wp_nav_menu( array( 'theme_location' => 'header', 'container' => '' ) ); ?>
 			</div>
 		</nav>
+		<?php } ?>

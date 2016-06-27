@@ -2,12 +2,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-5 nav-wrapper">
+						
+						<?php if ( has_nav_menu( 'top_header' ) ) { ?>
 						<nav>
-							<?php wp_nav_menu( array( 'theme_location' => 'footer_left', 'container' => '' ) ); ?>
+							<?php wp_nav_menu( array( 'footer_left' => 'footer_left', 'container' => '' ) ); ?>
 						</nav>
+						<?php } ?>
+
+						<?php if ( has_nav_menu( 'footer_right' ) ) { ?>
 						<nav>
 							<?php wp_nav_menu( array( 'theme_location' => 'footer_right', 'container' => '' ) ); ?>
 						</nav>
+						<?php } ?>
+
 					</div>
 					<div class="col-sm-3 nav-wrapper social">
 						<nav>

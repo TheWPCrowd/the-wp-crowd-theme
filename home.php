@@ -5,6 +5,8 @@ get_header();
 
 <div class="container archive">
 	<div class="row">
+
+
 		<div class="col-sm-8">
 			<div class="posts-wrapper">
 				<div class="headline">
@@ -27,10 +29,23 @@ get_header();
 							</div>
 						</article>
 					<?php endwhile; endif; ?>
-					<?php wp_pagenavi(); ?>
+
+					<?php 
+
+					if ( class_exists( 'PageNavi_Call' ) ) {
+						wp_pagenavi();
+					} else {
+						the_posts_navigation();
+					}
+
+					 ?>
+
+					 
 				</div>
 			</div>
 		</div>
+
+		
 		<div class="col-sm-4 sidebar">
 			<?php dynamic_sidebar( 'home-sidebar' ); ?>
 		</div>

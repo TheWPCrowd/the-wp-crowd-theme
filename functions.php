@@ -1,7 +1,7 @@
 <?php
 
-define( 'MY_THEME_BASE_PATH', get_template_directory() );
-define( 'MY_THEME_BASE_URI', get_template_directory_uri() );
+define( 'MY_THEME_BASE_PATH', get_stylesheet_directory() );
+define( 'MY_THEME_BASE_URI', get_stylesheet_directory_uri() );
 define( 'MY_THEME_ASSETS_URI', MY_THEME_BASE_URI . '/assets' );
 define( 'MY_THEME_BUILD_URI', MY_THEME_BASE_URI . '/build' );
 define( 'MY_THEME_VERSION', '1.0' );

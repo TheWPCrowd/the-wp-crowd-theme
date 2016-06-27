@@ -19,25 +19,25 @@
 			<div class="posts-wrapper">
 				<div class="headline">
 
-					<?php if( is_tax() || is_archive() || is_category() ) :
+					<?php if ( is_tax() || is_archive() || is_category() ) :
 
 							if ( is_tax() ) {
 								$term = $wp_query->get_queried_object();
 								$title = $term->name;
 							}
 						?>
-						<h2><?php _e( 'Latest', 'wpcrowd' );?> <?php echo $title; ?> <strong><?php echo $cattitle; ?></strong></h2>
+						<h2><?php _e( 'Latest', 'wpcrowd' );?> <?php echo esc_html( $title ); ?> <strong><?php echo $cattitle; ?></strong></h2>
 						<a href="<?php echo $caturl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo $cattitle; ?></strong></a>
 
-					<?php elseif( is_singular(array( 'podcast', 'post' ) ) ) : ?>
-						<h2><?php _e( 'Latest', 'wpcrowd' );?> <strong><?php echo $singletitle; ?></strong></h2>
-						<a href="<?php echo $singleurl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo $singletitle; ?></strong></a>
+					<?php elseif ( is_singular(array( 'podcast', 'post' ) ) ) : ?>
+						<h2><?php _e( 'Latest', 'wpcrowd' );?> <strong><?php echo esc_html( $singletitle ); ?></strong></h2>
+						<a href="<?php echo $singleurl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo esc_html( $singletitle ); ?></strong></a>
 					<?php endif; ?>
 				</div>
-				<div class="row latest-entries <?php if( 'podcast' == get_post_type() ) { echo 'podcast'; } ?> ">
-					<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+				<div class="row latest-entries <?php if ( 'podcast' == get_post_type() ) { echo 'podcast'; } ?> ">
+					<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							<article class="col-sm-4 single-entry">
-								<?php if( 'podcast' === get_post_type() ): ?>
+								<?php if ( 'podcast' === get_post_type() ): ?>
 								<a href="<?php the_permalink(); ?>" class="featured-image">
 									<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 								</a>

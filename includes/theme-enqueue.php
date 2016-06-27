@@ -24,7 +24,7 @@ class my_theme_enqueue {
 						);
 
 
-		if( is_page( 'contributors' ) ) {
+		if ( is_page( 'contributors' ) ) {
 
 			/* enqueue maps on the contributor page only */
 

@@ -7,29 +7,29 @@ get_header();
 $queried_object = get_queried_object();
 $user_id = $queried_object->ID;
 $cpt = false;
-if( isset( $wp_query->query_vars['author_cpt'] ) ) {
+if ( isset( $wp_query->query_vars['author_cpt'] ) ) {
 	$cpt = $wp_query->query_vars['author_cpt'];
 }
 $page = 1;
-if( isset( $wp_query->query_vars['page'] ) ) {
+if ( isset( $wp_query->query_vars['page'] ) ) {
 	$page = $wp_query->query_vars['page'];
 }
 $per_page = 6;
-if( $cpt ) {
+if ( $cpt ) {
 	$per_page = 12;
 }
 query_posts( 'posts_per_page=' . $per_page . '&page=' . $page . '&paged=' . $page . '&author=' . $user_id );
 $person = false;
 $podcasts = false;
-if( get_field( 'person_association', 'user_' . $user_id ) ) {
+if ( get_field( 'person_association', 'user_' . $user_id ) ) {
 	$person = get_field( 'person_association', 'user_' . $user_id );
 }
 $args = array( 'post_type' => 'podcast', 'posts_per_page' => $per_page );
 
-if( $person && $cpt != 'posts' ) {
+if ( $person && $cpt != 'posts' ) {
 	$person = get_term_by( 'id', $person, 'people' );
 	$args['people'] = $person->slug;
-	if( $cpt && $cpt == 'podcast' ) {
+	if ( $cpt && $cpt == 'podcast' ) {
 		$args['paged'] = $page;
 		$args['page'] = $page;
 	}
@@ -40,7 +40,7 @@ if( $person && $cpt != 'posts' ) {
 $user = get_user_by( 'id', $user_id );
 $usermeta = get_user_meta( $user_id );
 $author_name = $user->user_nicename;
-if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
+if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 	$author_name = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 }
 
@@ -52,7 +52,7 @@ if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 				<div class="avatar-wrapper">
 					<?php echo get_avatar( $user_id, 150, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) ); ?>
 					<h2><?php echo $author_name; ?></h2>
-					<?php if( get_field( 'title', 'user_' . $user->ID ) ) : ?>
+					<?php if ( get_field( 'title', 'user_' . $user->ID ) ) : ?>
 						<h5>
 							<?php
 							$title = get_field( 'title', 'user_' . $user->ID );
@@ -64,7 +64,7 @@ if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 					<?php endif; ?>
 				</div>
 				<?php
-				if( get_field( 'biography', 'user_' . $user_id ) ) {
+				if ( get_field( 'biography', 'user_' . $user_id ) ) {
 					echo '<div class="bio">';
 					the_field( 'biography', 'user_' . $user_id );
 					echo '</div>';
@@ -73,26 +73,26 @@ if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 			</div>
 			<div class="col-sm-4">
 				<div class="author-info">
-					<?php if( get_field( 'location', 'user_' . $user_id ) ) : ?>
+					<?php if ( get_field( 'location', 'user_' . $user_id ) ) : ?>
 						<div class="location">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 							<?php the_field( 'location', 'user_' . $user_id ); ?>
 						</div>
 					<?php endif; ?>
 					<div class="social-links">
-						<?php if( get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
+						<?php if ( get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
 							<a href="https://twitter.com/<?php echo get_field( 'twitter_handle', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
 								<i class="fa fa-twitter" aria-hidden="true"></i>
 								<?php echo '@' .get_field( 'twitter_handle', 'user_' . $user->ID ); ?>
 							</a>
 						<?php endif; ?>
-						<?php if( get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
+						<?php if ( get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
 							<a href="<?php echo get_field( 'facebook_url', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
 								<i class="fa fa-facebook" aria-hidden="true"></i>
 								<?php _e( 'Facebook', 'wpcrowd' );?>
 							</a>
 						<?php endif; ?>
-						<?php if( $user->user_url ) : ?>
+						<?php if ( $user->user_url ) : ?>
 							<a href="<?php echo $user->user_url; ?>" target="_blank" class="circle">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<?php echo $user->user_url; ?>
@@ -108,11 +108,11 @@ if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 	<div id="home-main" class="container author-archive">
 		<div class="row">
 			<div class="col-sm-12">
-				<?php if( have_posts() && $cpt != 'podcast' ) : ?>
+				<?php if ( have_posts() && $cpt != 'podcast' ) : ?>
 					<div class="latest-podcast-wrapper">
 						<div class="headline">
 							<h2><strong><?php _e( 'Articles', 'wpcrowd' );?></strong></h2>
-							<?php if( ! $cpt ) : ?>
+							<?php if ( ! $cpt ) : ?>
 								<a href="<?php echo get_author_posts_url( $user_id ); ?>posts/page/1"><?php _e( 'See All <strong>Articles</strong> by ', 'wpcrowd' );?><?php echo $author_name; ?></a>
 							<?php endif; ?>
 						</div>
@@ -133,7 +133,7 @@ if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 									</div>
 								</article>
 								<?php $i++; endwhile; ?>
-							<?php if( $cpt && $cpt == 'posts' ): ?>
+							<?php if ( $cpt && $cpt == 'posts' ): ?>
 								<div class="col-sm-12 text-right">
 									<?php wp_pagenavi(); ?>
 								</div>
@@ -141,11 +141,11 @@ if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 						</div>
 					</div>
 				<?php endif; wp_reset_query(); ?>
-				<?php if( $person && $podcasts && $podcasts->have_posts() && $cpt !== 'posts' ) : ?>
+				<?php if ( $person && $podcasts && $podcasts->have_posts() && $cpt !== 'posts' ) : ?>
 					<div class="latest-podcast-wrapper">
 						<div class="headline">
 							<h2><?php _e( 'Podcast <strong>Videos</strong>', 'wpcrowd' );?></h2>
-							<?php if( ! $cpt ) : ?>
+							<?php if ( ! $cpt ) : ?>
 								<a href="<?php echo get_author_posts_url( $user_id ); ?>podcast/page/1"><?php _e( 'See All <strong>Podcasts</strong> with ', 'wpcrowd' );?><?php echo $author_name; ?></a>
 							<?php endif; ?>
 						</div>
@@ -170,7 +170,7 @@ if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 								</article>
 								<?php $i++; endwhile; ?>
 						</div>
-						<?php if( $cpt && $cpt == 'podcast' ): ?>
+						<?php if ( $cpt && $cpt == 'podcast' ): ?>
 							<div class="col-sm-12 text-right">
 								<?php wp_pagenavi( array( 'query' => $podcasts ) ); ?>
 							</div>

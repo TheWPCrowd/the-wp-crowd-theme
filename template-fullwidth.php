@@ -13,7 +13,7 @@ the_post();
 			<h2 class="single-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a></h2>
 			
 
-			<?php if( has_post_thumbnail() ) { ?>
+			<?php if ( has_post_thumbnail() ) { ?>
 			<div class="single-top">
 				<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
 			</div>

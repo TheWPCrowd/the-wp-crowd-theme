@@ -12,10 +12,10 @@
 
 	$people_terms = get_terms( 'people' );
 	$podcasters = array();
-	if( ! empty( $people_terms ) ) {
+	if ( ! empty( $people_terms ) ) {
 		foreach( $people_terms as $person ) {
 			$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
-			if( $associated_user ) {
+			if ( $associated_user ) {
 				$podcasters[] = $associated_user['ID'];
 			}
 		}
@@ -36,11 +36,11 @@
 						$user = get_user_by( 'id', $author );
 						$usermeta = get_user_meta( $user->ID );
 						$author_name = $user->user_nicename;
-						if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
+						if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 							$author_name = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 						}
 						$location = get_field( 'location', 'user_' . $user->ID );
-						if( ! $location ) {
+						if ( ! $location ) {
 							$location = '';
 						}
 				?>
@@ -54,41 +54,41 @@
 							<div class="contributor-meta">
 								<h3>
 									<a href="<?php echo get_author_posts_url( $user->ID ); ?>">
-										<?php echo $author_name; ?>
+										<?php echo esc_html( $author_name ); ?>
 									</a>
 								</h3>
-								<?php if( get_field( 'title', 'user_' . $user->ID ) ) : ?>
+								<?php if ( get_field( 'title', 'user_' . $user->ID ) ) : ?>
 									<h5>
 										<?php
 											$title = get_field( 'title', 'user_' . $user->ID );
 											$title = str_replace( '-', ' ', $title );
 											$title = str_replace( '_', ' ', $title );
-											echo $title;
+											echo esc_html( $title );
 										?>
 									</h5>
 								<?php endif; ?>
-								<?php if( $location ) : ?>
+								<?php if ( $location ) : ?>
 									<div class="location">
 										<i class="fa fa-map-marker" aria-hidden="true"></i>
-										<?php echo $location; ?>
+										<?php echo esc_html( $location ); ?>
 									</div>
 								<?php endif; ?>
-								<?php if( get_field( 'biography', 'user_' . $user->ID ) ) : ?>
+								<?php if ( get_field( 'biography', 'user_' . $user->ID ) ) : ?>
 									<a href="<?php echo get_author_posts_url( $user->ID ); ?>" class="bio circle">
 										<i><?php _e( 'BIO', 'wpcrowd' );?></i>
 									</a>
 								<?php endif; ?>
-								<?php if( get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
+								<?php if ( get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
 									<a href="https://twitter.com/<?php echo get_field( 'twitter_handle', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
 										<i class="fa fa-twitter" aria-hidden="true"></i>
 									</a>
 								<?php endif; ?>
-								<?php if( get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
+								<?php if ( get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
 									<a href="<?php echo get_field( 'facebook_url', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
 									</a>
 								<?php endif; ?>
-								<?php if( $user->user_url ) : ?>
+								<?php if ( $user->user_url ) : ?>
 									<a href="<?php echo $user->user_url; ?>" target="_blank" class="circle">
 										<i class="fa fa-home" aria-hidden="true"></i>
 									</a>

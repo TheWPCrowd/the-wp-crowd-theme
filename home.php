@@ -11,7 +11,7 @@ get_header();
 					<h2><?php _e( 'The WP Crowd <strong>Articles</strong>', 'wpcrowd' );?></h2>
 				</div>
 				<div class="row latest-entries <?php echo get_post_type(); ?> ">
-					<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+					<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 						<article class="col-sm-4 single-entry">
 							<a href="<?php the_permalink(); ?>" class="featured-image">
 								<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>

@@ -13,13 +13,13 @@
 						<nav>
 							<ul>
 								<li>
-									<a href="https://www.facebook.com/thewpcrowd/" target="_blank">
+									<a href="https://www.facebook.com/thewpcrowd/" title="<?php _e( 'The WP Crowd Facebook', 'wpcrowd' );?>" target="_blank">
 										<i class="fa fa-facebook"></i>
 										<?php _e( 'Facebook', 'wpcrowd' );?>
 									</a>
 								</li>
 								<li>
-									<a href="https://twitter.com/thewpcrowd" target="_blank">
+									<a href="https://twitter.com/thewpcrowd" title="<?php _e( 'The WP Crowd Twitter', 'wpcrowd' );?>" target="_blank">
 										<i class="fa fa-twitter"></i>
 										<?php _e( 'Twitter', 'wpcrowd' );?>
 									</a>
@@ -29,13 +29,13 @@
 						<nav>
 							<ul>
 								<li>
-									<a href="https://itunes.apple.com/us/podcast/the-wp-crowd/id1105661949" target="_blank">
+									<a href="https://itunes.apple.com/us/podcast/the-wp-crowd/id1105661949"  title="<?php _e( 'The WP Crowd Podcast on iTunes', 'wpcrowd' );?>" target="_blank">
 										<i class="fa fa-apple"></i>
 										<?php _e( 'iTunes', 'wpcrowd' );?>
 									</a>
 								</li>
 								<li>
-									<a href="https://goo.gl/app/playmusic?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&link=https://play.google.com/music/m/I46znws6tccg3yegynooza57mme?t%3DThe_WP_Crowd" target="_blank">
+									<a href="https://goo.gl/app/playmusic?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&link=https://play.google.com/music/m/I46znws6tccg3yegynooza57mme?t%3DThe_WP_Crowd"  title="<?php _e( 'The WP Crowd Podcast on Google Play', 'wpcrowd' );?>" target="_blank">
 										<i class="fa fa-google"></i>
 										<?php _e( 'Google Play', 'wpcrowd' );?>
 									</a>

@@ -8,7 +8,7 @@
 	<style type="text/css">
 		#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
 		/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-		   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+		We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 	</style>
 	<div id="mc_embed_signup">
 		<form action="//thewpcrowd.us11.list-manage.com/subscribe/post?u=8f26cc02b302f95749a55f4e1&amp;id=52f285b533" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>

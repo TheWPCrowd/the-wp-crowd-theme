@@ -27,7 +27,7 @@ class my_theme {
 
 		register_nav_menus( array(
 			'top_header' => __( 'Top Header', 'wp-crowd' ),
-			'header'	 => __( 'Header Menu', 'wp-crowd' ),
+			'header'	=> __( 'Header Menu', 'wp-crowd' ),
 			'footer_left' => __( 'Footer Menu (Left)', 'wp-crowd' ),
 			'footer_right' => __( 'Footer Menu (Right)', 'wp-crowd' ),
 		) );

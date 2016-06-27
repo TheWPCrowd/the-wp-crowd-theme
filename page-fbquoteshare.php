@@ -13,7 +13,7 @@ function wpcrowd_share_buttons_checkbot() {
 	$pattern = '/(FacebookExternalHit|visionutils|Facebot)/i';
 	$agent = filter_input( INPUT_SERVER, 'HTTP_USER_AGENT', FILTER_SANITIZE_ENCODED );
 	if ( preg_match( $pattern,$agent ) ) {
-	 $redirect = true;
+	$redirect = true;
 	}
 	return $redirect;
 }
@@ -31,8 +31,8 @@ function wpcrowd_share_buttons_serverside_sharing_facebook() {
 	$url = url( 'node/' . $id, $options );
 	// if not facebook, re-direct to canonical url
 	if ( ! wpcrowd_share_buttons_checkbot() ) {
-	  wp_redirect( $url);
-	  exit;
+	wp_redirect( $url);
+	exit;
 	}
 	$text = get_query_var( 't' );
 	// if some sort of text set, then return the array of data :)
@@ -40,20 +40,20 @@ function wpcrowd_share_buttons_serverside_sharing_facebook() {
 		$node = node_load( $id );
 		// if no node on that nid re-direct
 		if ( $node == false ) {
-		 drupal_goto( $url );
+		drupal_goto( $url );
 		}
 		// else return lovely array of settings
 		return array(
 			'id'				=> $id,
-			'description'   	=> $text,
-			'url'		  		=> $url,
+			'description' 	=> $text,
+			'url'				=> $url,
 			'title'				=> $node->title,
 			'image'				=> file_create_url( $node->field_image['und'][0]['uri'] ),
-			'fbshare'	  		=> TRUE
+			'fbshare'			=> TRUE
 			);
 	}
 	wp_redirect( $url );
-	  exit;
+	exit;
 }
 
 $output = wpcrowd_share_buttons_serverside_sharing_facebook();

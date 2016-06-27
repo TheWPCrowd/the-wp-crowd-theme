@@ -38,9 +38,9 @@ get_header();
 						the_posts_navigation();
 					}
 
-					 ?>
+					?>
 
-					 
+					
 				</div>
 			</div>
 		</div>

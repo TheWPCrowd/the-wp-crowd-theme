@@ -127,7 +127,7 @@ the_post();
 					<strong><?php _e( 'Topics:', 'wpcrowd' );?></strong>
 					<?php echo get_the_category_list() ?>
 				</div>
-		<?php 	} ?>
+		<?php	} ?>
 
 
 

@@ -11,7 +11,7 @@ function wpcrowd_share_buttons_checkbot() {
 	$redirect = false;
 
 	$pattern = '/(FacebookExternalHit|visionutils|Facebot)/i';
-	$agent = filter_input(INPUT_SERVER, 'HTTP_USER_AGENT', FILTER_SANITIZE_ENCODED);
+	$agent = filter_input( INPUT_SERVER, 'HTTP_USER_AGENT', FILTER_SANITIZE_ENCODED );
 	if( preg_match( $pattern,$agent) ) {
 	 $redirect = true;
 	}
@@ -19,28 +19,28 @@ function wpcrowd_share_buttons_checkbot() {
 }
 
 function wpcrowd_share_buttons_serverside_sharing_facebook() {
-	$id = get_query_var( 'id', false);
+	$id = get_query_var( 'id', false );
 
 	//no id send to homepage
-	if( $id == false) {
+	if( $id == false ) {
 		wp_redirect( home_url() );
 		exit;
 	}
 	// get the canonical URL
-	$options = array( 'absolute' => TRUE);
-	$url = url( 'node/' . $id, $options);
+	$options = array( 'absolute' => TRUE );
+	$url = url( 'node/' . $id, $options );
 	// if not facebook, re-direct to canonical url
-	if(! wpcrowd_share_buttons_checkbot() ) {
+	if( ! wpcrowd_share_buttons_checkbot() ) {
 	  wp_redirect( $url);
 	  exit;
 	}
 	$text = get_query_var( 't' );
 	// if some sort of text set, then return the array of data :)
-	if (! empty( $text) ) {
-		$node = node_load( $id);
+	if ( ! empty( $text) ) {
+		$node = node_load( $id );
 		// if no node on that nid re-direct
-		if( $node == false) {
-		 drupal_goto( $url);
+		if( $node == false ) {
+		 drupal_goto( $url );
 		}
 		// else return lovely array of settings
 		return array(
@@ -48,11 +48,11 @@ function wpcrowd_share_buttons_serverside_sharing_facebook() {
 			'description'   	=> $text,
 			'url'		  		=> $url,
 			'title'				=> $node->title,
-			'image'				=> file_create_url( $node->field_image['und'][0]['uri']),
+			'image'				=> file_create_url( $node->field_image['und'][0]['uri'] ),
 			'fbshare'	  		=> TRUE
 			);
 	}
-	wp_redirect( $url);
+	wp_redirect( $url );
 	  exit;
 }
 

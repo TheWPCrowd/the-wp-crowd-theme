@@ -26,12 +26,12 @@
 								$title = $term->name;
 							}
 						?>
-						<h2>Latest <?php echo $title; ?> <strong><?php echo $cattitle; ?></strong></h2>
-						<a href="<?php echo $caturl; ?>">See All <strong><?php echo $cattitle; ?></strong></a>
+						<h2><?php _e( 'Latest', 'wpcrowd' );?> <?php echo $title; ?> <strong><?php echo $cattitle; ?></strong></h2>
+						<a href="<?php echo $caturl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo $cattitle; ?></strong></a>
 
 					<?php elseif( is_singular(array( 'podcast', 'post' ) ) ) : ?>
-						<h2>Latest <strong><?php echo $singletitle; ?></strong></h2>
-						<a href="<?php echo $singleurl; ?>">See All <strong><?php echo $singletitle; ?></strong></a>
+						<h2><?php _e( 'Latest', 'wpcrowd' );?> <strong><?php echo $singletitle; ?></strong></h2>
+						<a href="<?php echo $singleurl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo $singletitle; ?></strong></a>
 					<?php endif; ?>
 				</div>
 				<div class="row latest-entries <?php if( 'podcast' == get_post_type() ) { echo 'podcast'; } ?> ">

@@ -38,11 +38,11 @@
 					<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							<article class="col-sm-4 single-entry">
 								<?php if ( 'podcast' === get_post_type() ): ?>
-								<a href="<?php the_permalink(); ?>" class="featured-image">
+								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() );?>" class="featured-image">
 									<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 								</a>
 							<?php else: ?>
-								<a href="<?php the_permalink(); ?>" class="featured-image">
+								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() );?>" class="featured-image">
 									<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
 								</a>
 							<?php endif; ?>

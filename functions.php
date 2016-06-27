@@ -26,34 +26,36 @@ class my_theme {
 		add_theme_support( 'title-tag' );
 
 		register_nav_menus( array(
-			'top_header' => __( 'Top Header', 'wp-crowd' ),
-			'header'	=> __( 'Header Menu', 'wp-crowd' ),
-			'footer_left' => __( 'Footer Menu (Left)', 'wp-crowd' ),
-			'footer_right' => __( 'Footer Menu (Right)', 'wp-crowd' ),
+			'top_header' 	=> __( 'Top Header', 'wpcrowd' ),
+			'header'		=> __( 'Header Menu', 'wpcrowd' ),
+			'footer_left' 	=> __( 'Footer Menu (Left)', 'wpcrowd' ),
+			'footer_right' 	=> __( 'Footer Menu (Right)', 'wpcrowd' ),
 		) );
 
 	}
 
 	function register_sidebars() {
 		register_sidebar( array(
-			'name' => __( 'Home Sidebar', 'wp-crowd' ),
-			'id' => 'home-sidebar',
-			'description' => __( 'Home Page Sidebar. ', 'wp-crowd' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget' => '</section>',
-			'before_title' => '<h4 class="widgettitle">',
-			'after_title' => '</h4>',
-		) );
+							'name' 			=> __( 'Home Sidebar', 'wpcrowd' ),
+							'id' 			=> 'home-sidebar',
+							'description' 	=> __( 'Home Page Sidebar. ', 'wpcrowd' ),
+							'before_widget' => '<section id="%1$s" class="widget %2$s">',
+							'after_widget' 	=> '</section>',
+							'before_title' 	=> '<h4 class="widgettitle">',
+							'after_title' 	=> '</h4>',
+						)
+		);
 
 		register_sidebar( array(
-			'name' => __( 'Single Sidebar', 'wp-crowd' ),
-			'id' => 'single-sidebar',
-			'description' => __( 'Single Post Sidebar. ', 'wp-crowd' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget' => '</section>',
-			'before_title' => '<h4 class="widgettitle">',
-			'after_title' => '</h4>',
-		) );
+							'name' 			=> __( 'Single Sidebar', 'wpcrowd' ),
+							'id' 			=> 'single-sidebar',
+							'description' 	=> __( 'Single Post Sidebar. ', 'wpcrowd' ),
+							'before_widget' => '<section id="%1$s" class="widget %2$s">',
+							'after_widget' 	=> '</section>',
+							'before_title' 	=> '<h4 class="widgettitle">',
+							'after_title' 	=> '</h4>',
+						) 
+		);
 	}
 
 	function author_rewrite_init() {

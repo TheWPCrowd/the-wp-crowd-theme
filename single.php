@@ -43,7 +43,7 @@ the_post();
 							<a href="<?php echo get_author_posts_url( $user ); ?>" title="<?php echo esc_attr( $username ) );?>">
 							<?php
 								echo get_avatar( $user, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) );
-								echo $username;
+								echo esc_html( $username );
 							?>
 							</a>
 						<?php
@@ -81,14 +81,14 @@ the_post();
 					</div>
 					<div class="col-xs-7">
 
-						<h3><?php echo get_the_author_meta( 'display_name' ) ?></h3>
+						<h3><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></h3>
 						<?php if ( function_exists( 'get_field' ) && get_field( 'title', 'user_' . $post->post_author ) ) : ?>
 							<h5>
 							<?php
 								$title = get_field( 'title', 'user_' . $post->post_author );
 								$title = str_replace( '-', ' ', $title );
 								$title = str_replace( '_', ' ', $title );
-								echo $title;
+								echo esc_html( $title );
 							?>
 							</h5>
 
@@ -99,22 +99,22 @@ the_post();
 						} else {
 							$user = get_user_by( 'id', $post->post_author );
 							if ( function_exists( 'get_field' ) && get_field( 'biography', 'user_' . $user->ID ) ) : ?>
-									<a href="<?php echo get_author_posts_url( $user->ID ) ?>" class="bio circle">
+									<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle">
 											<i><?php _e( 'BIO', 'wpcrowd' );?></i>
 									</a>
 							<?php endif;
 							if ( function_exists( 'get_field' ) && get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
-									<a href="https://twitter.com/' <?php echo get_field( 'twitter_handle', 'user_' . $user->ID ) ?>" target="_blank" class="circle">
+									<a href="<?php echo esc_url( 'https://twitter.com/' . get_field( 'twitter_handle', 'user_' . $user->ID ) ); ?>" title="<?php _e( 'Twitter', 'wpcrowd' );?>" target="_blank" class="circle">
 											<i class="fa fa-twitter" aria-hidden="true"></i>
 									</a>
 							<?php endif;
 							if ( function_exists( 'get_field' ) && get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
-							<a href="<?php echo get_field( 'facebook_url', 'user_' . $user->ID ) ?>" target="_blank" class="circle">
+							<a href="<?php echo esc_url( get_field( 'facebook_url', 'user_' . $user->ID ) ); ?>" title="<?php _e( 'Facebook', 'wpcrowd' );?>" target="_blank" class="circle">
 											<i class="fa fa-facebook" aria-hidden="true"></i>
 									</a>
 							<?php endif;
 							if ( $user->user_url ) : ?>
-									<a href="<?php $user->user_url ?>" target="_blank" class="circle">
+									<a href="<?php $user->user_url ?>" title="<?php _e( 'Website', 'wpcrowd' );?>" target="_blank" class="circle">
 											<i class="fa fa-home" aria-hidden="true"></i>
 									</a>
 							<?php endif;

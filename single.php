@@ -79,9 +79,9 @@ the_post();
                                                                 
 								<?php endif; 
                                                                 
-                                                                if(function_exists('wpcrowd_author_follow')){
-                                                                    wpcrowd_author_follow();
-                                                                } else {    
+//                                                                if(function_exists('wpcrowd_author_follow')){
+//                                                                    wpcrowd_author_follow();
+//                                                                } else {    
                                                                         $user = get_user_by( 'id', $post->post_author );
                                                                         if( function_exists('get_field') && get_field( 'biography', 'user_'.$user->ID ) ) : ?>
                                                                                 <a href="<?php echo get_author_posts_url( $user->ID ) ?>" class="bio circle">
@@ -104,7 +104,7 @@ the_post();
                                                                                 </a>
                                                                         <?php endif;
                                                                         
-                                                                }        ?>
+//                                                                }        ?>
 							</div>
 							<div class="col-xs-3 date"><strong>Published: </strong><?php echo get_the_date( 'F j, Y' ) ?></div>
 						</div>

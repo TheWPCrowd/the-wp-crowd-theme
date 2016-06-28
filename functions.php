@@ -79,3 +79,17 @@ add_action( 'widgets_init', array( $my_theme, 'register_sidebars' ) );
 add_action( 'init', array( $my_theme, 'author_rewrite_init' ) );
 add_action( 'wp_head', array( $my_theme, 'gmaps_head' ) );
 add_theme_support( 'post-thumbnails' ); 
+
+
+function get_protocol(){
+    if (isset($_SERVER['HTTPS']) &&
+        ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+      $protocol = 'https://';
+    }
+    else {
+      $protocol = 'http://';
+    }
+    return $protocol;
+}

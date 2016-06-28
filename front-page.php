@@ -7,6 +7,8 @@ if ($podcasts->have_posts() ){
     $first_podcast = $podcasts->posts[0];
 }
 $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
+
+$protocol = get_protocol();
 ?>
 
 <?php if( $first_podcast ) { ?>
@@ -15,7 +17,7 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 		<div class="container">
 			<div class="row">
                                 <?php if(function_exists('get_field')) { ?>
-				<div class="col-sm-8 featured-image" style="background-image: url(http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $first_podcast->ID ); ?>/hqdefault.jpg);">
+				<div class="col-sm-8 featured-image" style="background-image: url(<?php echo $protocol?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $first_podcast->ID ); ?>/hqdefault.jpg);">
 					<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>"></a>
 				</div>
                                 <?php } ?>
@@ -25,10 +27,10 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 							<?php echo get_the_title( $first_podcast->ID ); ?>
 						</a>
 					</h3>
-					<div class="featured-meta">
-						<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
-						<span class="hearts"></span>
-					</div>
+                                <div class="featured-meta">
+                                    <span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
+                                    <?php wpcrowd_engage() ?>
+                                </div>
 				</div>
 			</div>
 		</div>
@@ -48,18 +50,11 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 						<article class="col-sm-4 single-entry">
                                                         <?php if(function_exists('get_field')) { ?>
 							<a href="<?php the_permalink(); ?>" class="featured-image">
-								<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
+								<img src="<?php echo $protocol?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 							</a>
                                                         <?php } ?>
-							<h3>
-								<a href="<?php the_permalink(); ?>">
-									<?php the_title(); ?>
-								</a>
-							</h3>
-							<div class="featured-meta">
-								<span class="date"><?php echo get_the_date( 'F j, Y', $post->ID ); ?></span>
-								<span class="hearts"></span>
-							</div>
+							<?php get_template_part( 'partials/block', 'title' ); ?>
+							<?php get_template_part( 'partials/meta', 'featured' ); ?>
 						</article>
 					<?php endif; $i++; endwhile; endif; ?>
 					</div>
@@ -80,10 +75,7 @@ $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 										<?php the_title(); ?>
 									</a>
 								</h3>
-								<div class="featured-meta">
-									<span class="date"><?php echo get_the_date( 'F j, Y', $post->ID ); ?></span>
-									<span class="hearts"></span>
-								</div>
+								<?php get_template_part( 'partials/meta', 'featured' ); ?>
 							</article>
 						<?php endif; $i++; endwhile; endif; ?>
 					</div>

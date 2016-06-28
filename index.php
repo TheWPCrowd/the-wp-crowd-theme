@@ -34,7 +34,10 @@
 						<a href="<?php echo $singleurl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo esc_html( $singletitle ); ?></strong></a>
 					<?php endif; ?>
 				</div>
-				<div class="row latest-entries <?php if ( 'podcast' == get_post_type() ) { echo 'podcast'; } ?> ">
+
+
+				<div class="row latest-entries <?php echo get_post_type(); ?> ">
+					
 					<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							<article class="col-sm-4 single-entry">
 								<?php if ( 'podcast' === get_post_type() ): ?>
@@ -57,15 +60,19 @@
 								</div>
 							</article>
 
-					<?php endwhile; endif; //end if/while have_posts
+					<?php endwhile; endif; //end if/while have_posts ?>
 
-					if ( class_exists( 'PageNavi_Call' ) ) {
-						wp_pagenavi();
-					} else {
-						the_posts_navigation();
-					}
+				</div>
 
-					?>
+				<div class="row">
+				<?php
+
+				if ( class_exists( 'PageNavi_Call' ) ) {
+					wp_pagenavi();
+				} else {
+					the_posts_navigation();
+				} 
+				?>
 
 				</div>
 			</div>

@@ -40,7 +40,7 @@ the_post();
 							$username = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 
 						?>
-							<a href="<?php echo get_author_posts_url( $user ); ?>" title="<?php echo esc_attr( $username ) );?>">
+							<a href="<?php echo get_author_posts_url( $user ); ?>" title="<?php echo esc_attr( $username );?>">
 							<?php
 								echo get_avatar( $user, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) );
 								echo esc_html( $username );

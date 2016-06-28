@@ -29,8 +29,11 @@ get_header();
 							</div>
 						</article>
 					<?php endwhile; endif; ?>
+					
+				</div>
 
-					<?php 
+				<div class="row">
+				<?php 
 
 					if ( class_exists( 'PageNavi_Call' ) ) {
 						wp_pagenavi();

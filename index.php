@@ -11,6 +11,8 @@
 
 	$singleurl = ( is_singular( 'podcast' ) ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) . '/thewpcrowd-blog' );
 
+        
+        
 ?>
 
 <div class="container archive">
@@ -37,15 +39,17 @@
 				<div class="row latest-entries <?php if ( 'podcast' == get_post_type() ) { echo 'podcast'; } ?> ">
 					<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							<article class="col-sm-4 single-entry">
-								<?php if ( 'podcast' === get_post_type() ): ?>
-								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() );?>" class="featured-image">
-									<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
+								<?php if( 'podcast' === get_post_type() ): ?>
+								<a href="<?php the_permalink(); ?>" class="featured-image">
+									<img src="<?php echo get_protocol() ?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 								</a>
 							<?php else: ?>
 								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() );?>" class="featured-image">
 									<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
 								</a>
 							<?php endif; ?>
+								<?php get_template_part( 'partials/block', 'title' ); ?>
+								<?php get_template_part( 'partials/meta', 'featured' ); ?>
 								<h3>
 									<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 										<?php the_title(); ?>

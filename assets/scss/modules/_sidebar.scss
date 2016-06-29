@@ -105,8 +105,9 @@
                     }
                     input[type="submit"].submit {
                         background: $brand-warning;
+                        color: white;
                         display: block;
-                        font-size: 1.5em;
+                        font-size: 1.5em !important;
                         height: auto;
                         margin: 20px auto;
                         padding: 5px 30px;

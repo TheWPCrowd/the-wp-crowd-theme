@@ -90,5 +90,28 @@
                 }
             }
         }
+        &.widget_prompt_subscribe_widget {
+            .prompt-subscribe-widget-content {
+                width: 80%;
+                margin: 10px auto 20px auto;
+                .primary.prompt {
+                    margin: 10px 0;
+                    input {
+                        display: block;
+                        margin: 10px 0;
+                        width: 100%;
+                    }
+                    input[type="submit"] {
+                        background: $brand-warning;
+                        display: block;
+                        font-size: 1.5em;
+                        height: auto;
+                        margin: 20px auto;
+                        padding: 5px 30px;
+                        text-shadow: 1px 1px 3px rgba( 0,0,0,0.75 );
+                    }
+                }
+            }
+        }
     }
 }

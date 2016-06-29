@@ -96,12 +96,14 @@
                 margin: 10px auto 20px auto;
                 .primary.prompt {
                     margin: 10px 0;
+                }
+                .inputs.active {
                     input {
                         display: block;
                         margin: 10px 0;
                         width: 100%;
                     }
-                    input[type="submit"] {
+                    input[type="submit"].submit {
                         background: $brand-warning;
                         display: block;
                         font-size: 1.5em;

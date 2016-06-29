@@ -8111,19 +8111,21 @@ nav.main-nav {
   margin: 10px auto 20px auto; }
   .sidebar section.widget_prompt_subscribe_widget .prompt-subscribe-widget-content .primary.prompt {
     margin: 10px 0; }
-  .sidebar section.widget_prompt_subscribe_widget .prompt-subscribe-widget-content .inputs.active input {
-    display: block;
-    margin: 10px 0;
-    width: 100%; }
-  .sidebar section.widget_prompt_subscribe_widget .prompt-subscribe-widget-content .inputs.active input[type="submit"].submit {
-    background: #f0ad4e;
-    color: white;
-    display: block;
-    font-size: 1.5em !important;
-    height: auto;
-    margin: 20px auto;
-    padding: 5px 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75); }
+  .sidebar section.widget_prompt_subscribe_widget .prompt-subscribe-widget-content .inputs.active {
+    font-size: 1.5em; }
+    .sidebar section.widget_prompt_subscribe_widget .prompt-subscribe-widget-content .inputs.active input {
+      display: block;
+      margin: 10px 0;
+      width: 100%; }
+    .sidebar section.widget_prompt_subscribe_widget .prompt-subscribe-widget-content .inputs.active input[type="submit"].submit {
+      background: #f0ad4e;
+      color: white;
+      display: block;
+      font-size: 1.5em !important;
+      height: auto;
+      margin: 20px auto;
+      padding: 5px 30px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75); }
 
 footer {
   background: #242424;

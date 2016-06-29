@@ -24,19 +24,6 @@ class my_theme_enqueue {
 						);
 
 
-		if ( is_page( 'contributors' ) ) {
-
-			/* enqueue maps on the contributor page only */
-
-			wp_enqueue_script(	'google-maps', 
-								'https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap', 
-								array( 'jquery' ), 
-								MY_THEME_VERSION, 
-								false 
-							);
-		}
-
-
 		/* enqueue styles */
 
 		wp_enqueue_style(	'my-theme-main-css', 

@@ -32,7 +32,7 @@ $protocol = get_protocol();
 					</h3>
                                 <div class="featured-meta">
                                     <span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
-                                    <?php wpcrowd_engage() ?>
+                                    <?php if( function_exists( 'wpcrowd_engage' ) ) { wpcrowd_engage(); } ?>
                                 </div>
 				</div>
 			</div>

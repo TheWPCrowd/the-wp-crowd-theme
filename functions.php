@@ -63,6 +63,15 @@ class my_theme {
 		$author_rewrite->add_admin_cpt_rewrite();
 	}
 
+	function gmaps_head() {
+		global $post;
+		if( is_page( 'contributors' ) ) {
+			echo '<script async defer
+		        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
+			</script>';
+		}
+	}
+
 }
 
 $my_theme = new my_theme();

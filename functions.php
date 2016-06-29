@@ -1,7 +1,7 @@
 <?php
 
-define( 'MY_THEME_BASE_PATH', get_template_directory() );
-define( 'MY_THEME_BASE_URI', get_template_directory_uri() );
+define( 'MY_THEME_BASE_PATH', get_stylesheet_directory() );
+define( 'MY_THEME_BASE_URI', get_stylesheet_directory_uri() );
 define( 'MY_THEME_ASSETS_URI', MY_THEME_BASE_URI . '/assets' );
 define( 'MY_THEME_BUILD_URI', MY_THEME_BASE_URI . '/build' );
 define( 'MY_THEME_VERSION', '1.0' );
@@ -26,34 +26,36 @@ class my_theme {
 		add_theme_support( 'title-tag' );
 
 		register_nav_menus( array(
-			'top_header'   => __( 'Top Header', 'wp-crowd' ),
-			'header'       => __( 'Header Menu', 'wp-crowd' ),
-			'footer_left'  => __( 'Footer Menu (Left)', 'wp-crowd' ),
-			'footer_right' => __( 'Footer Menu (Right)', 'wp-crowd' ),
+			'top_header' 	=> __( 'Top Header', 'wpcrowd' ),
+			'header'		=> __( 'Header Menu', 'wpcrowd' ),
+			'footer_left' 	=> __( 'Footer Menu (Left)', 'wpcrowd' ),
+			'footer_right' 	=> __( 'Footer Menu (Right)', 'wpcrowd' ),
 		) );
 
 	}
 
 	function register_sidebars() {
 		register_sidebar( array(
-			'name' => __( 'Home Sidebar', 'wp-crowd' ),
-			'id' => 'home-sidebar',
-			'description' => __( 'Home Page Sidebar.', 'wp-crowd' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
-		) );
+							'name' 			=> __( 'Home Sidebar', 'wpcrowd' ),
+							'id' 			=> 'home-sidebar',
+							'description' 	=> __( 'Home Page Sidebar. ', 'wpcrowd' ),
+							'before_widget' => '<section id="%1$s" class="widget %2$s">',
+							'after_widget' 	=> '</section>',
+							'before_title' 	=> '<h4 class="widgettitle">',
+							'after_title' 	=> '</h4>',
+						)
+		);
 
 		register_sidebar( array(
-			'name' => __( 'Single Sidebar', 'wp-crowd' ),
-			'id' => 'single-sidebar',
-			'description' => __( 'Single Post Sidebar.', 'wp-crowd' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
-		) );
+							'name' 			=> __( 'Single Sidebar', 'wpcrowd' ),
+							'id' 			=> 'single-sidebar',
+							'description' 	=> __( 'Single Post Sidebar. ', 'wpcrowd' ),
+							'before_widget' => '<section id="%1$s" class="widget %2$s">',
+							'after_widget' 	=> '</section>',
+							'before_title' 	=> '<h4 class="widgettitle">',
+							'after_title' 	=> '</h4>',
+						) 
+		);
 	}
 
 	function author_rewrite_init() {
@@ -69,6 +71,7 @@ class my_theme {
 			</script>';
 		}
 	}
+
 }
 
 $my_theme = new my_theme();
@@ -79,3 +82,18 @@ add_action( 'widgets_init', array( $my_theme, 'register_sidebars' ) );
 add_action( 'init', array( $my_theme, 'author_rewrite_init' ) );
 add_action( 'wp_head', array( $my_theme, 'gmaps_head' ) );
 add_theme_support( 'post-thumbnails' ); 
+
+
+function get_protocol(){
+    if (isset($_SERVER['HTTPS']) &&
+        ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+      $protocol = 'https://';
+    }
+    else {
+      $protocol = 'http://';
+    }
+    return $protocol;
+}
+add_theme_support( 'post-thumbnails' );

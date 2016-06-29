@@ -21,7 +21,10 @@
                 left: 15px;
                 opacity: 0.5;
                 position: absolute;
-                .hearts { float: right; }
+                width:100%;
+                
+                .hearts { float: right; 
+                         margin-right: 15px }
                 &:after {
                     clear: both;
                     content: '';

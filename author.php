@@ -81,19 +81,19 @@ if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 					<?php endif; ?>
 					<div class="social-links">
 						<?php if ( get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
-							<a href="https://twitter.com/<?php echo get_field( 'twitter_handle', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
+							<a href="<?php echo esc_url( 'https://twitter.com/' . get_field( 'twitter_handle', 'user_' . $user->ID ) ); ?>" target="_blank" class="circle">
 								<i class="fa fa-twitter" aria-hidden="true"></i>
 								<?php echo '@' .get_field( 'twitter_handle', 'user_' . $user->ID ); ?>
 							</a>
 						<?php endif; ?>
 						<?php if ( get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
-							<a href="<?php echo get_field( 'facebook_url', 'user_' . $user->ID ); ?>" target="_blank" class="circle">
+							<a href="<?php echo esc_url( get_field( 'facebook_url', 'user_' . $user->ID ) ); ?>" target="_blank" class="circle">
 								<i class="fa fa-facebook" aria-hidden="true"></i>
 								<?php _e( 'Facebook', 'wpcrowd' );?>
 							</a>
 						<?php endif; ?>
 						<?php if ( $user->user_url ) : ?>
-							<a href="<?php echo $user->user_url; ?>" target="_blank" class="circle">
+							<a href="<?php echo esc_url( $user->user_url ); ?>" target="_blank" class="circle">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<?php echo $user->user_url; ?>
 							</a>
@@ -156,7 +156,7 @@ if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 								?>
 								<article class="col-sm-4 single-entry">
 									<a href="<?php the_permalink(); ?>" class="featured-image">
-										<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> <?php _e( 'Podcast', 'wpcrowd' );?>" />
+										<img src="<?php echo esc_url( 'http://img.youtube.com/vi/' . get_field( 'youtube_video_id', $post->ID ) . '/hqdefault.jpg' ); ?>" class="img-responsive" alt="<?php echo get_the_title(); ?> <?php _e( 'Podcast', 'wpcrowd' );?>" />
 									</a>
 									<h3>
 										<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">

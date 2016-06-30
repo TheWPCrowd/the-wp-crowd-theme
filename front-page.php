@@ -15,13 +15,13 @@ $blog = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 		<div class="container">
 			<div class="row">
 				<?php if ( function_exists( 'get_field' ) ) { ?>
-				<div class="col-sm-8 featured-image" style="background-image: url(http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $first_podcast->ID ); ?>/hqdefault.jpg);">
+				<div class="col-sm-8 featured-image" style="background-image: url( <?php echo esc_url( 'http://img.youtube.com/vi/' . get_field( 'youtube_video_id', $first_podcast->ID ) . '/hqdefault.jpg' );?>;">
 					<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>"></a>
 				</div>
 				<?php } ?>
 				<div class="col-sm-4 featured-info">
 					<h3>
-						<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>">
+						<a href="<?php echo get_permalink( $first_podcast->ID ); ?>">
 							<?php echo get_the_title( $first_podcast->ID ); ?>
 						</a>
 						<div class="post-excerpt">
@@ -51,7 +51,7 @@ $blog = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 						<article class="col-sm-4 single-entry">
 							<?php if ( function_exists( 'get_field' ) ) { ?>
 							<a href="<?php the_permalink(); ?>" class="featured-image">
-								<img src="http://img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
+								<img src="<?php echo esc_url( 'http://img.youtube.com/vi/' . get_field( 'youtube_video_id', $post->ID ) . '/hqdefault.jpg' ); ?>" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 							</a>
 							<?php } ?>
 							<h3>

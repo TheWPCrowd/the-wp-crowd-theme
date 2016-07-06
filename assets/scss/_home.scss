@@ -116,6 +116,16 @@
         .single-entry {
             position: relative;
             height: 270px;
+            a.featured-image {
+                background: black;
+                display: block;
+                img {
+                    height: 100px;
+                    margin: 0 auto;
+                    width: auto;
+                    max-width: 100%;
+                }
+            }
             h3 {
                 font-size: 1.25em;
                 a {
@@ -143,8 +153,12 @@
             .single-entry {
                 height: 350px;
                 a.featured-image {
+                    background: none;
                     display: block;
                     position: relative;
+                    img {
+                        height: auto;
+                    }
                     &:after {
                         color: white;
                         content: $fa-var-play-circle-o;

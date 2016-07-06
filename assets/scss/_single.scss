@@ -116,6 +116,10 @@
             }
         }
     }
+    p img {
+        height: auto;
+        max-width: 100%;
+    }
 }
 .shareing-links {
     position: static;

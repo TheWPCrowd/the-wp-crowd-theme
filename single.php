@@ -6,7 +6,7 @@ the_post();
 <div class="container single-container">
 	<div class="row">
 		<div class="col-sm-8 content">
-			<h2 class="single-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a></h2>
+			<h2 class="single-title"><?php the_title(); ?></h2>
 			<div class="single-top">
 			<?php
 			if ( 'podcast' == get_post_type() ) {

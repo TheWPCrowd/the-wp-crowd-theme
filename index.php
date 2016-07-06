@@ -50,11 +50,6 @@
 							<?php endif; ?>
 								<?php get_template_part( 'partials/block', 'title' ); ?>
 								<?php get_template_part( 'partials/meta', 'featured' ); ?>
-								<h3>
-									<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
-										<?php the_title(); ?>
-									</a>
-								</h3>
 								<div class="featured-meta">
 									<span class="date"><?php echo get_the_date( 'F j, Y', $post->ID ); ?></span>
 									<span class="hearts"></span>

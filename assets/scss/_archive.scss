@@ -4,11 +4,22 @@
     .latest-entries {
         .single-entry {
             position: relative;
-            height: 270px;
+            height: 225px;
+            margin-bottom: 20px;
             @media screen and (max-width: $screen-md-min ) {
                 height: auto;
                 padding-bottom: 20px;
                 padding-top: 20px;
+            }
+            a.featured-image {
+                background: black;
+                display: block;
+                img {
+                    height: 100px;
+                    margin: 0 auto;
+                    width: auto;
+                    max-width: 100%;
+                }
             }
             h3 {
                 font-size: 1.25em;
@@ -35,15 +46,19 @@
         }
         &.podcast {
             .single-entry {
-                height: 350px;
+                height: 320px;
                 @media screen and (max-width: $screen-md-min ) {
                     height: auto;
                     padding-bottom: 20px;
                     padding-top: 20px;
                 }
                 a.featured-image {
+                    background: none;
                     display: block;
                     position: relative;
+                    img {
+                        height: auto;
+                    }
                     &:after {
                         color: white;
                         content: $fa-var-play-circle-o;

@@ -93,7 +93,7 @@ the_post();
 							</h5>
 
 						<?php endif;
-//                                                  removed for compatibility with Roys work
+//                      Removed for compatibility with Roys work
 //						if ( function_exists( 'wpcrowd_author_follow' ) ) {
 //							wpcrowd_author_follow();
 //						} else {

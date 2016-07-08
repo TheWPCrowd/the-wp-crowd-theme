@@ -64,6 +64,9 @@ class my_theme {
 	}
 
 	function gmaps_head() {
+
+		/* TODO: this should be moved to the enqueue file */
+
 		global $post;
 		if( is_page( 'contributors' ) ) {
 			echo '<script async defer
@@ -85,10 +88,10 @@ add_theme_support( 'post-thumbnails' );
 
 
 function get_protocol(){
-    if (isset($_SERVER['HTTPS']) &&
-        ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
-        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    if ( isset($_SERVER['HTTPS'] ) &&
+        ( $_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1 ) ||
+        isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) {
       $protocol = 'https://';
     }
     else {

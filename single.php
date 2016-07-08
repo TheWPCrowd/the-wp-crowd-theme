@@ -10,7 +10,7 @@ the_post();
 			<div class="single-top">
 			<?php
 			if ( 'podcast' == get_post_type() ) {
-			
+
 				$people_terms = wp_get_post_terms( $post->ID, 'people', array( 'fields' => 'all' ) );
 				$podcasters = array();
 
@@ -27,14 +27,14 @@ the_post();
 				?>
 				<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
 				<div class="air-date text-right"><strong><?php _e( 'Aired:', 'wpcrowd' );?></strong> <?php if ( function_exists( 'get_field' ) ) { echo get_field( 'air_date' ); } ?></div>
-				
+
 
 				<div class="podcast-people">
 					<strong><?php _e( 'In This Episode', 'wpcrowd' );?></strong>
 					<?php
 					if ( ! empty( $podcasters ) && is_array( $podcasters ) ) {
-						
-						foreach( $podcasters as $user ) { 
+
+						foreach( $podcasters as $user ) {
 
 							$usermeta = get_user_meta( $user );
 							$username = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
@@ -61,7 +61,7 @@ the_post();
 					if ( is_array( $topics ) ) {
 					?>
 					<ul>
-							<?php 
+							<?php
 							foreach( $topics as $topic ) {
 								echo '<li><a href="/topics/' . $topic->slug . '" class="person" title="' . esc_attr( $topic->name ) . '">' . $topic->name . '</a></li>';
 							}
@@ -93,7 +93,7 @@ the_post();
 							</h5>
 
 						<?php endif;
-//                      Removed for compatibility with Roys work
+//					Removed for compatibility with Roys work
 //						if ( function_exists( 'wpcrowd_author_follow' ) ) {
 //							wpcrowd_author_follow();
 //						} else {
@@ -131,7 +131,7 @@ the_post();
 
 
 
-		
+
 			</div>
 			<div class="content-container">
 				<?php

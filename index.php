@@ -11,8 +11,8 @@
 
 	$singleurl = ( is_singular( 'podcast' ) ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) . '/thewpcrowd-blog' );
 
-        
-        
+
+
 ?>
 
 <div class="container archive">

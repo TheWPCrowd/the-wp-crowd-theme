@@ -26,35 +26,35 @@ class my_theme {
 		add_theme_support( 'title-tag' );
 
 		register_nav_menus( array(
-			'top_header' 	=> __( 'Top Header', 'wpcrowd' ),
+			'top_header'	=> __( 'Top Header', 'wpcrowd' ),
 			'header'		=> __( 'Header Menu', 'wpcrowd' ),
-			'footer_left' 	=> __( 'Footer Menu (Left)', 'wpcrowd' ),
-			'footer_right' 	=> __( 'Footer Menu (Right)', 'wpcrowd' ),
+			'footer_left'	=> __( 'Footer Menu (Left)', 'wpcrowd' ),
+			'footer_right'	=> __( 'Footer Menu (Right)', 'wpcrowd' ),
 		) );
 
 	}
 
 	function register_sidebars() {
 		register_sidebar( array(
-							'name' 			=> __( 'Home Sidebar', 'wpcrowd' ),
-							'id' 			=> 'home-sidebar',
-							'description' 	=> __( 'Home Page Sidebar. ', 'wpcrowd' ),
+							'name'			=> __( 'Home Sidebar', 'wpcrowd' ),
+							'id'			=> 'home-sidebar',
+							'description'	=> __( 'Home Page Sidebar. ', 'wpcrowd' ),
 							'before_widget' => '<section id="%1$s" class="widget %2$s">',
-							'after_widget' 	=> '</section>',
-							'before_title' 	=> '<h4 class="widgettitle">',
-							'after_title' 	=> '</h4>',
+							'after_widget'	=> '</section>',
+							'before_title'	=> '<h4 class="widgettitle">',
+							'after_title'	=> '</h4>',
 						)
 		);
 
 		register_sidebar( array(
-							'name' 			=> __( 'Single Sidebar', 'wpcrowd' ),
-							'id' 			=> 'single-sidebar',
-							'description' 	=> __( 'Single Post Sidebar. ', 'wpcrowd' ),
+							'name'			=> __( 'Single Sidebar', 'wpcrowd' ),
+							'id'			=> 'single-sidebar',
+							'description'	=> __( 'Single Post Sidebar. ', 'wpcrowd' ),
 							'before_widget' => '<section id="%1$s" class="widget %2$s">',
-							'after_widget' 	=> '</section>',
-							'before_title' 	=> '<h4 class="widgettitle">',
-							'after_title' 	=> '</h4>',
-						) 
+							'after_widget'	=> '</section>',
+							'before_title'	=> '<h4 class="widgettitle">',
+							'after_title'	=> '</h4>',
+						)
 		);
 	}
 
@@ -70,7 +70,7 @@ class my_theme {
 		global $post;
 		if( is_page( 'contributors' ) ) {
 			echo '<script async defer
-		        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
 			</script>';
 		}
 	}
@@ -84,19 +84,19 @@ add_action( 'after_setup_theme', array( $my_theme, 'theme_setup' ) );
 add_action( 'widgets_init', array( $my_theme, 'register_sidebars' ) );
 add_action( 'init', array( $my_theme, 'author_rewrite_init' ) );
 add_action( 'wp_head', array( $my_theme, 'gmaps_head' ) );
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
 
 
 function get_protocol(){
-    if ( isset($_SERVER['HTTPS'] ) &&
-        ( $_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1 ) ||
-        isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) &&
-        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) {
-      $protocol = 'https://';
-    }
-    else {
-      $protocol = 'http://';
-    }
-    return $protocol;
+	if ( isset($_SERVER['HTTPS'] ) &&
+		( $_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1 ) ||
+		isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) &&
+		$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) {
+	$protocol = 'https://';
+	}
+	else {
+	$protocol = 'http://';
+	}
+	return $protocol;
 }
 add_theme_support( 'post-thumbnails' );

@@ -5,10 +5,10 @@
 	get_header();
 	global $wpdb;
 	$min_posts = 1; // Make sure it's int, it's not escaped in the query
-	$author_ids = $wpdb->get_col( 	"SELECT `post_author` FROM
+	$author_ids = $wpdb->get_col(	"SELECT `post_author` FROM
 									(SELECT `post_author`, COUNT(*) AS `count` FROM {$wpdb->posts}
 									WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
-									WHERE `count` >= {$min_posts} ORDER BY `count` DESC;" 
+									WHERE `count` >= {$min_posts} ORDER BY `count` DESC;"
 								);
 
 	$people_terms = get_terms( 'people' );
@@ -43,7 +43,7 @@
 						if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 							$author_name = $usermeta['first_name'][0] . '<br />' . $usermeta['last_name'][0];
 						}
-						
+
 						$location = get_field( 'location', 'user_' . $user->ID );
 
 						if ( ! $location ) {
@@ -110,7 +110,7 @@
 							<?php endif; ?>
 
 						</div>
-						
+
 					</div>
 				</article>
 				<?php

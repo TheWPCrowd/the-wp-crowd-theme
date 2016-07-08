@@ -35,6 +35,8 @@
 			<div class="row">
 
 				<?php
+					$google_map_locations = '';
+
 					foreach( $author_ids as $author ):
 						$user = get_user_by( 'id', $author );
 						$usermeta = get_user_meta( $user->ID );
@@ -126,8 +128,9 @@
 
 
 <script>
-  function initMap() {
+function initMap() {
 
+	/* define the styles to be used in this map */
 	var styles = [
 	{
 		"featureType": "administrative",
@@ -233,85 +236,68 @@
 	}
 ];
 
-  // Create a new StyledMapType object, passing it the array of styles,
-  // as well as the name to be displayed on the map type control.
-  var styledMap = new google.maps.StyledMapType(styles,
-	{name: "Styled Map"});
+/* Create the styled map definition for Google Maps */
+var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
 
-	var mapDiv = document.getElementById('map');
-	var map = new google.maps.Map(mapDiv, {
-		center: {lat: -53, lng: 151},
-		zoom: 2,
-		mapTypeControlOptions: {
-		  mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-		},
-		disableDefaultUI: true
+var mapDiv = document.getElementById('map');
+var map = new google.maps.Map(mapDiv, {
+	center: {lat: -53, lng: 151},
+	zoom: 2,
+	mapTypeControlOptions: {
+		mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+	},
+	disableDefaultUI: true
+});
+
+geocoder = new google.maps.Geocoder();
+
+function addMarker(feature) {
+	var marker = new google.maps.Marker({
+	position: feature.position,
+	map: map
 	});
-
-	function addMarker(feature) {
-		  var marker = new google.maps.Marker({
-			position: feature.position,
-			map: map
-		  });
-		}
-
-		geocoder = new google.maps.Geocoder();
-
-		function codeAddress( address ) {
-
-			//In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
-
-			geocoder.geocode( { 'address' : address }, function( results, status ) {
-				if( status == google.maps.GeocoderStatus.OK ) {
-
-					//In this case it creates a marker, but you can get the lat and lng from the location.LatLng
-					map.setCenter( results[0].geometry.location );
-
-					var marker = new google.maps.Marker( {
-						map	 : map,
-						position: results[0].geometry.location,
-
-					} );
-					marker.setIcon('<?php echo get_stylesheet_directory_uri();?>/img/contributor-icon.png');
-				} else {
-					alert( 'Geocode was not successful for the following reason: ' + status );
-				}
-			} );
-		}
+}
 
 
+function codeAddress( address ) {
 
-	 var features = [
-		  <?php
+	geocoder.geocode( { 'address' : address }, function( results, status ) {
+	
+	if( status == google.maps.GeocoderStatus.OK ) {
 
-		  $google_map_locations[] = 'St. Catharines, Ontario, Canada';
-		  $google_map_locations[] = 'Ottawa, Ontario, Canada';
+		map.setCenter( results[0].geometry.location );
 
-		  foreach ( $google_map_locations as $location ) {
-		  ?>
+		var marker = new google.maps.Marker( {
+			map	 : map,
+			position: results[0].geometry.location,
 
+		} );
+		marker.setIcon('<?php echo get_stylesheet_directory_uri();?>/img/contributor-icon.png');
+	}
 
+	} );
+}
+<?php
+	/* Test data 
+	  $google_map_locations[] = 'St. Catharines, Ontario, Canada';
+	  $google_map_locations[] = 'Ottawa, Ontario, Canada';
+	*/
+?>
+var features = [
+	<?php foreach ( $google_map_locations as $location ) { ?>
+	{ position: new google.maps.LatLng( codeAddress( '<?php echo $location;?>' ) ) },
+	<?php } ?>
+];
 
-			{
-			position: new google.maps.LatLng( codeAddress( '<?php echo $location;?>' ) )
-			},
-		  <?php } ?>
+for (var i = 0, feature; feature = features[i]; i++) {
+	addMarker(feature);
+}
 
+map.mapTypes.set('map_style', styledMap);
+map.setMapTypeId('map_style');
 
-		];
-
-		for (var i = 0, feature; feature = features[i]; i++) {
-
-		  addMarker(feature);
-
-		}
-
-		map.mapTypes.set('map_style', styledMap);
-  map.setMapTypeId('map_style');
-
-
-  }
+}
 </script>
 <script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">

@@ -48,7 +48,10 @@
 
 						if ( ! $location ) {
 							$location = '';
+						} else {
+							$google_map_locations[] = $location;
 						}
+
 				?>
 
 				<article class="col-sm-3 contributor-wrapper" data-loc="<?php echo esc_attr( $location ); ?>">
@@ -120,5 +123,199 @@
 		</div>
 	</div>
 </div>
+
+
+<script>
+  function initMap() {
+
+  	var styles = [
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+];
+
+  // Create a new StyledMapType object, passing it the array of styles,
+  // as well as the name to be displayed on the map type control.
+  var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+
+
+    var mapDiv = document.getElementById('map');
+    var map = new google.maps.Map(mapDiv, {
+        center: {lat: -53, lng: 151},
+        zoom: 2,
+        mapTypeControlOptions: {
+	      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+	    },
+		disableDefaultUI: true
+    });
+
+    function addMarker(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            map: map
+          });
+        }
+
+        geocoder = new google.maps.Geocoder();
+
+		function codeAddress( address ) {
+
+		    //In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
+
+		    geocoder.geocode( { 'address' : address }, function( results, status ) {
+		        if( status == google.maps.GeocoderStatus.OK ) {
+
+		            //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+		            map.setCenter( results[0].geometry.location );
+
+		            var marker = new google.maps.Marker( {
+		                map     : map,
+		                position: results[0].geometry.location,
+
+		            } );
+		            marker.setIcon('<?php echo get_stylesheet_directory_uri();?>/img/contributor-icon.png');
+		        } else {
+		            alert( 'Geocode was not successful for the following reason: ' + status );
+		        }
+		    } );
+		}
+
+
+
+     var features = [
+          <?php 
+
+          $google_map_locations[] = 'St. Catharines, Ontario, Canada';
+          $google_map_locations[] = 'Ottawa, Ontario, Canada';
+
+          foreach ( $google_map_locations as $location ) {
+          ?>
+
+
+
+          	{
+            position: new google.maps.LatLng( codeAddress( '<?php echo $location;?>' ) )
+          	}, 
+          <?php } ?>
+
+
+        ];
+
+        for (var i = 0, feature; feature = features[i]; i++) {
+
+          addMarker(feature);
+
+        }
+
+        map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
+
+
+  }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
+</script>
+
 
 <?php get_footer(); ?>

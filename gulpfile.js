@@ -25,7 +25,6 @@ var jsFileList = [
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js',
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js',
 	'node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js',
-
 	'assets/js/theme-script.js',
 ];
 
@@ -62,12 +61,17 @@ gulp.task( 'js', function () {
 		.pipe( notify( { message : '[dev] JS task complete', onLast : true } ) );
 } );
 
+gulp.task( 'analytics', function() {
+	return gulp.src( './assets/js/google-analytics.js' )
+		.pipe( gulp.dest( './build/js' ) );
+});
+
 gulp.task( 'fonts', function () {
 	gulp.src( './node_modules/font-awesome/fonts/*' )
 		.pipe( gulp.dest( './build/fonts' ) );
 } );
 
-gulp.task( 'default', [ 'fonts', 'sass', 'js' ], function () {
+gulp.task( 'default', [ 'fonts', 'sass', 'js', 'analytics' ], function () {
 	// Listen on port 35729
     lr.listen(35729, function (err) {
         if (err) {

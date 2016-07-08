@@ -8,7 +8,7 @@
             margin: -10px 0 2em 0;
             padding: 10px;
             box-sizing: border-box;
-            
+
         }
 
         a:hover img {
@@ -87,6 +87,33 @@
                     margin: 20px auto;
                     padding: 5px 30px;
                     text-shadow: 1px 1px 3px rgba( 0,0,0,0.75 );
+                }
+            }
+        }
+        &.widget_prompt_subscribe_widget {
+            .prompt-subscribe-widget-content {
+                width: 80%;
+                margin: 10px auto 20px auto;
+                .primary.prompt {
+                    margin: 10px 0;
+                }
+                .inputs.active {
+                    font-size: 1.5em;
+                    input {
+                        display: block;
+                        margin: 10px 0;
+                        width: 100%;
+                    }
+                    input[type="submit"].submit {
+                        background: $brand-warning;
+                        color: white;
+                        display: block;
+                        font-size: 22px !important;
+                        height: auto;
+                        margin: 20px auto;
+                        padding: 5px 30px;
+                        text-shadow: 1px 1px 3px rgba( 0,0,0,0.75 );
+                    }
                 }
             }
         }

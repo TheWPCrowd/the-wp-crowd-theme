@@ -6,7 +6,7 @@ the_post();
 <div class="container single-container">
 	<div class="row">
 		<div class="col-sm-8 content">
-			<h2 class="single-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a></h2>
+			<h2 class="single-title"><?php the_title(); ?></h2>
 			<div class="single-top">
 			<?php
 			if ( 'podcast' == get_post_type() ) {
@@ -40,7 +40,7 @@ the_post();
 							$username = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 
 						?>
-							<a href="<?php echo get_author_posts_url( $user ); ?>" title="<?php echo esc_attr( $username );?>">
+							<a href="<?php echo get_author_posts_url( $user ); ?>" title="<?php echo esc_attr( $username ) ;?>">
 							<?php
 								echo get_avatar( $user, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) );
 								echo esc_html( $username );
@@ -93,10 +93,10 @@ the_post();
 							</h5>
 
 						<?php endif;
-
-						if ( function_exists( 'wpcrowd_author_follow' ) ) {
-							wpcrowd_author_follow();
-						} else {
+//                                                  removed for compatibility with Roys work
+//						if ( function_exists( 'wpcrowd_author_follow' ) ) {
+//							wpcrowd_author_follow();
+//						} else {
 							$user = get_user_by( 'id', $post->post_author );
 							if ( function_exists( 'get_field' ) && get_field( 'biography', 'user_' . $user->ID ) ) : ?>
 									<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle">
@@ -119,7 +119,7 @@ the_post();
 									</a>
 							<?php endif;
 
-					}?>
+					// }?>
 					</div>
 					<div class="col-xs-3 date"><strong><?php _e( 'Published:', 'wpcrowd' );?> </strong><?php echo get_the_date( 'F j, Y' ) ?></div>
 				</div>

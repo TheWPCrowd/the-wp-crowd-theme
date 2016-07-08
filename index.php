@@ -11,6 +11,8 @@
 
 	$singleurl = ( is_singular( 'podcast' ) ? get_bloginfo( 'url' ) . '/podcast' : get_bloginfo( 'url' ) . '/thewpcrowd-blog' );
 
+        
+        
 ?>
 
 <div class="container archive">
@@ -34,45 +36,35 @@
 						<a href="<?php echo $singleurl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo esc_html( $singletitle ); ?></strong></a>
 					<?php endif; ?>
 				</div>
-
-
-				<div class="row latest-entries <?php echo get_post_type(); ?> ">
-					
+				<div class="row latest-entries <?php if ( 'podcast' == get_post_type() ) { echo 'podcast'; } ?> ">
 					<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							<article class="col-sm-4 single-entry">
-								<?php if ( 'podcast' === get_post_type() ): ?>
-								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() );?>" class="featured-image">
-									<img src="<?php echo esc_url( 'http://img.youtube.com/vi/' . get_field( 'youtube_video_id', $post->ID ) . '/hqdefault.jpg' ); ?>" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
+								<?php if( 'podcast' === get_post_type() ): ?>
+								<a href="<?php the_permalink(); ?>" class="featured-image">
+									<img src="<?php echo get_protocol() ?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 								</a>
 							<?php else: ?>
 								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() );?>" class="featured-image">
 									<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
 								</a>
 							<?php endif; ?>
-								<h3>
-									<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
-										<?php the_title(); ?>
-									</a>
-								</h3>
+								<?php get_template_part( 'partials/block', 'title' ); ?>
+								<?php get_template_part( 'partials/meta', 'featured' ); ?>
 								<div class="featured-meta">
 									<span class="date"><?php echo get_the_date( 'F j, Y', $post->ID ); ?></span>
 									<span class="hearts"></span>
 								</div>
 							</article>
 
-					<?php endwhile; endif; //end if/while have_posts ?>
+					<?php endwhile; endif; //end if/while have_posts
 
-				</div>
+					if ( class_exists( 'PageNavi_Call' ) ) {
+						wp_pagenavi();
+					} else {
+						the_posts_navigation();
+					}
 
-				<div class="row">
-				<?php
-
-				if ( class_exists( 'PageNavi_Call' ) ) {
-					wp_pagenavi();
-				} else {
-					the_posts_navigation();
-				} 
-				?>
+					?>
 
 				</div>
 			</div>

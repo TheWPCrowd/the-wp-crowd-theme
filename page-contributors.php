@@ -41,7 +41,7 @@
 						$author_name = $user->user_nicename;
 
 						if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
-							$author_name = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
+							$author_name = $usermeta['first_name'][0] . '<br />' . $usermeta['last_name'][0];
 						}
 						
 						$location = get_field( 'location', 'user_' . $user->ID );
@@ -63,7 +63,7 @@
 						<div class="contributor-meta">
 							<h3>
 								<a href="<?php echo get_author_posts_url( $user->ID ); ?>">
-									<?php echo esc_html( $author_name ); ?>
+									<?php echo $author_name; ?>
 								</a>
 							</h3>
 
@@ -86,7 +86,7 @@
 							<?php endif; ?>
 
 							<?php if ( get_field( 'biography', 'user_' . $user->ID ) ) : ?>
-								<a href="<?php echo esc_url( $get_author_posts_url( $user->ID ) ); ?>" title="<?php _e( 'BIO', 'wpcrowd' );?>" class="bio circle">
+								<a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>" title="<?php _e( 'BIO', 'wpcrowd' );?>" class="bio circle">
 									<i><?php _e( 'BIO', 'wpcrowd' );?></i>
 								</a>
 							<?php endif; ?>
@@ -98,7 +98,7 @@
 							<?php endif; ?>
 
 							<?php if ( get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
-								<a href="<?php echo esc_url( $get_field( 'facebook_url', 'user_' . $user->ID ) ); ?>" title="<?php _e( 'Facebook', 'wpcrowd' );?>" target="_blank" class="circle">
+								<a href="<?php echo esc_url( get_field( 'facebook_url', 'user_' . $user->ID ) ); ?>" title="<?php _e( 'Facebook', 'wpcrowd' );?>" target="_blank" class="circle">
 									<i class="fa fa-facebook" aria-hidden="true"></i>
 								</a>
 							<?php endif; ?>

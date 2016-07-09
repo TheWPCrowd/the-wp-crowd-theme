@@ -28,12 +28,14 @@ $args = array( 'post_type' => 'podcast', 'posts_per_page' => $per_page );
 
 if ( $person && $cpt != 'posts' ) {
 	$person = get_term_by( 'id', $person, 'people' );
-	$args['people'] = $person->slug;
-	if ( $cpt && $cpt == 'podcast' ) {
-		$args['paged'] = $page;
-		$args['page'] = $page;
+	if( $person ) {
+		$args['people'] = $person->slug;
+		if ( $cpt && $cpt == 'podcast' ) {
+			$args['paged'] = $page;
+			$args['page']  = $page;
+		}
+		$podcasts = new WP_Query( $args );
 	}
-	$podcasts = new WP_Query( $args );
 }
 
 /** Author Info */

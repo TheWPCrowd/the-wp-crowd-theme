@@ -244,6 +244,7 @@ var mapDiv = document.getElementById('map');
 var map = new google.maps.Map(mapDiv, {
 	center: {lat: -53, lng: 151},
 	zoom: 2,
+	scrollwheel: false,
 	mapTypeControlOptions: {
 		mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
 	},

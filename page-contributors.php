@@ -5,10 +5,10 @@
 	get_header();
 	global $wpdb;
 	$min_posts = 1; // Make sure it's int, it's not escaped in the query
-	$author_ids = $wpdb->get_col( 	"SELECT `post_author` FROM
+	$author_ids = $wpdb->get_col(	"SELECT `post_author` FROM
 									(SELECT `post_author`, COUNT(*) AS `count` FROM {$wpdb->posts}
 									WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
-									WHERE `count` >= {$min_posts} ORDER BY `count` DESC;" 
+									WHERE `count` >= {$min_posts} ORDER BY `count` DESC;"
 								);
 
 	$people_terms = get_terms( 'people' );
@@ -35,6 +35,8 @@
 			<div class="row">
 
 				<?php
+					$google_map_locations = '';
+
 					foreach( $author_ids as $author ):
 						$user = get_user_by( 'id', $author );
 						$usermeta = get_user_meta( $user->ID );
@@ -43,12 +45,15 @@
 						if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 							$author_name = $usermeta['first_name'][0] . '<br />' . $usermeta['last_name'][0];
 						}
-						
+
 						$location = get_field( 'location', 'user_' . $user->ID );
 
 						if ( ! $location ) {
 							$location = '';
+						} else {
+							$google_map_locations[] = $location;
 						}
+
 				?>
 
 				<article class="col-sm-3 contributor-wrapper" data-loc="<?php echo esc_attr( $location ); ?>">
@@ -110,7 +115,7 @@
 							<?php endif; ?>
 
 						</div>
-						
+
 					</div>
 				</article>
 				<?php
@@ -120,5 +125,183 @@
 		</div>
 	</div>
 </div>
+
+
+<script>
+function initMap() {
+
+	/* define the styles to be used in this map */
+	var styles = [
+	{
+		"featureType": "administrative",
+		"elementType": "all",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "administrative",
+		"elementType": "geometry.fill",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "administrative",
+		"elementType": "labels.text.fill",
+		"stylers": [
+			{
+				"color": "#444444"
+			}
+		]
+	},
+	{
+		"featureType": "landscape",
+		"elementType": "all",
+		"stylers": [
+			{
+				"color": "#f2f2f2"
+			},
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "poi",
+		"elementType": "all",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "road",
+		"elementType": "all",
+		"stylers": [
+			{
+				"saturation": -100
+			},
+			{
+				"lightness": 45
+			},
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "road.highway",
+		"elementType": "all",
+		"stylers": [
+			{
+				"visibility": "simplified"
+			}
+		]
+	},
+	{
+		"featureType": "road.arterial",
+		"elementType": "labels.icon",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "transit",
+		"elementType": "all",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "water",
+		"elementType": "all",
+		"stylers": [
+			{
+				"color": "#ffffff"
+			},
+			{
+				"visibility": "on"
+			}
+		]
+	}
+];
+
+/* Create the styled map definition for Google Maps */
+var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+
+
+var mapDiv = document.getElementById('map');
+var map = new google.maps.Map(mapDiv, {
+	center: {lat: -53, lng: 151},
+	zoom: 2,
+	mapTypeControlOptions: {
+		mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+	},
+	disableDefaultUI: true
+});
+
+geocoder = new google.maps.Geocoder();
+
+function addMarker(feature) {
+	var marker = new google.maps.Marker({
+	position: feature.position,
+	map: map
+	});
+}
+
+
+function codeAddress( address ) {
+
+	geocoder.geocode( { 'address' : address }, function( results, status ) {
+	
+	if( status == google.maps.GeocoderStatus.OK ) {
+
+		map.setCenter( results[0].geometry.location );
+
+		var marker = new google.maps.Marker( {
+			map	 : map,
+			position: results[0].geometry.location,
+
+		} );
+		marker.setIcon('<?php echo get_stylesheet_directory_uri();?>/img/contributor-icon.png');
+	}
+
+	} );
+}
+<?php
+	/* Test data 
+	  $google_map_locations[] = 'St. Catharines, Ontario, Canada';
+	  $google_map_locations[] = 'Ottawa, Ontario, Canada';
+	*/
+?>
+var features = [
+	<?php foreach ( $google_map_locations as $location ) { ?>
+	{ position: new google.maps.LatLng( codeAddress( '<?php echo $location;?>' ) ) },
+	<?php } ?>
+];
+
+for (var i = 0, feature; feature = features[i]; i++) {
+	addMarker(feature);
+}
+
+map.mapTypes.set('map_style', styledMap);
+map.setMapTypeId('map_style');
+
+}
+</script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwRWaA2cVMOJDGB9qz3YaladDBJtApBE&callback=initMap">
+</script>
+
 
 <?php get_footer(); ?>

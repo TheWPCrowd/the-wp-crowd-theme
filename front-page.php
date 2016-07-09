@@ -16,7 +16,7 @@ $protocol = get_protocol();
 	<div class="container-fluid" id="home-top">
 		<div class="container">
 			<div class="row">
-                                <?php if(function_exists('get_field')) { ?>
+				<?php if(function_exists('get_field')) { ?>
 				<div class="col-sm-8 featured-image" style="background-image: url(<?php echo $protocol?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $first_podcast->ID ); ?>/hqdefault.jpg);">
 					<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>"></a>
 				</div>
@@ -30,10 +30,10 @@ $protocol = get_protocol();
 							<?php echo substr( $first_podcast->post_content, 0, 200 ) . ' &hellip; '; ?>
 						</div>
 					</h3>
-                                <div class="featured-meta">
-                                    <span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
-                                    <?php if( function_exists( 'wpcrowd_engage' ) ) { wpcrowd_engage(); } ?>
-                                </div>
+					<div class="featured-meta">
+						<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
+						<?php if( function_exists( 'wpcrowd_engage' ) ) { wpcrowd_engage(); } ?>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -55,9 +55,9 @@ $protocol = get_protocol();
 							<a href="<?php the_permalink(); ?>" class="featured-image">
 								<img src="<?php echo $protocol?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
 							</a>
-                                                        <?php } ?>
+														<?php } ?>
 							<?php get_template_part( 'partials/block', 'title' ); ?>
-							<?php get_template_part( 'partials/meta', 'featured' ); ?>							
+							<?php get_template_part( 'partials/meta', 'featured' ); ?>
 						</article>
 					<?php endif; $i++; endwhile; endif; ?>
 					</div>

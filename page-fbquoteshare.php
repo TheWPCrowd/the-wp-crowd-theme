@@ -45,7 +45,7 @@ function wpcrowd_share_buttons_serverside_sharing_facebook() {
 		// else return lovely array of settings
 		return array(
 			'id'				=> $id,
-			'description' 	=> $text,
+			'description'	=> $text,
 			'url'				=> $url,
 			'title'				=> $node->title,
 			'image'				=> file_create_url( $node->field_image['und'][0]['uri'] ),

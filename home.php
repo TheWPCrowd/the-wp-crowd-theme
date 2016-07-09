@@ -30,7 +30,10 @@ get_header();
 						</article>
 					<?php endwhile; endif; ?>
 
-					<?php 
+				</div>
+
+				<div class="row">
+				<?php
 
 					if ( class_exists( 'PageNavi_Call' ) ) {
 						wp_pagenavi();
@@ -40,12 +43,12 @@ get_header();
 
 					?>
 
-					
+
 				</div>
 			</div>
 		</div>
 
-		
+
 		<div class="col-sm-4 sidebar">
 			<?php dynamic_sidebar( 'home-sidebar' ); ?>
 		</div>

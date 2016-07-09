@@ -62,7 +62,7 @@
 
 					<?php endwhile; endif; //end if/while have_posts
 
-					if ( class_exists( 'PageNavi_Call' ) ) {
+					if ( function_exists( 'wp_pagenavi' ) ) {
 						wp_pagenavi();
 					} else {
 						the_posts_navigation();

@@ -5,3 +5,6 @@ npm-debug.log
 # PhpStorm
 .idea
 .netbeans.xml
+
+build/*
+wpcrowd.txt

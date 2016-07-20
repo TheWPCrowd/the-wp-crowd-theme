@@ -8575,6 +8575,11 @@ footer {
         display: block;
         margin: 0 auto 5px auto;
         width: 80%; }
+    .single-container .podcast-people.guests span {
+      color: #7f7273;
+      display: inline-block;
+      font-weight: 100;
+      margin: 0 10px; }
   .single-container p img {
     height: auto;
     max-width: 100%; }

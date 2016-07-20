@@ -115,6 +115,14 @@
                 width: 80%;
             }
         }
+        &.guests {
+            span {
+                color: lighten( $brand-secondary, 10% );
+                display: inline-block;
+                font-weight: 100;
+                margin: 0 10px;
+            }
+        }
     }
     p img {
         height: auto;

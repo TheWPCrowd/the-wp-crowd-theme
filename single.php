@@ -24,35 +24,46 @@ the_post();
 						}
 					}
 				}
+
+				$guests = wp_get_post_terms( $post->ID, 'guest', array( 'fields' => 'all' ) );
 				?>
+
 				<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
 				<div class="air-date text-right"><strong><?php _e( 'Aired:', 'wpcrowd' );?></strong> <?php if ( function_exists( 'get_field' ) ) { echo get_field( 'air_date' ); } ?></div>
 
-
-				<div class="podcast-people">
-					<strong><?php _e( 'In This Episode', 'wpcrowd' );?></strong>
-					<?php
-					if ( ! empty( $podcasters ) && is_array( $podcasters ) ) {
-
-						foreach( $podcasters as $user ) {
-
-							$usermeta = get_user_meta( $user );
-							$username = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
-
-						?>
-							<a href="<?php echo get_author_posts_url( $user ); ?>" title="<?php echo esc_attr( $username ) ;?>">
-							<?php
-								echo get_avatar( $user, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) );
-								echo esc_html( $username );
-							?>
-							</a>
+				<?php if ( ! empty( $podcasters ) && is_array( $podcasters ) ) : ?>
+					<div class="podcast-people">
+						<strong><?php _e( 'In This Episode', 'wpcrowd' );?></strong>
 						<?php
+							foreach( $podcasters as $user ) {
 
+								$usermeta = get_user_meta( $user );
+								$username = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
+
+							?>
+								<a href="<?php echo get_author_posts_url( $user ); ?>" title="<?php echo esc_attr( $username ) ;?>">
+								<?php
+									echo get_avatar( $user, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) );
+									echo esc_html( $username );
+								?>
+								</a>
+							<?php
+
+							} /* foreach */
+						?>
+					</div>
+				<?php endif; ?>
+
+				<?php if ( ! empty( $guests ) && is_array( $guests ) ) : ?>
+					<div class="podcast-people guests">
+						<strong><?php _e( 'Special Guests', 'wpcrowd' );?></strong>
+						<?php
+						foreach( $guests as $guest) {
+							echo '<span>' . esc_html( $guest->name ) . '</span>';
 						} /* foreach */
-
-					} /* if */
-					?>
-				</div>
+						?>
+					</div>
+				<?php endif; ?>
 
 
 				<div class="categories">

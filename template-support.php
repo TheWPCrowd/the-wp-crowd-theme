@@ -3,7 +3,7 @@
  * Template Name: Support The Crowd
  */
 get_header(); the_post(); ?>
-	
+
 	<div class="col-sm-4">
 		<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
 		<?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>

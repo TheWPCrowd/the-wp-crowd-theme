@@ -17,10 +17,10 @@
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
+
 		  ga('create', 'UA-7601975-17', 'auto');
 		  ga('send', 'pageview');
-		
+
 		</script>
 	</head>
 	<body <?php body_class(); ?>>
@@ -48,12 +48,12 @@
 					<div class="col-sm-6 col-xs-8 text-center">
 						<h2 class="text-center hidden-xs hidden-sm">Meme Of The Week</h2>
 						<a href="<?php the_permalink(); ?>">
-						<?php 
+						<?php
 							echo '<img style="height:210px;margin:0 auto" src="' . $meme_src . '" class="img-responsive" alt="WP Crowd" style="margin:0 auto;" />';
 						?>
 						</a>
 					</div>
-				</div>	
+				</div>
 			</div>
 		</div>
 		<?php wp_reset_query(); endif; ?>

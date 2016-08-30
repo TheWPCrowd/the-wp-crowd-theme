@@ -1,6 +1,6 @@
 <?php get_header();?>
-	
-	
+
+
 	<div class="col-sm-8 content list">
 		<?php while( have_posts() ): the_post(); ?>
 		<article>

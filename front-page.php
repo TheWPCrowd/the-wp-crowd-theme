@@ -1,4 +1,4 @@
-<?php 
+<?php
 	get_header();
 	$podcasts = new WP_Query( array( 'post_type' => 'podcast', 'paged' => $paged, 'posts_per_page' => 5 ) );
 	$blog = new WP_Query( array( 'post_type' => 'post', 'paged' => $paged, 'posts_per_page' => 5 ) );

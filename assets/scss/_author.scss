@@ -36,10 +36,17 @@
             color: darken( #e5e3e4, 20 );
             font-size: 1.25em;
             padding-left: 15px;
-            i {
+            
+            .fa-map-marker {
                 color: $brand-warning;
                 display: inline-block;
                 margin-right: 5px;
+                float: left;
+            }
+
+            .details {
+                float: left;
+                width: 90%;
             }
         }
         a.circle {

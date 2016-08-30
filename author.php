@@ -77,8 +77,10 @@ if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 				<div class="author-info">
 					<?php if ( get_field( 'location', 'user_' . $user_id ) ) : ?>
 						<div class="location">
-							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							<div class="fa fa-map-marker" aria-hidden="true"></div>
+							<div class="details">
 							<?php the_field( 'location', 'user_' . $user_id ); ?>
+							</div>
 						</div>
 					<?php endif; ?>
 					<div class="social-links">

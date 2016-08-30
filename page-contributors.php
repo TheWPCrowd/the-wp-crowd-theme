@@ -264,7 +264,7 @@ function addMarker(feature) {
 function codeAddress( address ) {
 
 	geocoder.geocode( { 'address' : address }, function( results, status ) {
-	
+
 	if( status == google.maps.GeocoderStatus.OK ) {
 
 		map.setCenter( results[0].geometry.location );
@@ -280,8 +280,7 @@ function codeAddress( address ) {
 	} );
 }
 <?php
-	/* Test data 
-	  $google_map_locations[] = 'St. Catharines, Ontario, Canada';
+	/* Test data 	  $google_map_locations[] = 'St. Catharines, Ontario, Canada';
 	  $google_map_locations[] = 'Ottawa, Ontario, Canada';
 	*/
 ?>

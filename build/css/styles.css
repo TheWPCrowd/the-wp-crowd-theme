@@ -7963,6 +7963,8 @@ body {
     body .single-container p, body .single-container li {
       font-family: 'Montserrat-Light', 'HelveticaNeue', 'Helvetica', 'Tahoma', 'Arial', sans-serif;
       line-height: 1.6; }
+      body .single-container p strong, body .single-container li strong {
+        color: black; }
     body .single-container h2.single-title {
       font-size: 2em;
       margin: 0 0 1em;

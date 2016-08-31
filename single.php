@@ -1,17 +1,17 @@
 <?php get_header(); the_post(); ?>
-	
+
 	<div class="col-sm-8 content">
 		<h2 class="page_title"><?php the_title(); ?></h2>
-		<?php 
+		<?php
 			the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-			the_content(); 
-			
-	
+			the_content();
+
+
 			$url = get_the_author_meta( 'user_url' );
 			//make sure is URL or not getting trolled by Roy
 			if( empty( $url ) || ! filter_var(  $url, FILTER_VALIDATE_URL ) || false != strpos( $url, 'pornhub.ca' ) ){
 				$url = get_author_posts_url( get_the_author( ) );
-			
+
 			}
 			?>
 			<dl>
@@ -21,7 +21,7 @@
 				<dd><?php the_date( 'F j, Y'); ?></dd>
 			</dl>
 		<?php
-			comments_template();			
+			comments_template();
 		?>
 	</div>
 	<div class="col-sm-4">

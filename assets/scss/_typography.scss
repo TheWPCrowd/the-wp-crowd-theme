@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Montserrat-Black';
+    src: url('montserrat-black.woff2') format('woff2'),
+         url('montserrat-black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('montserrat-bold.woff2') format('woff2'),
+         url('montserrat-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('../../assets/fonts/montserrat-light.woff2') format('woff2'),
+         url('../../assets/fonts/montserrat-light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../assets/fonts/montserrat-regular.woff2') format('woff2'),
+         url('../../assets/fonts/montserrat-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Digital';
+    src: url('../../assets/fonts/ds-digi.woff2') format('woff2'),
+         url('../../assets/fonts/ds-digi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal; 
+
+}
+
+@font-face {
+    font-family: 'Digital-Bold';
+    src: url('../../assets/fonts/ds-digib.woff2') format('woff2'),
+         url('../../assets/fonts/ds-digib.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Montserrat', 'HelveticaNeue', 'Helvetica', 'Tahoma', 'Arial', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+
+    .single-container {
+        text-rendering: optimizeLegibility;
+        font-size: 1.4em;
+
+        h1,h2,h3,h4,h5 {
+            color: $brand-secondary;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        p,li {
+            font-family: 'Montserrat-Light', 'HelveticaNeue', 'Helvetica', 'Tahoma', 'Arial', sans-serif;
+            line-height: 1.6;
+            strong {
+                color: black;
+            }
+        }
+
+        h2.single-title {
+            font-size: 2em;
+            margin: 0 0 1em;
+            font-weight: 700;
+            line-height: 1.4;
+            color: $brand-primary;
+        }
+
+        .sidebar {
+            h4.widgettitle {
+                font-family: 'Digital-Bold', 'Impact', sans-serif;
+                font-size: 1.6em;
+                line-height: 1.15;
+                background: lighten($brand-secondary, 50%);
+                padding: 1rem 0 1rem 0.5em;
+                color: darken($brand-secondary, 10%);
+                    word-spacing: 1rem;
+    letter-spacing: -1px;
+            }
+        }
+   } // End Single-Container
+}

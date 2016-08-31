@@ -1,6 +1,6 @@
 <?php get_header();?>
-	
-	
+
+
 	<div class="col-sm-8 content list">
 		<?php while( have_posts() ): the_post(); ?>
 		<article>
@@ -23,7 +23,7 @@
 			</div>
 			<div class="row buffer">
 				<div class="col-sm-12">
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block"><?php the_title(); ?></a>	
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block"><?php the_title(); ?></a>
 				</div>
 			</div>
 		</article>

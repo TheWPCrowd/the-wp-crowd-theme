@@ -1,6 +1,6 @@
 			</div> <!-- end row -->
 		</div> <!-- end container -->
-	
+
 	<?php if( !is_front_page() ): ?>
 	<footer class="container-fluid">
 		<div class="container">

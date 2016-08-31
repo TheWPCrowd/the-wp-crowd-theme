@@ -1,17 +1,17 @@
-<?php 
+<?php
 	global $wp_query;
 	get_header();
-	
+
 	$term_id = $wp_query->get_queried_object_id();
 	$meta = Taxonomy_MetaData::get( 'people', $term_id );
-	
+
 	$profile_pic = get_stylesheet_directory_uri(). '/build/img/wp_crowd_logo.jpg';
 	if( isset( $meta['person_profile'] )  ) {
 		$profile_pic = $meta['person_profile'];
 	}
-	
+
 ?>
-	
+
 	<div class="col-sm-8 content list">
 		<h1 class="page_title">Crowd Member: <?php echo $wp_query->get_queried_object()->name; ?></h1>
 		<div class="row person_profile">

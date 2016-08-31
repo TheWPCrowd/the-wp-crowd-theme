@@ -32,6 +32,22 @@ header {
 	}
 }
 
+
+header nav ul li {
+	margin-left: 10px;
+}
+
+
+#author-top .author-info .location i {
+	float: left;
+    margin-bottom: 20px;
+}
+
+.latest-entries .single-entry a.featured-image img {
+	width: 100%;
+	height: auto;
+}
+
 #l_shape {
 	background: $red;
 	height: 200vh;

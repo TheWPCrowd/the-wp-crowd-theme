@@ -1,9 +1,9 @@
-<?php 
+<?php
 	global $wp_query;
 	get_header();
-	
+
 ?>
-	
+
 	<div class="col-sm-8 content list">
 		<h1 class="page_title">Topic: <?php echo $wp_query->get_queried_object()->name; ?></h1>
 		<?php if( have_posts() ) : ?>

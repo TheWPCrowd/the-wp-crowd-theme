@@ -88,11 +88,11 @@ the_post();
 			?>
 				<div class="author-meta row">
 					<div class="col-xs-2 author-avatar text-center">
-						<?php echo get_avatar( $post->post_author, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) ); ?>
+						<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle"><?php echo get_avatar( $post->post_author, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) ); ?></a>
 					</div>
 					<div class="col-xs-7">
 
-						<h3><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></h3>
+						<h3><a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a></h3>
 						<?php if ( function_exists( 'get_field' ) && get_field( 'title', 'user_' . $post->post_author ) ) : ?>
 							<h5>
 							<?php

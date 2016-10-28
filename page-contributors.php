@@ -38,7 +38,7 @@
 					$google_map_locations = '';
 
 					foreach( $author_ids as $author ):
-						$user = get_user_by( 'id', $author );
+						$user = get_user_by( 'id', intval( $author ) );
 						$usermeta = get_user_meta( $user->ID );
 						$author_name = $user->user_nicename;
 

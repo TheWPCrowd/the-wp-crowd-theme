@@ -84,15 +84,15 @@ the_post();
 
 			} else {
 				the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-
+				$user = get_user_by( 'id', $post->post_author );
 			?>
 				<div class="author-meta row">
 					<div class="col-xs-2 author-avatar text-center">
-						<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle"><?php echo get_avatar( $post->post_author, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) ); ?></a>
+						<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio"><?php echo get_avatar( $post->post_author, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) ); ?></a>
 					</div>
 					<div class="col-xs-7">
 
-						<h3><a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a></h3>
+						<h3><a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a></h3>
 						<?php if ( function_exists( 'get_field' ) && get_field( 'title', 'user_' . $post->post_author ) ) : ?>
 							<h5>
 							<?php
@@ -108,7 +108,6 @@ the_post();
 //						if ( function_exists( 'wpcrowd_author_follow' ) ) {
 //							wpcrowd_author_follow();
 //						} else {
-							$user = get_user_by( 'id', $post->post_author );
 							if ( function_exists( 'get_field' ) && get_field( 'biography', 'user_' . $user->ID ) ) : ?>
 									<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle">
 											<i><?php _e( 'BIO', 'wpcrowd' );?></i>

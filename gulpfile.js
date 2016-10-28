@@ -71,6 +71,34 @@ gulp.task( 'fonts', function () {
 		.pipe( gulp.dest( './build/fonts' ) );
 } );
 
+gulp.task('build', function(){
+	gulp.src( jsFileList )
+		.pipe( sourcemaps.init() )
+		.pipe( concat( { path : 'scripts.js' } ) )
+		.pipe( gulp.dest( './build/js' ) )
+		.pipe( uglify() )
+		.pipe( rename( { extname : '.min.js' } ) )
+		.pipe( sourcemaps.write( '.' ) )
+		.pipe(lr())
+		.pipe( gulp.dest( './build/js' ) );
+
+	gulp.src( './assets/scss/**/*.scss' )
+		.pipe( sourcemaps.init() )
+		.pipe( sass().on( 'error', notify.onError( function ( error ) {
+			return error.message;
+		} ) ) )
+		.pipe( autoprefixer( {
+			browsers : [ 'last 2 versions' ],
+			cascade  : false
+		} ) )
+		.pipe( gulp.dest( './build/css' ) )
+		.pipe( minify() )
+		.pipe( rename( { extname : '.min.css' } ) )
+		.pipe( sourcemaps.write( '.' ) )
+		.pipe(lr())
+		.pipe( gulp.dest( './build/css' ) );
+});
+
 gulp.task( 'default', [ 'fonts', 'sass', 'js', 'analytics' ], function () {
 	// Listen on port 35729
     lr.listen(35729, function (err) {

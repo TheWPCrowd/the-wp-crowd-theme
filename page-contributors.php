@@ -39,6 +39,7 @@
 
 					foreach( $author_ids as $author ):
 						$user = get_user_by( 'id', intval( $author ) );
+						if( !$user->user_nicename ) { continue; }
 						$usermeta = get_user_meta( $user->ID );
 						$author_name = $user->user_nicename;
 

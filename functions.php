@@ -63,6 +63,13 @@ class my_theme {
 		$author_rewrite->add_admin_cpt_rewrite();
 	}
 
+	function format_title( $author ) {
+		$title = get_field( 'title', 'user_' . $author );
+		$title = str_replace( '-', ' ', $title );
+		$title = str_replace( '_', ' ', $title );
+		return esc_html( $title );
+	}
+
 
 }
 

@@ -56,12 +56,7 @@ if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 					<h2><?php echo $author_name; ?></h2>
 					<?php if ( get_field( 'title', 'user_' . $user->ID ) ) : ?>
 						<h5>
-							<?php
-							$title = get_field( 'title', 'user_' . $user->ID );
-							$title = str_replace( '-', ' ', $title );
-							$title = str_replace( '_', ' ', $title );
-							echo $title;
-							?>
+							<?php echo $my_theme->format_title( $user->ID ); ?>
 						</h5>
 					<?php endif; ?>
 				</div>

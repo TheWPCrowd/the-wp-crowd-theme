@@ -77,12 +77,14 @@
                 }
             }
             form#mc-embedded-subscribe-form {
+                font-size: 0.75em;
                 margin: 0 auto;
+                padding: 10px 5px;
                 width: 75%;
                 input[type="submit"].button {
                     background: $brand-warning;
                     display: block;
-                    font-size: 1.5em;
+                    font-size: 0.75em;
                     height: auto;
                     margin: 20px auto;
                     padding: 5px 30px;
@@ -105,14 +107,15 @@
                         width: 100%;
                     }
                     input[type="submit"].submit {
+                        border: 1px solid black;
                         background: $brand-warning;
                         color: white;
                         display: block;
-                        font-size: 22px !important;
+                        font-size: 0.5em !important;
                         height: auto;
                         margin: 20px auto;
                         padding: 5px 30px;
-                        text-shadow: 1px 1px 3px rgba( 0,0,0,0.75 );
+                        text-shadow: 1px 1px 1px black;
                     }
                 }
             }

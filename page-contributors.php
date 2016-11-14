@@ -75,12 +75,7 @@
 
 							<?php if ( get_field( 'title', 'user_' . $user->ID ) ) : ?>
 								<h5>
-									<?php
-										$title = get_field( 'title', 'user_' . $user->ID );
-										$title = str_replace( '-', ' ', $title );
-										$title = str_replace( '_', ' ', $title );
-										echo esc_html( $title );
-									?>
+									<?php echo $my_theme->format_title( $user->ID ); ?>
 								</h5>
 							<?php endif; ?>
 

@@ -13,3 +13,10 @@
     display: block;
     margin: 0 auto;
 }
+
+.wp-caption {
+    max-width: 100% !important;
+    img {
+        max-width: 100% !important;
+    }
+}

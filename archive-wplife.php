@@ -19,14 +19,15 @@
 	<div class="row">
 		<div class="col-sm-8">
 			<div class="posts-wrapper">
+				<?php
+				echo '<h1>' . get_the_title( 1433 ) . '</h1>';
+				echo apply_filters( 'the_content', get_the_content( 1433 ) );
+				?>
 				<div class="headline">
 					<h2><?php _e( 'Latest', 'wpcrowd' );?> <strong> #WPLife</strong> Videos</h2>
 				</div>
 				<div class="row latest-entries podcast ">
 					<?php
-					echo get_the_title( 1433 );
-					echo apply_filters( 'the_content', get_the_content( 1433 ) );
-
 					if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							<article class="col-sm-4 single-entry">
 								<?php if( 'podcast' === get_post_type() ): ?>

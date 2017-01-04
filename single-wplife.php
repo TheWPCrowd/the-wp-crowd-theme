@@ -28,7 +28,7 @@ the_post();
 				$guests = wp_get_post_terms( $post->ID, 'guest', array( 'fields' => 'all' ) );
 				?>
 
-				<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
+				<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
 				<div class="air-date text-right"><strong><?php _e( 'Aired:', 'wpcrowd' );?></strong> <?php if ( function_exists( 'get_field' ) ) { echo get_field( 'air_date' ); } ?></div>
 
 				<?php if ( ! empty( $podcasters ) && is_array( $podcasters ) ) : ?>

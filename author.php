@@ -24,7 +24,7 @@ $podcasts = false;
 if ( get_field( 'person_association', 'user_' . $user_id ) ) {
 	$person = get_field( 'person_association', 'user_' . $user_id );
 }
-$args = array( 'post_type' => 'podcast', 'posts_per_page' => $per_page );
+$args = array( 'post_type' => array( 'wplife', 'podcast' ), 'posts_per_page' => $per_page );;
 
 if ( $person && $cpt != 'posts' ) {
 	$person = get_term_by( 'id', $person, 'people' );

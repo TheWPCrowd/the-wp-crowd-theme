@@ -63,21 +63,6 @@ the_post();
 					</div>
 				<?php endif; ?>
 
-
-				<div class="categories">
-					<strong><?php _e( 'Topics:', 'wpcrowd' );?></strong>
-					<?php $topics = wp_get_post_terms( $post->ID, 'topics', array( 'fields' => 'all' ) );
-					if ( is_array( $topics ) ) {
-					?>
-					<ul>
-							<?php
-							foreach( $topics as $topic ) {
-								echo '<li><a href="/topics/' . $topic->slug . '" class="person" title="' . esc_attr( $topic->name ) . '">' . $topic->name . '</a></li>';
-							}
-							?>
-					</ul>
-					<?php } ?>
-				</div>
 			</div>
 			<div class="content-container">
 				<?php
@@ -87,6 +72,10 @@ the_post();
 
 				the_content();
 				?>
+				<h2>Join the WPLife Conversation</h2>
+				<p>
+					Add your comments on <a href="https://www.youtube.com/watch?v=<?php echo get_field( 'youtube_id' ); ?>">YouTube</a>.
+				</p>
 			</div>
 		</div>
 		<div class="col-sm-4 sidebar">

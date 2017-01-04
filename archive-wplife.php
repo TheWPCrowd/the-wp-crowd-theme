@@ -20,8 +20,9 @@
 		<div class="col-sm-8">
 			<div class="posts-wrapper">
 				<?php
-				echo '<h1>' . get_the_title( 1433 ) . '</h1>';
-				echo apply_filters( 'the_content', get_the_content( 1433 ) );
+				$wplife_page = get_post( 1433 );
+				echo '<h1>' . get_the_title( $wplife_page->post_title ) . '</h1>';
+				echo apply_filters( 'the_content', $wplife_page->post_content );
 				?>
 				<div class="headline">
 					<h2><?php _e( 'Latest', 'wpcrowd' );?> <strong> #WPLife</strong> Videos</h2>

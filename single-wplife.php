@@ -9,8 +9,6 @@ the_post();
 			<h2 class="single-title"><?php the_title(); ?></h2>
 			<div class="single-top">
 			<?php
-			if ( 'podcast' == get_post_type() ) {
-
 				$people_terms = wp_get_post_terms( $post->ID, 'people', array( 'fields' => 'all' ) );
 				$podcasters = array();
 
@@ -80,63 +78,6 @@ the_post();
 					</ul>
 					<?php } ?>
 				</div>
-			<?php
-
-			} else {
-				the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-				$user = get_user_by( 'id', $post->post_author );
-			?>
-				<div class="author-meta row">
-					<div class="col-xs-2 author-avatar text-center">
-						<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio"><?php echo get_avatar( $post->post_author, 300, '', __( 'The WP Crowd', 'wpcrowd' ), array( 'class' => 'img-responsive' ) ); ?></a>
-					</div>
-					<div class="col-xs-7">
-
-						<h3><a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a></h3>
-						<?php if ( function_exists( 'get_field' ) && get_field( 'title', 'user_' . $post->post_author ) ) : ?>
-							<h5>
-							<?php echo $my_theme->format_title( $post->post_author ); ?>
-							</h5>
-
-						<?php endif;
-//					Removed for compatibility with Roys work
-//						if ( function_exists( 'wpcrowd_author_follow' ) ) {
-//							wpcrowd_author_follow();
-//						} else {
-							if ( function_exists( 'get_field' ) && get_field( 'biography', 'user_' . $user->ID ) ) : ?>
-									<a href="<?php echo get_author_posts_url( $user->ID ) ?>" title="<?php _e( 'Author Bio', 'wpcrowd' );?>" class="bio circle">
-											<i><?php _e( 'BIO', 'wpcrowd' );?></i>
-									</a>
-							<?php endif;
-							if ( function_exists( 'get_field' ) && get_field( 'twitter_handle', 'user_' . $user->ID ) ) : ?>
-									<a href="<?php echo esc_url( 'https://twitter.com/' . get_field( 'twitter_handle', 'user_' . $user->ID ) ); ?>" title="<?php _e( 'Twitter', 'wpcrowd' );?>" target="_blank" class="circle">
-											<i class="fa fa-twitter" aria-hidden="true"></i>
-									</a>
-							<?php endif;
-							if ( function_exists( 'get_field' ) && get_field( 'facebook_url', 'user_' . $user->ID ) ) : ?>
-							<a href="<?php echo esc_url( get_field( 'facebook_url', 'user_' . $user->ID ) ); ?>" title="<?php _e( 'Facebook', 'wpcrowd' );?>" target="_blank" class="circle">
-											<i class="fa fa-facebook" aria-hidden="true"></i>
-									</a>
-							<?php endif;
-							if ( $user->user_url ) : ?>
-									<a href="<?php $user->user_url ?>" title="<?php _e( 'Website', 'wpcrowd' );?>" target="_blank" class="circle">
-											<i class="fa fa-home" aria-hidden="true"></i>
-									</a>
-							<?php endif;
-
-					// }?>
-					</div>
-					<div class="col-xs-3 date"><strong><?php _e( 'Published:', 'wpcrowd' );?> </strong><?php echo get_the_date( 'F j, Y' ) ?></div>
-				</div>
-				<div class="categories">
-					<strong><?php _e( 'Topics:', 'wpcrowd' );?></strong>
-					<?php echo get_the_category_list() ?>
-				</div>
-		<?php	} ?>
-
-
-
-
 			</div>
 			<div class="content-container">
 				<?php

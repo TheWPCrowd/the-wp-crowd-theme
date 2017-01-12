@@ -31,11 +31,7 @@
 					<?php
 					if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							<article class="col-sm-4 single-entry">
-								<h3>
-									<a href="<?php the_permalink(); ?>" class="featured-image">
-										<img src="<?php echo get_protocol() ?>img.youtube.com/vi/<?php echo get_field( 'youtube_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
-									</a>
-								</h3>
+								<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
 								<?php get_template_part( 'partials/block', 'title' ); ?>
 								<?php get_template_part( 'partials/meta', 'featured' ); ?>
 								<div class="featured-meta">

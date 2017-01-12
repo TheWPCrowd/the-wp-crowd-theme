@@ -30,7 +30,7 @@
 				<div class="row latest-entries podcast ">
 					<?php
 					if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
-							<article class="col-sm-4 single-entry">
+							<article class="col-sm-6 single-entry">
 								<div class="embed-responsive embed-responsive-16by9"><iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
 								<?php get_template_part( 'partials/block', 'title' ); ?>
 								<?php get_template_part( 'partials/meta', 'featured' ); ?>

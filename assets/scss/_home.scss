@@ -5,7 +5,7 @@
     & > .container {
         background: #242424;
     }
-    .featured-image, .featured-info { height: 25vh;  min-height: auto; }
+    .featured-image, .featured-info { height: auto;  min-height: 25vh; }
     .featured-image {
         background: #242424;
         border-left: 10px solid #f6f6f6;

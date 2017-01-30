@@ -18,6 +18,11 @@ nav.main-nav {
                     text-decoration: none;
                 }
             }
+            &.shop {
+                a {
+                    color: $brand-primary;
+                }
+            }
             ul {
                 display: none;
             }

@@ -3,33 +3,34 @@ get_header();
 $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
 $blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
 $first_blog = $blog->posts[0];
+$first_podcast = $podcasts->posts[0];
 
 $protocol = get_protocol();
 ?>
 
-<?php if ( $blog->have_posts() ) { ?>
+<?php if ( $podcasts->have_posts() ) { ?>
 	<!-- HOME TOP -->
 	<div class="container-fluid" id="home-top">
 		<div class="container">
 			<div class="row">
 				<?php if(function_exists('get_field')) { ?>
 				<div class="col-sm-8 featured-image">
-					<a href="<?php echo esc_url( get_permalink( $first_blog->ID ) ); ?>">
-						<?php echo get_the_post_thumbnail( $first_blog->ID, 'full', array( 'class' => 'img-responsive' ) ); ?>
+					<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>">
+						<?php echo get_the_post_thumbnail( $first_podcast->ID, 'full', array( 'class' => 'img-responsive' ) ); ?>
 					</a>
 				</div>
 				<?php } ?>
 				<div class="col-sm-4 featured-info">
 					<h3>
-						<a href="<?php echo esc_url( get_permalink( $first_blog->ID ) ); ?>">
-							<?php echo get_the_title( $first_blog->ID ); ?>
+						<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>">
+							<?php echo get_the_title( $first_podcast->ID ); ?>
 						</a>
 						<div class="post-excerpt">
-							<?php echo substr( $first_blog->post_content, 0, 200 ) . ' &hellip; '; ?>
+							<?php echo substr( $first_podcast->post_content, 0, 200 ) . ' &hellip; '; ?>
 						</div>
 					</h3>
 					<div class="featured-meta">
-						<span class="date"><?php echo get_the_date( 'F j, Y', $first_blog->ID ); ?></span>
+						<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
 						<?php if( function_exists( 'wpcrowd_engage' ) ) { wpcrowd_engage(); } ?>
 					</div>
 				</div>

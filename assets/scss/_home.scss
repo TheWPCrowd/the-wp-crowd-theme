@@ -1,7 +1,11 @@
 #home-top {
     background: #f6f6f6;
     margin-bottom: 30px;
-    .featured-image, .featured-info { height: 25vh;  min-height: 400px; }
+
+    & > .container {
+        background: #242424;
+    }
+    .featured-image, .featured-info { height: 25vh;  min-height: auto; }
     .featured-image {
         background: #242424;
         border-left: 10px solid #f6f6f6;
@@ -11,7 +15,7 @@
             display: block;
             width: 100%;
             height: 25vh;
-            min-height: 400px;
+            min-height: auto;
             overflow: hidden;
             position: relative;
             z-index: 1000;

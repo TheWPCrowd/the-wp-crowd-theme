@@ -89,6 +89,8 @@
     .content-container {
         color: lighten($brand-secondary, 15%);
         padding-bottom: 30px;
+        padding-top: 30px;
+
     }
 
     .podcast-people {
@@ -126,6 +128,15 @@
         max-width: 100%;
     }
 }
+
+body.page {
+    .single-container {
+        .content-container {
+            padding-top: 0;
+        }
+    }
+}
+
 .shareing-links {
     position: static;
     list-style-type: none;

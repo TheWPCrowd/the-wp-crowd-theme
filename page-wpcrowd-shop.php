@@ -5,11 +5,9 @@ the_post();
 
 <div class="container single-container">
 	<div class="row">
-
-
-		<div class="col-sm-8 content">
+		<div class="col-sm-12 content">
 			<div class="content-container">
-				<div id="myShop"><a href="//shop.spreadshirt.com/thewpcrowd">thewpcrowd</a></div>
+				<div id="myShop"></div>
 
 				<script>
 					var spread_shop_config = {
@@ -24,13 +22,6 @@ the_post();
 			</div>
 
 		</div>
-
-
-		<div class="col-sm-4 sidebar">
-			<?php dynamic_sidebar( 'single-sidebar' ); ?>
-		</div>
-
-
 	</div>
 </div>
 

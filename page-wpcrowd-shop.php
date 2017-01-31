@@ -7,6 +7,7 @@ the_post();
 	<div class="row">
 		<div class="col-sm-12 content">
 			<div class="content-container">
+				<h2 class="single-title">The WP Crowd Shop</h2>
 				<div id="myShop"></div>
 
 				<script>

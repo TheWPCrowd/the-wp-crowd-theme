@@ -44,6 +44,20 @@ $protocol = get_protocol();
 			<div class="col-sm-8">
 				<div class="latest-podcast-wrapper">
 
+					<!-- Caldera Learn Plug -->
+					<div class="headline" style="margin-bottom: 0;">
+						<h2>Caldera Learn</h2>
+						<a href="https://learn.calderalabs.org" target="_blank"><strong>Sign Up</strong></a>
+					</div>
+					<p style="margin-bottom:30px;">
+						<a href="https://learn.calderalabs.org" target="_blank" style="display:block;margin-bottom:10px;">
+							<img src="<?php echo get_template_directory_uri() . '/img/caldera-learn-loopconf-banner.jpg'; ?>" class="img-responsive" alt="The WP Crowd Caldear Learn Plug" />
+						</a>
+						<a href="https://learn.calderalabs.org" target="_blank">Caldera Learn</a> creates content in a variety of formats to help developers learn more about the languages, frameworks, and platforms that they want to use. <br />
+						Take a course, or join a live webinar series with <a href="/author/roysivan/">Roy Sivan</a> &amp; <a href="/author/joshpollock/">Josh Pollock</a> on topics like <strong>OOP PHP</strong> or the <strong>REST API</strong>
+					</p>
+					
+					
 					<!-- Latest Videos -->
 					<div class="latest-podcast-wrapper">
 						<div class="headline">

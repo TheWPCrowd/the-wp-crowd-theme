@@ -35,7 +35,7 @@
 			<div class="row">
 
 				<?php
-					$google_map_locations = '';
+					$google_map_locations = [];
 
 					foreach( $author_ids as $author ):
 						$user = get_user_by( 'id', intval( $author ) );
@@ -52,7 +52,7 @@
 						if ( ! $location ) {
 							$location = '';
 						} else {
-							$google_map_locations[] = $location;
+							array_push( $google_map_locations, $location );
 						}
 
 				?>

@@ -61,6 +61,7 @@ class my_theme {
 	function author_rewrite_init() {
 		$author_rewrite = new wpcrowd_admin_rewrites();
 		$author_rewrite->add_admin_cpt_rewrite();
+		flush_rewrite_rules();
 	}
 
 	function format_title( $author ) {

@@ -23,7 +23,7 @@
 			}
 		}
 	}
-	$author_ids = array_merge( $author_ids, $podcasters );
+	$author_ids = array_merge( $podcasters, $author_ids );
 	$author_ids = array_unique( $author_ids );
 ?>
 <div id="map"></div>
@@ -38,7 +38,8 @@
 					$google_map_locations = [];
 
 					foreach( $author_ids as $author ):
-						$user = get_user_by( 'id', intval( $author ) );
+						$author = (int) $author;
+						$user = get_user_by( 'id', $author );
 						if( !$user->user_nicename ) { continue; }
 						$usermeta = get_user_meta( $user->ID );
 						$author_name = $user->user_nicename;

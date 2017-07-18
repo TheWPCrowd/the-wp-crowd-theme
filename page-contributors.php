@@ -26,7 +26,8 @@
 	$author_ids = array_merge( $podcasters, $author_ids );
 	$author_ids = array_unique( $author_ids );
 
-    $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
+    $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 3 ) );
+    $protocol = get_protocol();
 ?>
 <div class="container">
     <div class="col-sm-12">

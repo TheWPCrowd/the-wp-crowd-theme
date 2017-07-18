@@ -25,7 +25,31 @@
 	}
 	$author_ids = array_merge( $podcasters, $author_ids );
 	$author_ids = array_unique( $author_ids );
+
+    $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
 ?>
+<div class="container">
+    <div class="col-sm-12">
+        <!-- Latest Podcasts -->
+        <div class="headline">
+            <h2><?php _e( 'Latest <strong>Videos</strong>', 'wpcrowd' );?></h2>
+            <a href="<?php echo get_bloginfo( 'url' ); ?>/podcast">See All <strong>Videos</strong></a>
+        </div>
+        <div class="row latest-entries podcast">
+            <?php $i=0; if ( $podcasts->have_posts() ) : while( $podcasts->have_posts() ) : $podcasts->the_post(); if ( $i > 0 ) :?>
+                <article class="col-sm-4 single-entry">
+                    <?php if ( function_exists( 'get_field' ) ) { ?>
+                        <a href="<?php the_permalink(); ?>" class="featured-image">
+                            <img src="<?php echo $protocol?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
+                        </a>
+                    <?php } ?>
+                    <?php get_template_part( 'partials/block', 'title' ); ?>
+                    <?php get_template_part( 'partials/meta', 'featured' ); ?>
+                </article>
+            <?php endif; $i++; endwhile; endif; ?>
+        </div>
+    </div>
+</div>
 <div id="map"></div>
 
 <div class="container">

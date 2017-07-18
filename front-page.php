@@ -1,75 +1,93 @@
-<?php 
-	get_header();
-	$podcasts = new WP_Query( array( 'post_type' => 'podcast', 'paged' => $paged, 'posts_per_page' => 5 ) );
-	$blog = new WP_Query( array( 'post_type' => 'post', 'paged' => $paged, 'posts_per_page' => 5 ) );
+<?php
+get_header();
+$podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 7 ) );
+$blog  = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 7 ) );
+$first_blog = $blog->posts[0];
+$first_podcast = $podcasts->posts[0];
+
+$protocol = get_protocol();
 ?>
-	<div class="col-sm-9 content list">
-		<div class="row">
-			<div class="col-sm-6">
-				<h1>WordPress Podcast</h1>
-				<?php while( $podcasts->have_posts() ): $podcasts->the_post(); ?>
-				<article>
-					<h2 class="page_title">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
-					</h2>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="embed-responsive embed-responsive-16by9">
-								<iframe id="podcast" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo get_field( 'youtube_video_id', $post->ID); ?>" frameborder="0" allowfullscreen></iframe>
-							</div>
-							<div class="meta"><em>Air Date: <?php the_field( 'air_date' ); ?> @ <?php the_field( 'air_time' ); ?></em></div>
-							<div class="meta">Running Time: <?php echo get_field( 'runtime', $post->ID); ?></div>
-						</div>
-					</div>
-					<div class="row buffer">
-						<div class="col-sm-12">
-							<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block">Watch Now</a>
-						</div>
-					</div>
-				</article>
-				<?php endwhile; ?>
-				<div class="navigation">
-					<hr />
-					<a href="http://www.thewpcrowd.com/podcast/" class="btn btn-primary btn-block">Older Shows</a>
+
+<?php if ( $podcasts->have_posts() ) { ?>
+	<!-- HOME TOP -->
+	<div class="container-fluid" id="home-top">
+		<div class="container">
+			<div class="row">
+				<?php if(function_exists('get_field')) { ?>
+				<div class="col-sm-8 featured-image">
+					<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>">
+						<?php echo get_the_post_thumbnail( $first_podcast->ID, 'full', array( 'class' => 'img-responsive' ) ); ?>
+					</a>
 				</div>
-			</div>
-			<div class="col-sm-6">
-				<h1>WordPress Blog</h1>
-				<?php while( $blog->have_posts() ): $blog->the_post(); ?>
-				<article>
-					<h2 class="page_title">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
+				<?php } ?>
+				<div class="col-sm-4 featured-info">
+					<h3>
+						<a href="<?php echo esc_url( get_permalink( $first_podcast->ID ) ); ?>">
+							<?php echo get_the_title( $first_podcast->ID ); ?>
 						</a>
-					</h2>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="meta"><em>Published: <?php the_date( 'F j, Y' ); ?></em></div>
-							<?php the_excerpt(); ?>
+						<div class="post-excerpt">
+							<?php echo substr( $first_podcast->post_content, 0, 200 ) . ' &hellip; '; ?>
 						</div>
+					</h3>
+					<div class="featured-meta">
+						<span class="date"><?php echo get_the_date( 'F j, Y', $first_podcast->ID ); ?></span>
+						<?php if( function_exists( 'wpcrowd_engage' ) ) { wpcrowd_engage(); } ?>
 					</div>
-					<div class="row buffer">
-						<div class="col-sm-12">
-							<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block">Read Blog</a>
-						</div>
-					</div>
-				</article>
-				<?php endwhile; ?>
-				<div class="navigation">
-					<hr />
-					<a href="http://www.thewpcrowd.com/thewpcrowd-blog/" class="btn btn-primary btn-block">Older Posts</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-3">
-		<?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>
-			<ul class="sidebar">
-				<?php dynamic_sidebar( 'default-sidebar' ); ?>
-			</ul>
-		<?php endif; ?>
+<?php } ?>
+	<!-- HOME MAIN AREA -->
+	<div id="home-main" class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="latest-podcast-wrapper">
+					
+					<!-- Latest Videos -->
+					<div class="latest-podcast-wrapper">
+						<div class="headline">
+							<h2><?php _e( 'Latest <strong>Articles</strong>', 'wpcrowd' );?></h2>
+							<a href="<?php echo get_bloginfo( 'url' ); ?>/thewpcrowd-blog">See All <strong>articles</strong></a>
+						</div>
+						<div class="row latest-entries blog">
+							<?php $i=0; if ( $blog->have_posts() ) : while( $blog->have_posts() ) : $blog->the_post(); if ( $i > 0 ) :?>
+								<article class="col-sm-4 single-entry">
+									<a href="<?php the_permalink(); ?>" class="featured-image">
+										<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
+									</a>
+									<?php get_template_part( 'partials/block', 'title' ); ?>
+									<?php get_template_part( 'partials/meta', 'featured' ); ?>
+								</article>
+							<?php endif; $i++; endwhile; endif; ?>
+						</div>
+					</div>
+
+					<!-- Latest Podcasts -->
+					<div class="headline">
+						<h2><?php _e( 'Latest <strong>Videos</strong>', 'wpcrowd' );?></h2>
+						<a href="<?php echo get_bloginfo( 'url' ); ?>/podcast">See All <strong>Videos</strong></a>
+					</div>
+					<div class="row latest-entries podcast">
+					<?php $i=0; if ( $podcasts->have_posts() ) : while( $podcasts->have_posts() ) : $podcasts->the_post(); if ( $i > 0 ) :?>
+						<article class="col-sm-4 single-entry">
+							<?php if ( function_exists( 'get_field' ) ) { ?>
+							<a href="<?php the_permalink(); ?>" class="featured-image">
+								<img src="<?php echo $protocol?>img.youtube.com/vi/<?php echo get_field( 'youtube_video_id', $post->ID ); ?>/hqdefault.jpg" class="img-responsive" alt="<?php echo get_the_title(); ?> Podcast" />
+							</a>
+														<?php } ?>
+							<?php get_template_part( 'partials/block', 'title' ); ?>
+							<?php get_template_part( 'partials/meta', 'featured' ); ?>
+						</article>
+					<?php endif; $i++; endwhile; endif; ?>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-4 sidebar">
+				<?php dynamic_sidebar( 'home-sidebar' ); ?>
+			</div>
+		</div>
 	</div>
 
-<?php get_footer(); ?>
+<?php get_footer();

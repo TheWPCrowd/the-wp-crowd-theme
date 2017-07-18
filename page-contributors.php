@@ -46,6 +46,7 @@
 
 						if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 							$author_name = $usermeta['first_name'][0] . '<br />' . $usermeta['last_name'][0];
+                            $author_name = $usermeta['first_name'][0] . $usermeta['last_name'][0];
 						}
 
 						$location = get_field( 'location', 'user_' . $user->ID );
@@ -81,7 +82,7 @@
 							<?php endif; ?>
 
 							<?php if ( $location ) : ?>
-								<div class="location">
+								<div class="location hidden">
 									<i class="fa fa-map-marker" aria-hidden="true"></i>
 									<?php echo esc_html( $location ); ?>
 								</div>

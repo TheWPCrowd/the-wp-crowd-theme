@@ -11,7 +11,7 @@
     .contributor {
         background: #fcfafb;
         border: 1px solid #e5e3e4;
-        height: 300px;
+        height: 200px;
         margin-bottom: 115px;
         padding: 20px;
         .contributor-image {
@@ -38,6 +38,9 @@
                         text-decoration: none;
                     }
                 }
+            }
+            h3 {
+                font-size: 1.5em;
             }
             .location {
                 border-bottom: 1px solid #e5e3e4;

@@ -29,7 +29,7 @@
     $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 3 ) );
     $protocol = get_protocol();
 ?>
-<div class="container">
+<div class="container" style="margin-bottom: 40px;">
     <div class="col-sm-12">
         <!-- Latest Podcasts -->
         <div class="headline">

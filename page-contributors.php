@@ -8,7 +8,7 @@
 	$author_ids = $wpdb->get_col(	"SELECT `post_author` FROM
 									(SELECT `post_author`, COUNT(*) AS `count` FROM {$wpdb->posts}
 									WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
-									WHERE `count` >= {$min_posts} ORDER BY `count` DESC;"
+									WHERE `count` >= {$min_posts} ORDER BY `count` ASC;"
 								);
 
 	$people_terms = get_terms( 'people' );
@@ -25,6 +25,7 @@
 	}
 	$author_ids = array_merge( $podcasters, $author_ids );
 	$author_ids = array_unique( $author_ids );
+	shuffle( $author_ids );
 
     $podcasts = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 3 ) );
     $protocol = get_protocol();

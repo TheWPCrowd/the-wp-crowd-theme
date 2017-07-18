@@ -37,7 +37,7 @@
             <a href="<?php echo get_bloginfo( 'url' ); ?>/podcast">See All <strong>Videos</strong></a>
         </div>
         <div class="row latest-entries podcast">
-            <?php $i=0; if ( $podcasts->have_posts() ) : while( $podcasts->have_posts() ) : $podcasts->the_post(); if ( $i > 0 ) :?>
+            <?php $i=0; if ( $podcasts->have_posts() ) : while( $podcasts->have_posts() ) : $podcasts->the_post(); ?>
                 <article class="col-sm-4 single-entry">
                     <?php if ( function_exists( 'get_field' ) ) { ?>
                         <a href="<?php the_permalink(); ?>" class="featured-image">
@@ -47,7 +47,7 @@
                     <?php get_template_part( 'partials/block', 'title' ); ?>
                     <?php get_template_part( 'partials/meta', 'featured' ); ?>
                 </article>
-            <?php endif; $i++; endwhile; endif; ?>
+            <?php $i++; endwhile; endif; ?>
         </div>
     </div>
 </div>

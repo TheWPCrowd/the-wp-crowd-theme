@@ -9,6 +9,11 @@ var my_theme = my_theme || {};
 			$(".nav-toggle").click( function() {
 				$("nav.main-nav ul").toggle();
 			});
+
+			if( $('body').hasClass('single-podcast') && ezdata.lib.create_item ) {
+                ezdata.lib.create_item( 7, {value: 1, misc_three: $('h2.single-title').text()  });
+			}
+
 		});
 
 		theme.map_init = function() {

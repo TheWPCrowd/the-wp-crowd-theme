@@ -96,13 +96,3 @@ function get_protocol(){
 	return $protocol;
 }
 add_theme_support( 'post-thumbnails' );
-
-
-add_action( 'wp', function() {
-    if( 'podcast' === get_post_type() ) {
-        global $post;
-        if( function_exists( 'ezdata_create_item' ) ) {
-            ezdata_create_item( 7, array( 'value' => 1, 'misc_three' => get_the_title( $post->ID ) ) );
-        }
-    }
-});

@@ -10,7 +10,8 @@ var my_theme = my_theme || {};
 				$("nav.main-nav ul").toggle();
 			});
 
-			if( $('body').hasClass('single-podcast') && ezdata.lib.create_item ) {
+			if( $('body').hasClass('single-podcast') ) {
+				console.log( 'here' );
                 ezdata.lib.create_item( 7, {value: 1, misc_three: $('h2.single-title').text()  });
 			}
 

@@ -11,7 +11,6 @@ var my_theme = my_theme || {};
 			});
 
 			if( $('body').hasClass('single-podcast') ) {
-				console.log( 'here' );
                 ezdata.lib.create_item( 7, {value: 1, misc_three: $('h2.single-title').text()  });
 			}
 

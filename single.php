@@ -9,7 +9,7 @@ the_post();
 			<h2 class="single-title"><?php the_title(); ?></h2>
 			<div class="single-top">
 			<?php
-			if ( 'podcast' == get_post_type() ) {
+			if ( 'podcast' == get_post_type() || 'showcase' === get_post_type() ) {
 
 				$people_terms = wp_get_post_terms( $post->ID, 'people', array( 'fields' => 'all' ) );
 				$podcasters = array();
@@ -65,7 +65,7 @@ the_post();
 					</div>
 				<?php endif; ?>
 
-
+                <?php if( 'showcase' !== get_post_type() ) : ?>
 				<div class="categories">
 					<strong><?php _e( 'Topics:', 'wpcrowd' );?></strong>
 					<?php $topics = wp_get_post_terms( $post->ID, 'topics', array( 'fields' => 'all' ) );
@@ -80,6 +80,7 @@ the_post();
 					</ul>
 					<?php } ?>
 				</div>
+                <?php endif; ?>
 			<?php
 
 			} else {
@@ -150,7 +151,9 @@ the_post();
 					the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
 				}
 
-				comments_template();
+                if ('showcase' !== get_post_type() ) {
+                    comments_template();
+                }
 				?>
 			</div>
 		</div>

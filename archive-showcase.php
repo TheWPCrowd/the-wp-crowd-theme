@@ -27,7 +27,7 @@
                                     <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() );?>" class="featured-image">
                                         <?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
                                     </a>
-                                    <?php the_title(); echo ($author->user_nicename) ? ' by: ' . $author->user_nicename : ''; ?>
+                                    <?php the_title(); ?>
                                 </h3>
                                 <?php the_excerpt(); ?>
 							</article>

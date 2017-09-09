@@ -30,6 +30,9 @@
                                     <?php the_title(); ?>
                                 </h3>
                                 <?php the_excerpt(); ?>
+                                <a class="btn btn-primary btn-block" href="<?php the_permalink(); ?>">
+                                    Read More
+                                </a>
 							</article>
 
 					<?php endwhile; endif; //end if/while have_posts

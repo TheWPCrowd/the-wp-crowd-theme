@@ -151,12 +151,16 @@ the_post();
 
 				the_content();
 
-				if ( 'podcast' == get_post_type() && has_post_thumbnail() ) {
+				if ( ( 'podcast' == get_post_type() || 'showcase' === get_post_type() ) && has_post_thumbnail() ) {
 					the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
 				}
 
                 if ('showcase' !== get_post_type() ) {
                     comments_template();
+                }
+
+                if( 'showcase' === get_post_type() && $site = get_field('showcase_website_url' ) ) {
+				    echo '<a class="btn btn-primary btn-block" target="_blank" href="' . $site . '">Website</a>';
                 }
 				?>
 			</div>

@@ -38,6 +38,9 @@ if ( $person && $cpt != 'posts' ) {
 	}
 }
 
+$args['post_type'] = 'showcase';
+$showcase = new WP_Query( $args );
+
 /** Author Info */
 $user = get_user_by( 'id', $user_id );
 $usermeta = get_user_meta( $user_id );
@@ -105,6 +108,32 @@ if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 	</div>
 
 	<div id="home-main" class="container author-archive">
+        <?php if( $showcase->have_posts() ) : ?>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="latest-podcast-wrapper">
+						<div class="headline">
+							<h2><strong><?php _e( 'Products & services by ' . $author_name, 'wpcrowd' );?></strong></h2>
+						</div>
+						<div class="row latest-entries showcase">
+							<?php $i=0; while( $showcase->have_posts() ) : $showcase->the_post();?>
+                                <article class="col-sm-6 single-entry">
+                                    <a href="<?php the_permalink(); ?>" class="featured-image">
+                                        <?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
+                                    </a>
+                                    <h3>
+                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
+                                            <?php the_title(); ?>
+                                        </a>
+                                    </h3>
+                                    <?php the_excerpt(); ?>
+                                </article>
+                            <?php endwhile; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
 		<div class="row">
 			<div class="col-sm-12">
 				<?php if ( have_posts() && $cpt != 'podcast' ) : ?>

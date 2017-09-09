@@ -20,8 +20,7 @@
 		<div class="col-sm-8">
 			<div class="posts-wrapper">
 				<div class="headline">
-
-					<?php if ( is_tax() || is_archive() || is_category() ) :
+					<?php if ( ( is_tax() || is_archive() || is_category() ) && 'showcase' !== get_post_type() ) :
 
 							if ( is_tax() ) {
 								$term = $wp_query->get_queried_object();
@@ -34,6 +33,11 @@
 					<?php elseif ( is_singular(array( 'podcast', 'post' ) ) ) : ?>
 						<h2><?php _e( 'Latest', 'wpcrowd' );?> <strong><?php echo esc_html( $singletitle ); ?></strong></h2>
 						<a href="<?php echo $singleurl; ?>"><?php _e( 'See All', 'wpcrowd' );?> <strong><?php echo esc_html( $singletitle ); ?></strong></a>
+                    <?php elseif( 'showcase' === get_post_type() && is_archive() ) : ?>
+                        <h2><?php _e( 'Showcase', 'wpcrowd' );?> <strong><?php echo esc_html( $singletitle ); ?></strong></h2>
+                        <p>
+                            <strong>The WP Crowd Showcase</strong> is a place for our members to show of the projects, services, and other things they offer and work on.
+                        </p>
 					<?php endif; ?>
 				</div>
 				<div class="row latest-entries <?php if ( 'podcast' == get_post_type() ) { echo 'podcast'; } ?> ">

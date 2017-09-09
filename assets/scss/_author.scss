@@ -92,6 +92,14 @@
                 }
             }
         }
+        &.showcase {
+            .single-entry {
+                height: auto;
+                a.featured-image {
+                    height: 300px;
+                }
+            }
+        }
     }
 }
 

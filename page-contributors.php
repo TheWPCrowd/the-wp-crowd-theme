@@ -72,7 +72,7 @@
 
 						if ( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
 							$author_name = $usermeta['first_name'][0] . '<br />' . $usermeta['last_name'][0];
-                            $author_name = $usermeta['first_name'][0] . $usermeta['last_name'][0];
+                            $author_name = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 						}
 
 						$location = get_field( 'location', 'user_' . $user->ID );
